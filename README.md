@@ -1,2 +1,2 @@
-# debian-customisation
-My customisations for debian regardless of the Window Manager that I use
+# Debian Customisation
+These are the customisations for debian that I use regardless of the Window Manager of choice.
