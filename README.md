@@ -1,6 +1,9 @@
 # Debian Customisation
 These are the customisations for debian that I use regardless of the Window Manager of choice.
 
+## Screenshots
+Check out **customised install screenshots** of my [i3](https://github.com/shreyasastech/debian-i3) & [qtile](https://github.com/shreyasastech/debian-qtile) configs.
+
 ## Features
 
 - A single installation script for debian customisations
