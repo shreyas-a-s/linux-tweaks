@@ -56,9 +56,5 @@ sudo sed -i "s/quiet/quiet video=1366x768/" /etc/default/grub
 tldr -u && sudo tldr -u # updating tldr pages for normal and root user
 sudo update-grub # grub tweaks (nothing major)
 
-# Setting wallpaper
-echo ""; echo "Setting my favorite wallpaper..."
-nitrogen --set-zoom-fill /usr/share/backgrounds/garden.jpg --save
-
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
