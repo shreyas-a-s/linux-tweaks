@@ -41,9 +41,11 @@ cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to th
 cp dotfiles/CodeNewRomanNerdFontMono-Regular.otf ~/.local/share/fonts/ && fc-cache -vf # Adding my fav terminal font & rebuilding font cache
 if test -f ~/.config/qtile/config.py; then
 	sed -i "s/--hide-scrollbar/--hide-scrollbar --font=\"CodeNewRoman Nerd Font Mono Regular 11\"/g" ~/.config/qtile/config.py # Setting termial font in qtile to automatically be my fav one
+	sed -i "s/any-browser/librewolf/g" ~/.config/qtile/config.py # Setting browser in qtile to automatically be my fav one
 fi
 if test -f ~/.config/i3/config; then
 	sed -i "s/--hide-scrollbar/--hide-scrollbar --font=\"CodeNewRoman Nerd Font Mono Regular 11\"/g" ~/.config/i3/config # Setting termial font in i3 to automatically be my fav one
+	sed -i "s/any-browser/librewolf/g" ~/.config/i3/config # Setting browser in i3 to automatically be my fav one
 fi
 
 # Some tweaks
