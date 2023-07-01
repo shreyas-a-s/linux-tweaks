@@ -1,29 +1,51 @@
 #!/bin/bash
 
-flag=true
+# Some colors, just for aesthetics
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+NC='\033[0m' # no color
+
+# Actual code
+flag=false
 echo ""
-while [ $flag == true ] ; do
-	echo "Which window manager you want to set as default in lightdm?"; echo -n "[1]i3 [2]awesome [3]qtile [4]xmonad [5]openbox [6]none : "; read -r fw
-	if [ "$fw" == '1' ]; then
-		
-		flag=false
-	elif [ "$fw" == '2' ]; then
-		
-		flag=false
-	elif [ "$fw" == '3' ]; then
-		
-		flag=false
-	elif [ "$fw" == '4' ]; then
-		
-		flag=false
-	elif [ "$fw" == '5' ]; then
-		
-		flag=false
-	elif [ "$fw" == '6' ]; then
-		
-		flag=false
-	else
-		echo "You have chosen invalid option. Choose either 1 or 2."
-		echo ""
-	fi
+while [ $flag == false ] ; do
+	flag=true
+	echo "Which window manager you want to set as default in lightdm?"
+	echo -ne "[${CYAN}1${NC}]i3 [${CYAN}2${NC}]awesome [${CYAN}3${NC}]qtile [${CYAN}4${NC}]xmonad [${CYAN}5${NC}]openbox [${CYAN}6${NC}]none : "
+	read -r windowmanager
+	case $windowmanager in
+
+	  1)
+	    wmname="i3"
+	    ;;
+
+	  2)
+	    wmname="awesome"
+	    ;;
+
+	  3)
+	    wmname="qtile"
+	    ;;
+
+	  4)
+	    wmname="xmonad"
+	    ;;
+
+	  5)
+	    wmname="openbox"
+	    ;;
+
+	  6)
+	    ;;
+
+	  *)
+	    flag=false
+	    echo ""
+	    echo -e "[${RED}ERROR${NC}] That was an invalid option. Choose a number from 1-6."
+	    ;;
+	esac
 done
+
+if [ "$windowmanager" != '6' ]; then
+    sudo sed -i "/your-fav-wm/ c\user-session=""$wmname""" /etc/lightdm/lightdm.conf
+fi
