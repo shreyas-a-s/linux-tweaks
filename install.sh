@@ -20,6 +20,7 @@ sudo apt install ufw pcmanfm man trash-cli htop neofetch gparted micro tldr keep
 ./scripts/install-am-joplin.sh # joplin, a note taking app
 . ./scripts/install-lsd.sh # lsd (the next-gen 'ls' command)
 ./scripts/install-lite-xl.sh # A text editor that replaced geany for mel
+. ./scripts/lxpolkit.sh # Checking whether lxpolkit will work in this distro or not
 
 # Installing a Joplin dependency that is not pre-installed in antix inux
 if [ "$distroname" == "Antix" ]; then
@@ -71,7 +72,6 @@ vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf > /dev/null # to decrea
 ./scripts/ssd-health.sh # for SSD health
 ./scripts/set-wm-in-lightdm.sh # for setting default wm in lightdm
 . ./scripts/install-shell-customization.sh # bash/fish customizations
-. ./scripts/lxpolkit.sh # Checking whether lxpolkit will work in this distro or not
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=0" /etc/default/grub
 sudo sed -i "s/quiet/quiet video=1366x768/" /etc/default/grub
 tldr -u && sudo tldr -u # updating tldr pages for normal and root user
