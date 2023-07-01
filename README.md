@@ -2,7 +2,11 @@
 These are the customisations for debian that I use regardless of the Window Manager of choice.
 
 ## Screenshots
-Check out **customised install screenshots** of my [i3](https://github.com/shreyasastech/debian-i3) & [qtile](https://github.com/shreyasastech/debian-qtile) configs.
+| ![login-screen.png](https://github.com/shreyasastech/debian-i3/assets/137637016/9efaedbc-9519-4667-963a-ba0826c14090) | 
+|:--:| 
+| *Login Screen (including wallpaper)* |
+
+Check out **customised install screenshots** of my [i3](https://github.com/shreyasastech/debian-i3) & [qtile](https://github.com/shreyasastech/debian-qtile) configs for homescreen and terminal font.
 
 ## Features
 
