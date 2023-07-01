@@ -6,7 +6,7 @@ These are the customisations for debian that I use regardless of the Window Mana
 |:--:| 
 | *Login Screen (including wallpaper)* |
 
-Check out **customised install screenshots** of my [i3](https://github.com/shreyasastech/debian-i3) & [qtile](https://github.com/shreyasastech/debian-qtile) configs for homescreen and terminal font.
+Check out **customised install screenshots** of my [i3](https://github.com/shreyasastech/debian-i3), [awesome](https://github.com/shreyasastech/debian-awesome) & [qtile](https://github.com/shreyasastech/debian-qtile) window manager configs for homescreen and terminal font.
 
 ## Features
 
