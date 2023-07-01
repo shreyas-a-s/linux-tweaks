@@ -50,13 +50,13 @@ cp scripts/wall-set.sh ~/ # Script to set nitrogen command in autostart to --res
 
 if test -f ~/.config/i3/config; then
 	sed -i "s/restore/set-zoom-fill /usr/share/backgrounds/garden.jpg --save/g" ~/.config/i3/config # Setting wallpaper
-	sed -i "s/--hide-scrollbar/--hide-scrollbar --font=\"CodeNewRoman Nerd Font Mono Regular 11\"/g" ~/.config/i3/config # Setting termial font in i3 to automatically be my fav one
+	sed -i "s/--hide-scrollbar/--hide-scrollbar --font='CodeNewRoman Nerd Font Mono Regular 11'/g" ~/.config/i3/config # Setting termial font in i3 to automatically be my fav one
 	sed -i "s/any-browser/librewolf/g" ~/.config/i3/config # Setting browser in i3 to automatically be my fav one
 fi
 
 if test -f ~/.config/qtile/config.py; then
     sed -i "s/restore/set-zoom-fill /usr/share/backgrounds/garden.jpg --save/g" ~/.config/qtile/autostart.sh # Setting wallpaper
-	sed -i "s/--hide-scrollbar/--hide-scrollbar --font=\"CodeNewRoman Nerd Font Mono Regular 11\"/g" ~/.config/qtile/config.py # Setting termial font in qtile to automatically be my fav one
+	sed -i "s/--hide-scrollbar/--hide-scrollbar --font='CodeNewRoman Nerd Font Mono Regular 11'/g" ~/.config/qtile/config.py # Setting termial font in qtile to automatically be my fav one
 	sed -i "s/any-browser/librewolf/g" ~/.config/qtile/config.py # Setting browser in qtile to automatically be my fav one
 fi
 
