@@ -28,15 +28,18 @@ fi
 
 # Creating necessary directories
 echo ""; echo "Making required directories..."
-mkdir -p ~/.config/lscolors/
-mkdir -p ~/.local/share/fonts/
-sudo mkdir -p /root/.local/share/tldr/
+mkdir -p ~/.config/lscolors
+mkdir -p ~/.local/share/fonts
+sudo mkdir -p /usr/share/backgrounds
+sudo mkdir -p /root/.local/share/tldr
 
 # Enter the arena
 cd "$builddir" || exit
 
 # Copy config files
-echo ""; echo "Copying config files, fonts and rebuilding font cache..."
+echo ""; echo "Copying wallpaper, config files, fonts and rebuilding font cache..."
+sudo cp garden.jpg /usr/share/backgrounds/ # My current fav wallpaper
+sudo cp dotfiles/lightdm.conf dotfiles/slick-greeter.conf /etc/lightdm/ # Customising lightdm & slick-greeter
 cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 cp dotfiles/CodeNewRomanNerdFontMono-Regular.otf ~/.local/share/fonts/ && fc-cache -vf # Adding my fav terminal font & rebuilding font cache
 if test -f ~/.config/qtile/config.py; then
@@ -52,6 +55,7 @@ fi
 echo ""; echo "Settting swappiness..."; echo "vm.swappiness=1
 vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf > /dev/null # to decrease swap usage
 ./scripts/ssd-health.sh # for SSD health
+./scripts/set-wm-in-lightdm.sh # for setting default wm in lightdm
 . ./scripts/install-shell-customization.sh # bash/fish customizations
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=0" /etc/default/grub
 sudo sed -i "s/quiet/quiet video=1366x768/" /etc/default/grub
