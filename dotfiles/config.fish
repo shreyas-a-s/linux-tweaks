@@ -65,7 +65,7 @@ alias gitl='git log'
 alias gitfm='git fetch && git merge'
 
 # Kill a process after searching using dmenu
-alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Search for the process to kill:" | awk \'{print $2}\' | xargs pkill -f'
+alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Search for the process to kill:" -sb "#1D7C3A" -sf "#FFFFFF" | awk \'{print $2}\' | xargs pkill -f'
 
 ###############################################################################
 #################### --<<<-( User Defined Functions )->>>-- ###################
