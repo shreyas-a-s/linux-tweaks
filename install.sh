@@ -17,6 +17,7 @@ echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt update && sudo apt upgrade -y
 sudo apt install ufw pcmanfm man trash-cli htop neofetch gparted micro tldr keepassxc fonts-indic vlc gcc git galculator autojump zsync shellcheck tar bzip2 unrar gzip unzip p7zip-full zstd bat diffutils ntfs-3g dosfstools e2fsprogs exfatprogs mtools fzf -y
 ./scripts/install-librewolf.sh # librewolf, a firefox fork that runs quite better on debian than firefox-esr
+./scripts/install-brave.sh # install brave-browser
 ./scripts/install-am-joplin.sh # joplin, a note taking app
 . ./scripts/install-lsd.sh # lsd (the next-gen 'ls' command)
 ./scripts/install-lite-xl.sh # A text editor that replaced geany for mel
