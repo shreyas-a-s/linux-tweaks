@@ -15,7 +15,8 @@ distroname=$(awk '{print $1;}' /etc/issue)
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt update && sudo apt upgrade -y
-sudo apt install ufw pcmanfm man trash-cli htop neofetch gparted micro tldr keepassxc fonts-indic vlc gcc git galculator autojump zsync shellcheck tar bzip2 unrar gzip unzip p7zip-full zstd bat diffutils ntfs-3g dosfstools e2fsprogs exfatprogs mtools fzf light-locker -y
+sudo apt install ufw man trash-cli fonts-indic gcc git zsync tar bzip2 unrar gzip unzip p7zip-full zstd bat diffutils ntfs-3g dosfstools e2fsprogs exfatprogs mtools -y
+sudo apt install pcmanfm htop neofetch gparted micro tldr keepassxc vlc galculator autojump shellcheck fzf light-locker -y
 ./scripts/install-librewolf.sh # librewolf, a firefox fork that runs quite better on debian than firefox-esr
 ./scripts/install-brave.sh # install brave-browser
 ./scripts/install-am-joplin-lite-xl.sh # joplin, a note taking app
