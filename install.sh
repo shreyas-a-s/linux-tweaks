@@ -48,6 +48,7 @@ sudo cp dotfiles/lightdm.conf dotfiles/slick-greeter.conf /etc/lightdm/ # Custom
 cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 cp dotfiles/CodeNewRomanNerdFontMono-Regular.otf ~/.local/share/fonts/ && fc-cache -vf # Adding my fav terminal font & rebuilding font cache
 cp scripts/wall-set.sh ~/ # Script to set nitrogen command in autostart to --restore
+cp scripts/dkill.sh ~/.config/ # dmenu script to kill process by typing name
 
 if test -f ~/.config/i3/config; then
 	sed -i "s/restore/set-zoom-fill /usr/share/backgrounds/garden.jpg --save/g" ~/.config/i3/config # Setting wallpaper
