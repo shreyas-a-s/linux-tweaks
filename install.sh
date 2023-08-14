@@ -79,7 +79,7 @@ sudo sed -i "s/quiet/quiet video=1366x768/" /etc/default/grub
 tldr -u && sudo tldr -u # updating tldr pages for normal and root user
 sudo update-grub # grub tweaks (nothing major)
 echo "Section \"ServerFlags\"
-  Option \"BlankTime\" \"4\"
+  Option \"BlankTime\" \"5\"
 EndSection" | sudo tee -a /etc/X11/xorg.conf > /dev/null # to set screentimeout to 4 minutes
 
 # Done
