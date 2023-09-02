@@ -23,12 +23,12 @@ end
 ###############################################################################
 
 # "Useless" cat -> "Useless" batcat
-alias cat='batcat --style=grid,numbers --paging=never'
+alias cat='batcat'
 
 # ls
-alias la='lsd -A --icon never --group-directories-first'
-alias ls='lsd -Al --icon never --blocks name --group-directories-first'
-alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name --group-directories-first'
+alias la='lsd -A --icon never'
+alias ls='lsd --icon never'
+alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name'
 
 # file/directory operations
 alias cp='cp -iv'
@@ -36,35 +36,38 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv' # (-p) create directory and parents (-v) print a message for each directory created
 alias rm='trash -v'
 
+# ShellCheck
+alias shellcheck='shellcheck -x'
+
 # apt package manager
-alias aupdate='sudo apt update'
-alias aupgrade='sudo apt upgrade -y && am -u'
-alias asearch='apt search'
-alias ashow='apt show'
-alias ainstall='sudo apt install'
-alias apurge='sudo apt purge'
-alias aautoremove='sudo apt autoremove -y'
-alias adepends='apt depends'
-alias ardepends='apt rdepends'
-alias alist='apt list'
+# alias aupdate='sudo apt update'
+# alias aupgrade='sudo apt upgrade -y && am -u'
+# alias asearch='apt search'
+# alias ashow='apt show'
+# alias ainstall='sudo apt install'
+# alias apurge='sudo apt purge'
+# alias aautoremove='sudo apt autoremove -y'
+# alias adepends='apt depends'
+# alias ardepends='apt rdepends'
+# alias alist='apt list'
 
 # text editor
-alias edit='micro'
-alias sedit='sudo micro'
+# alias edit='micro'
+# alias sedit='sudo micro'
 
 # history
 alias history='history -R | cat -n'
 
 # git
-alias gstatus='git status'
-alias gadd='git add'
-alias gaddu='git add -u'
-alias gcommit='git commit -m'
-alias gpush='git push'
-alias glog='git log'
-alias gfetch='git fetch'
-alias gmerge='git merge'
-alias gfetchmerge='git fetch && git merge'
+# alias gstatus='git status'
+# alias gadd='git add'
+# alias gaddu='git add -u'
+# alias gcommit='git commit -m'
+# alias gpush='git push'
+# alias glog='git log'
+# alias gfetch='git fetch'
+# alias gmerge='git merge'
+# alias gfetchmerge='git fetch && git merge'
 
 # Kill a process after searching using dmenu
 alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Search for the process to kill:" -sb "#1D7C3A" -sf "#FFFFFF" | awk \'{print $2}\' | xargs pkill -f'
