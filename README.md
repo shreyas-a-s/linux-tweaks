@@ -44,12 +44,12 @@ Check out **customised install screenshots** of my [i3](https://github.com/Shrey
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone -b old https://github.com/shreyasastech/debian-customisation.git
+ git clone -b old https://github.com/shreyas-a-s/debian-customisation.git
  cd debian-customisation/
  .install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone https://github.com/shreyasastech/debian-customisation.git && cd debian-customisation/ && ./install.sh
+ git clone https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
 ```
