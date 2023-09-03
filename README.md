@@ -32,7 +32,7 @@ Execute install.sh as **normal user** from a terminal:
 ```bash
  git clone https://github.com/shreyas-a-s/debian-customisation.git
  cd debian-customisation/
- .install.sh
+ ./install.sh
 ```
 
 For those who would like a single-line command:
