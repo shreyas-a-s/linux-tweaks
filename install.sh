@@ -6,8 +6,7 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
-# Get username, working directory path, debian version & distro name
-username=$(id -u -n 1000)
+# Get working directory, debian version & distro name
 builddir=$(pwd)
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
 distroname=$(awk '{print $1;}' /etc/issue)

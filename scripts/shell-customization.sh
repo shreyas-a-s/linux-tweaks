@@ -6,7 +6,7 @@ while [ $flag == true ] ; do
 	echo "...Do you use bash or fish?"; echo -n "[1]bash [2]fish : "; read -r fw
 	if [ "$fw" == '1' ]; then
 		sudo apt install bash-completion -y
-		cp dotfiles/.bash_aliases ~/ # my bash tweaks
+		cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
 
 		flag=false
 	elif [ "$fw" == '2' ]; then
