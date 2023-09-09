@@ -23,3 +23,7 @@ while [ $flag == true ] ; do
 		echo ""
 	fi
 done
+
+if [ $DESKTOP_SESSION == "gnome" ]; then
+    sed -i "a\alias gedit='gnome-text-editor'" ~/.bash_aliases
+fi
