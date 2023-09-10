@@ -30,12 +30,12 @@ These are the customisations for debian that I use regardless of the Desktop Env
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone https://github.com/shreyas-a-s/debian-customisation.git
+ git clone -b de https://github.com/shreyas-a-s/debian-customisation.git
  cd debian-customisation/
  ./install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
+ git clone -b de https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
 ```
