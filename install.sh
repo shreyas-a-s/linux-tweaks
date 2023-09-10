@@ -6,6 +6,16 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
+# Functions
+function choiceOfQemu {
+   read -r -p "Continue to install qemu and virt-manager? (yes/no): " choice
+   case "$choice" in 
+     "yes" ) echo "Starting the installation.."; cd ..; git clone https://github.com/shreyas-a-s/debian-qemu.git && cd debian-qemu/ && ./install.sh;;
+     "no" ) exit 1;;
+     * ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE."; choiceOfQemu;;
+   esac
+}
+
 # Get working directory, debian version & distro name
 builddir=$(pwd)
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
@@ -37,6 +47,9 @@ cd "$builddir" || exit
 # Some tweaks
 . ./scripts/shell-customization.sh # bash/fish customizations
 tldr -u # updating tldr pages
+
+# Installing qemu and virt-manager
+choiceOfQemu
 
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
