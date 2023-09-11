@@ -27,7 +27,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc autojump shellcheck fzf -y
 ./scripts/librewolf.sh # librewolf, a firefox fork that runs quite better on debian than firefox-esr
 ./scripts/brave.sh # install brave-browser
-./scripts/flatpak-apps.sh # install flatpak and most used apps
+./scripts/flatpak.sh # install flatpak and most used apps
 ./scripts/github-desktop.sh # github-desktop for linux
 ./scripts/vscodium.sh # open source vs-code
 . ./scripts/nala.sh # the better apt command
