@@ -9,8 +9,7 @@ bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous On"
 
 # Create and go to the directory
-mkdirg ()
-{
+function mkdirg {
 	mkdir -p "$1"
 	cd "$1"
 }
@@ -35,3 +34,12 @@ alias shellcheck='shellcheck -x'
 if test -f "/usr/share/autojump/autojump.sh"; then
     . /usr/share/autojump/autojump.sh
 fi
+
+# Function to use ix.io (the command-line pastebin)
+function ix {
+    if [ -n "$1" ]; then
+        curl "ix.io/$1"
+    else
+        curl -F 'f:1=<-' ix.io
+    fi
+}
