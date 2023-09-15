@@ -6,3 +6,4 @@ com.spotify.Client
 de.haeckerfelix.Fragments
 net.cozic.joplin_desktop
 org.onlyoffice.desktopeditors
+io.gitlab.librewolf-community
