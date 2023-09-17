@@ -3,13 +3,13 @@
 flag=true
 echo ""; echo "Some shell customisations are available for the shell..."
 while [ $flag == true ] ; do
-	read -r -p "...Do you use bash or fish? [1]bash [2]fish : " fw
-	if [ "$fw" == '1' ]; then
+	read -r -p "...Do you use bash or fish? [1]bash [2]fish : " choice
+	if [ "$choice" == '1' ]; then
 		sudo apt install bash-completion -y
 		cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
 
 		flag=false
-	elif [ "$fw" == '2' ]; then
+	elif [ "$choice" == '2' ]; then
 		sudo apt install fish python-is-python3 -y
 		mkdir -p ~/.config/fish
 		mkdir -p ~/.config/lscolors
