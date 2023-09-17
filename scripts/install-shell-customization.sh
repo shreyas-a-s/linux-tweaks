@@ -3,7 +3,7 @@
 flag=true
 echo ""; echo "Some shell customisations are available for the shell..."
 while [ $flag == true ] ; do
-	echo "...Do you use bash or fish?"; echo -n "[1]bash [2]fish : "; read -r fw
+	read -r -p "...Do you use bash or fish? [1]bash [2]fish : " fw
 	if [ "$fw" == '1' ]; then
 		sudo apt install bash-completion -y
 		cp dotfiles/bashextra ~/.config/.bashextra # my bash tweaks
