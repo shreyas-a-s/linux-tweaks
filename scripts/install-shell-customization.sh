@@ -8,6 +8,7 @@ function customiseBash {
 	echo "source /home/""$username""/.config/.bashextra" | sudo tee -a /root/.bashrc > /dev/null
 	curl -sS https://starship.rs/install.sh | sh # installing starship
 	cp dotfiles/starship.toml ~/.config/ # startship configuration
+	cp dotfiles/fetch-master-6000 ~/.fetch-master-6000 # Fetch command
 }
 
 # Function to customise fish shell
