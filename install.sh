@@ -28,7 +28,6 @@ sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keep
 ./scripts/brave.sh # install brave-browser
 ./scripts/flatpak.sh # install flatpak and most used apps
 ./scripts/github-desktop.sh # github-desktop for linux
-./scripts/vscodium.sh # open source vs-code
 . ./scripts/nala.sh # the better apt command
 . ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
 
