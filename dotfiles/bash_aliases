@@ -46,3 +46,6 @@ function ix {
 
 # Variables
 DATE=$(date -I)
+
+# Colored Man Pages
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
