@@ -4,6 +4,7 @@
 function customiseBash {
     sudo apt install bash-completion -y
     cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
+	cp dotfiles/fetch-master-6000 ~/.fetch-master-6000 # Fetch command
 }
 
 # Function to customise fish shell
