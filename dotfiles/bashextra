@@ -39,3 +39,6 @@ alias edit='micro'
 alias sedit='sudo micro'
 . /usr/share/autojump/autojump.sh
 eval "$(starship init bash)"
+
+# Variables
+DATE=$(date -I)
