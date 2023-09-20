@@ -24,18 +24,12 @@ function customiseFish {
 }
 
 # Installation
-flag=true
-echo ""; echo "Some shell customisations are available for the shell..."
-while [ $flag == true ] ; do
-	read -r -p "...Do you use bash or fish? [1]bash [2]fish : " choice
-	if [ "$choice" == '1' ]; then
-        customiseBash
-		flag=false
-	elif [ "$choice" == '2' ]; then
-        customiseFish
-		flag=false
-	else
-		echo "You have chosen invalid option. Choose either 1 or 2."
-		echo ""
-	fi
-done
+function shellChoice {
+	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
+	case "$shell_choice" in 
+		"bash" ) customiseBash;;
+		"fish" ) customiseFish;;
+		* ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE and type either bash or fish."; shellChoice;;
+	esac
+}
+shellChoice
