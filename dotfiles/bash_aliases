@@ -50,7 +50,7 @@ DATE=$(date -I)
 # Colored Man Pages
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 
-# Simple fetch command
-if test -f "$HOME/.fetch-master-6000"; then
-    "$HOME"/.fetch-master-6000 --random --color random --length=10 --margin=4 --package="$(apt list --installed | wc -l)"
+# DT's Shell Color Scripts
+if test -f "/usr/local/bin/colorscript"; then
+    colorscript --random
 fi
