@@ -4,6 +4,5 @@ com.obsproject.Studio
 com.slack.Slack
 com.spotify.Client
 de.haeckerfelix.Fragments
-io.gitlab.librewolf-community
 net.cozic.joplin_desktop
 org.onlyoffice.desktopeditors
