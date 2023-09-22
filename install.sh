@@ -45,8 +45,7 @@ function shellChoice {
 
 # Taking user choices
 qemuChoice
-shellChoice
-export shell_choice
+shellChoice && export shell_choice
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
