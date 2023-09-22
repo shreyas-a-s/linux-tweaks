@@ -44,8 +44,10 @@ function shellChoice {
 }
 
 # Taking user choices
-qemuChoice
-shellChoice && export shell_choice
+if [ "$customisation_choice" != 'yes' ]; then
+  qemuChoice
+  shellChoice && export shell_choice
+fi
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
