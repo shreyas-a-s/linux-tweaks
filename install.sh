@@ -27,8 +27,7 @@ function customScripts {
   ./scripts/vscodium.sh # open source vscode
 }
 
-# Get working directory, debian version & distro name
-builddir=$(pwd)
+# Get debian version & distro name
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
 distroname=$(awk '{print $1;}' /etc/issue)
 
@@ -47,9 +46,6 @@ fi
 
 # Enabling firewall
 sudo ufw enable
-
-# Enter the arena
-cd "$builddir" || exit
 
 # Some tweaks
 . ./scripts/shell-customization.sh # bash/fish customizations
