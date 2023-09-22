@@ -10,15 +10,6 @@ fi
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
 distroname=$(awk '{print $1;}' /etc/issue)
 
-# QEMU Choice
-function qemuChoice {
-  read -r -p "Continue to install qemu and virt-manager? (yes/no): " qemu_choice
-  if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
-    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
-    qemuChoice
-  fi
-}
-
 # Scripts
 function customScripts {
   ./scripts/brave.sh # brave-browser
@@ -32,6 +23,15 @@ function customScripts {
   fi
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
+}
+
+# QEMU Choice
+function qemuChoice {
+  read -r -p "Continue to install qemu and virt-manager? (yes/no): " qemu_choice
+  if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
+    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    qemuChoice
+  fi
 }
 
 # Shell Choice
