@@ -19,15 +19,6 @@ function qemuChoice {
   fi
 }
 
-# Shell Choice
-function shellChoice {
-	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
-  if [ "$shell_choice" != 'bash' ] && [ "$qemu_choice" != 'fish' ]; then
-    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
-    shellChoice
-  fi
-}
-
 # Scripts
 function customScripts {
   ./scripts/brave.sh # brave-browser
@@ -41,6 +32,15 @@ function customScripts {
   fi
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
+}
+
+# Shell Choice
+function shellChoice {
+	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
+  if [ "$shell_choice" != 'bash' ] && [ "$qemu_choice" != 'fish' ]; then
+    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    shellChoice
+  fi
 }
 
 # Taking user choices
