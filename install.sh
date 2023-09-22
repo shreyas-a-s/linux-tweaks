@@ -11,11 +11,20 @@ debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} &&
 distroname=$(awk '{print $1;}' /etc/issue)
 
 # QEMU Choice
-function choiceOfQemu {
+function qemuChoice {
   read -r -p "Continue to install qemu and virt-manager? (yes/no): " qemu_choice
   if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
     echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
-    choiceOfQemu
+    qemuChoice
+  fi
+}
+
+# Shell Choice
+function shellChoice {
+	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
+  if [ "$shell_choice" != 'bash' ] && [ "$qemu_choice" != 'fish' ]; then
+    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    shellChoice
   fi
 }
 
@@ -35,7 +44,9 @@ function customScripts {
 }
 
 # Taking user choices
-choiceOfQemu
+qemuChoice
+shellChoice
+export shell_choice
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."

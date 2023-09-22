@@ -22,15 +22,11 @@ function customiseFish {
 }
 
 # Installation
-function shellChoice {
-	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
-	case "$shell_choice" in 
-		"bash" ) customiseBash;;
-		"fish" ) customiseFish;;
-		* ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE and type either bash or fish."; shellChoice;;
-	esac
-}
-shellChoice
+if [ $shell_choice = 'bash' ]; then
+	customiseBash
+else
+	customiseFish
+fi
 
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
     sed -i "a\alias gedit='gnome-text-editor'" ~/.bash_aliases
