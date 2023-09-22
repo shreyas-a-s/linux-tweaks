@@ -44,5 +44,5 @@ fi
 
 # Alias gedit to gnome-text-editor
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
-    sed -i "a\alias gedit='gnome-text-editor'" ~/.bash_aliases
+    sed -i "$ a alias gedit='gnome-text-editor'" ~/.bash_aliases
 fi
