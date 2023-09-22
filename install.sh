@@ -16,6 +16,17 @@ function choiceOfQemu {
    esac
 }
 
+# Scripts
+function customScripts {
+  ./scripts/brave.sh # brave-browser
+  ./scripts/flatpak.sh # flatpak and most used apps
+  ./scripts/github-desktop.sh # github-desktop for linux
+  ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
+  ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
+  ./scripts/nala.sh # apt, but colorful
+  ./scripts/vscodium.sh # open source vscode
+}
+
 # Get working directory, debian version & distro name
 builddir=$(pwd)
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
@@ -25,13 +36,9 @@ distroname=$(awk '{print $1;}' /etc/issue)
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt update && sudo apt upgrade -y
 sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc autojump shellcheck fzf -y
-./scripts/brave.sh # brave-browser
-./scripts/flatpak.sh # flatpak and most used apps
-./scripts/github-desktop.sh # github-desktop for linux
-./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
-./scripts/lsd.sh # lsd (the next-gen 'ls' command)
-./scripts/nala.sh # apt, but colorful
-./scripts/vscodium.sh # open source vscode
+
+# My custom scripts
+customScripts
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
 if [ "$distroname" == "Antix" ]; then
