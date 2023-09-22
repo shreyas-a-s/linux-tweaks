@@ -21,6 +21,21 @@ function customiseFish {
 	sudo chsh -s /usr/bin/fish # setting root shell to fish
 }
 
+# Taking user choice
+function shellChoice {
+	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
+	case "$shell_choice" in 
+		"bash" ) customiseBash;;
+		"fish" ) customiseFish;;
+		* ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE and type either bash or fish."; shellChoice;;
+	esac
+}
+
+# Check if variable is set
+if [ -v $shell_choice ]
+	shellChoice
+fi
+
 # Installation
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
@@ -28,6 +43,7 @@ else
 	customiseFish
 fi
 
+# Alias gedit to gnome-text-editor
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
     sed -i "a\alias gedit='gnome-text-editor'" ~/.bash_aliases
 fi
