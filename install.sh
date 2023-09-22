@@ -18,7 +18,7 @@ function choiceOfQemu {
 
 # Get working directory, debian version & distro name
 builddir=$(pwd)
-debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
+debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
 distroname=$(awk '{print $1;}' /etc/issue)
 
 # Updating system & installing programs
@@ -31,7 +31,7 @@ sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keep
 ./scripts/librewolf.sh # firefox fork that si truely the best (IMO)
 ./scripts/vscodium.sh # open source vscode
 . ./scripts/nala.sh # the better apt command
-. ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
+./scripts/lsd.sh # lsd (the next-gen 'ls' command)
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
 if [ "$distroname" == "Antix" ]; then
