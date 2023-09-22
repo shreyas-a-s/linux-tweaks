@@ -25,12 +25,12 @@ distroname=$(awk '{print $1;}' /etc/issue)
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt update && sudo apt upgrade -y
 sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc autojump shellcheck fzf -y
-./scripts/brave.sh # install brave-browser
-./scripts/flatpak.sh # install flatpak and most used apps
+./scripts/brave.sh # brave-browser
+./scripts/flatpak.sh # flatpak and most used apps
 ./scripts/github-desktop.sh # github-desktop for linux
-./scripts/librewolf.sh # firefox fork that si truely the best (IMO)
+./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
 ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
-./scripts/nala.sh # the better apt command
+./scripts/nala.sh # apt, but colorful
 ./scripts/vscodium.sh # open source vscode
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
@@ -46,7 +46,9 @@ cd "$builddir" || exit
 
 # Some tweaks
 . ./scripts/shell-customization.sh # bash/fish customizations
-tldr -u # updating tldr pages
+
+# updating tldr pages
+tldr -u
 
 # Installing qemu and virt-manager
 choiceOfQemu
