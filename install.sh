@@ -6,6 +6,10 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
+# Get debian version & distro name
+debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
+distroname=$(awk '{print $1;}' /etc/issue)
+
 # Scripts
 function customScripts {
   ./scripts/brave.sh # brave-browser
@@ -14,14 +18,10 @@ function customScripts {
   ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
   ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
   ./scripts/nala.sh # apt, but colorful
+  ./scripts/qemu.sh # qemu and virt-manager
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
-  ./scripts/qemu.sh # qemu and virt-manager
 }
-
-# Get debian version & distro name
-debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
-distroname=$(awk '{print $1;}' /etc/issue)
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
