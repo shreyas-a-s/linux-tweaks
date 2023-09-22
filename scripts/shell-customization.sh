@@ -21,14 +21,13 @@ function customiseFish {
 	sudo chsh -s /usr/bin/fish # setting root shell to fish
 }
 
-# Taking user choice
+# Shell choice
 function shellChoice {
 	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
-	case "$shell_choice" in 
-		"bash" ) customiseBash;;
-		"fish" ) customiseFish;;
-		* ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE and type either bash or fish."; shellChoice;;
-	esac
+	if [ "$shell_choice" != 'bash' ] && [ "$qemu_choice" != 'fish' ]; then
+		echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    	shellChoice
+  	fi
 }
 
 # Check if variable is set
