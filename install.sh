@@ -25,6 +25,7 @@ function customScripts {
   ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
   ./scripts/nala.sh # apt, but colorful
   ./scripts/vscodium.sh # open source vscode
+  ./scripts/shell-customization.sh # bash/fish customizations
 }
 
 # Get debian version & distro name
@@ -46,9 +47,6 @@ fi
 
 # Enabling firewall
 sudo ufw enable
-
-# Some tweaks
-. ./scripts/shell-customization.sh # bash/fish customizations
 
 # updating tldr pages
 tldr -u
