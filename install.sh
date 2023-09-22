@@ -6,16 +6,6 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
-# QEMU
-function choiceOfQemu {
-   read -r -p "Continue to install qemu and virt-manager? (yes/no): " choice
-   case "$choice" in 
-     "yes" ) echo "Starting the installation.."; (cd .. && git clone https://github.com/shreyas-a-s/debian-qemu.git && cd debian-qemu/ && ./install.sh);;
-     "no" ) exit 1;;
-     * ) echo "Invalid Choice! Keep in mind this is CASE-SENSITIVE."; choiceOfQemu;;
-   esac
-}
-
 # Scripts
 function customScripts {
   ./scripts/brave.sh # brave-browser
@@ -26,6 +16,7 @@ function customScripts {
   ./scripts/nala.sh # apt, but colorful
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
+  ./scripts/qemu.sh # qemu and virt-manager
 }
 
 # Get debian version & distro name
@@ -50,9 +41,6 @@ sudo ufw enable
 
 # updating tldr pages
 tldr -u
-
-# Installing qemu and virt-manager
-choiceOfQemu
 
 # Change Grub Timeout
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
