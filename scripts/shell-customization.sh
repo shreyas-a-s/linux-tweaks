@@ -31,7 +31,7 @@ function shellChoice {
 }
 
 # Check if variable is set
-if [ -v $shell_choice ]
+if [[ -n ${shell_choice} ]]
 	shellChoice
 fi
 
