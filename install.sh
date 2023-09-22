@@ -55,6 +55,7 @@ choiceOfQemu
 
 # Change Grub Timeout
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
+sudo update-grub
 
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
