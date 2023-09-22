@@ -51,5 +51,8 @@ tldr -u # updating tldr pages
 # Installing qemu and virt-manager
 choiceOfQemu
 
+# Change Grub Timeout
+sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
+
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
