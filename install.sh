@@ -10,6 +10,15 @@ fi
 debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
 distroname=$(awk '{print $1;}' /etc/issue)
 
+# QEMU Choice
+function choiceOfQemu {
+  read -r -p "Continue to install qemu and virt-manager? (yes/no): " qemu_choice
+  if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
+    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    choiceOfQemu
+  fi
+}
+
 # Scripts
 function customScripts {
   ./scripts/brave.sh # brave-browser
@@ -18,10 +27,15 @@ function customScripts {
   ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
   ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
   ./scripts/nala.sh # apt, but colorful
-  ./scripts/qemu.sh # qemu and virt-manager
+  if [ "$qemu_choice" = 'yes' ]; then
+    ./scripts/qemu.sh # qemu and virt-manager
+  fi
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
 }
+
+# Taking user choices
+choiceOfQemu
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
