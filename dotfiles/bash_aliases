@@ -25,6 +25,9 @@ alias cat='batcat'
 alias la='lsd -A --icon never'
 alias ls='lsd --icon never'
 alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name'
+if test -f "/usr/bin/nala"; then
+    alias apt='nala'
+fi
 alias apt='nala'
 alias sudo='sudo '
 alias grep='grep --color=auto'
