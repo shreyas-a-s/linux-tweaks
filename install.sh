@@ -6,7 +6,7 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
-# Functions
+# QEMU
 function choiceOfQemu {
    read -r -p "Continue to install qemu and virt-manager? (yes/no): " choice
    case "$choice" in 
