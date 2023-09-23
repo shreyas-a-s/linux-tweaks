@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Install flatpak
 sudo apt install flatpak -y
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
 	sudo apt install gnome-software-plugin-flatpak -y
