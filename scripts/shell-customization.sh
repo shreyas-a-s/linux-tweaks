@@ -31,14 +31,14 @@ function shellChoice {
 }
 
 # Check if variable is set
-if [[ -n ${shell_choice} ]]
+if [[ -z ${shell_choice} ]]; then
 	shellChoice
 fi
 
 # Installation
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
-else
+elif [ $shell_choice = 'fish' ]; then
 	customiseFish
 fi
 
