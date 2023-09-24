@@ -2,7 +2,7 @@
 
 # Function to customise bash shell
 function customiseBash {
-    sudo apt install bash-completion -y
+    sudo apt install bash-completion neofetch -y
     cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
 	sudo cp dotfiles/fetch-master-6000 /usr/local/bin/fetch-master-6000 # Fetch command
     (sudo apt update && sudo apt install git make -y && cd .. && git clone https://gitlab.com/dwt1/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
