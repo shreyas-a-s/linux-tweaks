@@ -52,7 +52,7 @@ fi
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt update && sudo apt upgrade -y
-sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc autojump shellcheck fzf -y
+sudo apt install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc autojump shellcheck fzf curl wget -y
 
 # My custom scripts
 customScripts
