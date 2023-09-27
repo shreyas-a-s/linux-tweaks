@@ -64,8 +64,6 @@ function ix {
     curl $opts -F f:1='<-' $* ix.io/$id
 }
 
-ix $*
-
 # Variables
 DATE=$(date -I)
 
