@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Install flatpak
-sudo apt-get -qq install flatpak -y
+sudo apt-get -qq install flatpak
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
-	sudo apt-get -qq install gnome-software-plugin-flatpak -y
+	sudo apt-get -qq install gnome-software-plugin-flatpak
 fi
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -22,7 +22,7 @@ if [ -e "$inputfile" ]; then
     done < "$inputfile"
 
     # Install all packages at once
-    flatpak install flathub $packages -y
+    flatpak install flathub $packages
 else
     echo "File does not exist: $inputfile"
 fi
