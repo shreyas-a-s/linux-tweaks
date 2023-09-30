@@ -1,7 +1,5 @@
-com.discordapp.Discord
 com.github.tchx84.Flatseal
 com.obsproject.Studio
-com.slack.Slack
 com.spotify.Client
 de.haeckerfelix.Fragments
 net.cozic.joplin_desktop
