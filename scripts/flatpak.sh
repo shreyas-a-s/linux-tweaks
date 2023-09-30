@@ -8,7 +8,11 @@ fi
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Specify the input file
-inputfile="./scripts/flatpak-applist.txt" || inputfile="./flatpak-applist.txt"
+if test -f "./scripts/flatpak-applist.txt"; then
+    inputfile="./scripts/flatpak-applist.txt"
+else
+    inputfile="./flatpak-applist.txt"
+fi
 
 # Check if the file exists
 if [ -e "$inputfile" ]; then
