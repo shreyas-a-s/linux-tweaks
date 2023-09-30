@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Install flatpak
-sudo apt-get -qq install flatpak
+sudo apt-get -y install flatpak
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
-	sudo apt-get -qq install gnome-software-plugin-flatpak
+	sudo apt-get -y install gnome-software-plugin-flatpak
 fi
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 

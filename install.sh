@@ -51,15 +51,15 @@ fi
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
-sudo apt-get -qq update && sudo apt-get -qq upgrade
-sudo apt-get -qq install ufw man trash-cli git htop neofetch gparted micro tldr keepassxc vlc shellcheck fzf curl wget python-is-python3
+sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get -y install ufw man trash-cli git htop neofetch gparted micro tldr keepassxc vlc shellcheck fzf curl wget python-is-python3
 
 # My custom scripts
 customScripts
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
 if [ "$distroname" == "Antix" ]; then
-	sudo apt-get -qq install libnss3
+	sudo apt-get -y install libnss3
 fi
 
 # Enabling firewall

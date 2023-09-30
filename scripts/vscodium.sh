@@ -6,4 +6,4 @@ echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https:/
     | sudo tee /etc/apt/sources.list.d/vscodium.list
 # To set third-party repositories to have least priority
 echo -e 'Package: *\nPin: origin download.vscodium.com\nPin-Priority: 100' | sudo tee /etc/apt/preferences.d/vscodium.pref > /dev/null
-sudo apt-get -qq update && sudo apt-get -qq install codium
+sudo apt-get update && sudo apt-get -y install codium

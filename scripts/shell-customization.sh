@@ -2,7 +2,7 @@
 
 # Function to customise bash shell
 function customiseBash {
-    sudo apt-get -qq install bash-completion git make
+    sudo apt-get -y install bash-completion git make
     cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
     (cd .. && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
@@ -11,7 +11,7 @@ function customiseBash {
 
 # Function to customise fish shell
 function customiseFish {
-    sudo apt-get -qq install fish python-is-python3
+    sudo apt-get -y install fish python-is-python3
 	mkdir -p ~/.config/fish
 	mkdir -p ~/.config/lscolors
 	cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
@@ -35,7 +35,7 @@ if [[ -z ${shell_choice} ]]; then
 fi
 
 # Installation
-sudo apt-get -qq update && sudo apt-get -qq install autojump bat neofetch
+sudo apt-get update && sudo apt-get -y install autojump bat neofetch
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
 elif [ $shell_choice = 'fish' ]; then
