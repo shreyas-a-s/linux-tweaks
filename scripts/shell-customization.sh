@@ -2,10 +2,11 @@
 
 # Function to customise bash shell
 function customiseBash {
-    sudo apt-get -qq update && sudo apt-get -qq install bash-completion neofetch git make
+    sudo apt-get -qq update && sudo apt-get -qq install bash-completion neofetch git make autojump
     cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
     (cd .. && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
+	. /usr/share/autojump/autojump.sh
 }
 
 # Function to customise fish shell
