@@ -26,7 +26,7 @@ if [ -e "$inputfile" ]; then
     done < "$inputfile"
 
     # Install all packages at once
-    flatpak install flathub $packages
+    flatpak install -y flathub $packages
 else
     echo "File does not exist: $inputfile"
 fi
