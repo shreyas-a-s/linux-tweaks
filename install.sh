@@ -52,7 +52,7 @@ fi
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get -qq update && sudo apt-get -qq upgrade
-sudo apt-get -qq install ufw man trash-cli git bat htop neofetch gparted micro tldr keepassxc vlc shellcheck fzf curl wget python-is-python3
+sudo apt-get -qq install ufw man trash-cli git htop neofetch gparted micro tldr keepassxc vlc shellcheck fzf curl wget python-is-python3
 
 # My custom scripts
 customScripts
