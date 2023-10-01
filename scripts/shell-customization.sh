@@ -43,7 +43,6 @@ function lsdInstall {
 	fi
 }
 
-
 # Check if variable is set
 if [[ -z ${shell_choice} ]]; then
 	shellChoice
