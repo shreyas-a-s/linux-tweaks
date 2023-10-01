@@ -33,6 +33,17 @@ function shellChoice {
   	fi
 }
 
+# lsd, the nexy-gen ls command
+function lsdInstall {
+	if [ "$debianversion" -lt 12 ]; then
+		wget -q -nv -O - https://api.github.com/repos/lsd-rs/lsd/releases/latest   | awk -F': ' '/browser_download_url/ && /\_amd64.deb/ \
+	                             {gsub(/"/, "", $(NF)); system("wget -qi -L " $(NF))}' && rm lsd-musl* && mv *.deb lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
+	else
+		sudo apt-get -y install lsd
+	fi
+}
+
+
 # Check if variable is set
 if [[ -z ${shell_choice} ]]; then
 	shellChoice
@@ -40,6 +51,7 @@ fi
 
 # Installation
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch
+lsdInstall
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
 elif [ $shell_choice = 'fish' ]; then
