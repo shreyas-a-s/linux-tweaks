@@ -16,7 +16,6 @@ function customScripts {
   ./scripts/flatpak.sh # flatpak and most used apps
   ./scripts/github-desktop.sh # github-desktop for linux
   ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
-  ./scripts/lsd.sh # lsd (the next-gen 'ls' command)
   ./scripts/nala.sh # apt, but colorful
   if [ "$qemu_choice" = 'yes' ]; then
     ./scripts/qemu.sh # qemu and virt-manager
