@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-debianversion=$(cat /etc/debian_version)
+debianversion=$(cat /etc/debian_version | awk -F '.' '{print $1}')
 
 # Function to customise bash shell
 function customiseBash {
