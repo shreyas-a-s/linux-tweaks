@@ -50,7 +50,7 @@ if [[ -z ${shell_choice} ]]; then
 fi
 
 # Installation
-sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget
+sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf
 lsdInstall
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
