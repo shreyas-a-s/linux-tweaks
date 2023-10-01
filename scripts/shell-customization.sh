@@ -49,7 +49,7 @@ if [[ -z ${shell_choice} ]]; then
 fi
 
 # Installation
-sudo apt-get update && sudo apt-get -y install autojump bat neofetch
+sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli
 lsdInstall
 if [ $shell_choice = 'bash' ]; then
 	customiseBash
