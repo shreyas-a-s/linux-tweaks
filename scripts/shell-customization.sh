@@ -11,7 +11,7 @@ function customiseBash {
 	else
     	cp ../dotfiles/bash_aliases ~/.bash_aliases
 	fi
-    (cd .. && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
+    (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 	. /usr/share/autojump/autojump.sh
 }
