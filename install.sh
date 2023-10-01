@@ -51,7 +51,7 @@ fi
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get -y install ufw man git htop neofetch gparted micro tldr keepassxc vlc shellcheck fzf curl wget python-is-python3
+sudo apt-get -y install ufw man git htop neofetch gparted micro keepassxc vlc shellcheck curl wget python-is-python3
 
 # My custom scripts
 customScripts
