@@ -22,9 +22,15 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias rm='trash -v'
 alias cat='batcat'
-alias la='lsd -A --icon never'
-alias ls='lsd --icon never'
-alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name'
+if test -f "/usr/bin/lsd"; then
+    alias la='lsd -A --icon never'
+    alias ls='lsd --icon never'
+    alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name'
+else
+    alias ls='ls --color=auto'
+    alias la='ls -A'
+    alias ll='ls -alh'
+fi
 if test -f "/usr/bin/nala"; then
     alias apt='nala'
 fi
