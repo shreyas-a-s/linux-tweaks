@@ -28,7 +28,6 @@ alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks per
 if test -f "/usr/bin/nala"; then
     alias apt='nala'
 fi
-alias apt='nala'
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
