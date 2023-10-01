@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Variables
+debianversion=$(cat /etc/debian_version)
+
 # Function to customise bash shell
 function customiseBash {
     sudo apt-get -y install bash-completion git make
@@ -27,7 +30,7 @@ function customiseFish {
 # Shell choice
 function shellChoice {
 	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
-	if [ "$shell_choice" != 'bash' ] && [ "$qemu_choice" != 'fish' ]; then
+	if [ "$shell_choice" != 'bash' ] && [ "$shell_choice" != 'fish' ]; then
 		echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
     	shellChoice
   	fi
@@ -52,8 +55,8 @@ fi
 # Installation
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf
 lsdInstall
-if [ $shell_choice = 'bash' ]; then
+if [ "$shell_choice" = 'bash' ]; then
 	customiseBash
-elif [ $shell_choice = 'fish' ]; then
+elif [ "$shell_choice" = 'fish' ]; then
 	customiseFish
 fi

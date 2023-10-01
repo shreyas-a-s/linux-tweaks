@@ -6,8 +6,7 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
-# Get debian version & distro name
-debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*} && export debianversion
+# Variables
 distroname=$(awk '{print $1;}' /etc/issue)
 
 # Scripts
