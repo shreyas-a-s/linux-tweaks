@@ -41,7 +41,7 @@ function lsdInstall {
 	if [ "$debianversion" -lt 12 ]; then
 		wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
 		sudo dpkg -i lsd_0.23.1_amd64.deb
-		rm lsd.deb
+		rm lsd_0.23.1_amd64.deb
 	else
 		sudo apt-get -y install lsd
 	fi
