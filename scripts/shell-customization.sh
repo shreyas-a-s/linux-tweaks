@@ -3,7 +3,11 @@
 # Function to customise bash shell
 function customiseBash {
     sudo apt-get -y install bash-completion git make
-    cp dotfiles/bash_aliases ~/.bash_aliases # my bash tweaks
+	if test -f "./dotfiles/bash_aliases"; then
+    	cp dotfiles/bash_aliases ~/.bash_aliases
+	else
+    	cp bash_aliases ~/.bash_aliases
+	fi
     (cd .. && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 	. /usr/share/autojump/autojump.sh
