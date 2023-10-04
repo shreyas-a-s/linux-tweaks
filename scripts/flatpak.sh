@@ -7,21 +7,17 @@ if [ "$DESKTOP_SESSION" == "gnome" ]; then
 fi
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
+
 # Specify the input file
-if test -f "./scripts/flatpak-applist.txt"; then
-    inputfile="./scripts/flatpak-applist.txt"
-else
-    inputfile="./flatpak-applist.txt"
-fi
+inputfile="flatpak-applist.txt"
 
 # Check if the file exists
 if [ -e "$inputfile" ]; then
-    # Initialize a variable to store package names separated by spaces
     packages=""
 
-    # Read each line from the file and accumulate the package names
     while IFS= read -r package; do
-        # Add the package name to the list with a space
         packages="$packages $package"
     done < "$inputfile"
 

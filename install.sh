@@ -6,6 +6,9 @@ if [[ $EUID == 0 ]]; then
   exit 1
 fi
 
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
+
 # Variables
 distroname=$(awk '{print $1;}' /etc/issue)
 
