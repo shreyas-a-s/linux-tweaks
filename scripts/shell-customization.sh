@@ -6,11 +6,7 @@ debianversion=$(cat /etc/debian_version | awk -F '.' '{print $1}')
 # Function to customise bash shell
 function customiseBash {
     sudo apt-get -y install bash-completion git make
-	if test -f "./dotfiles/bash_aliases"; then
-    	cp dotfiles/bash_aliases ~/.bash_aliases
-	else
-    	cp ../dotfiles/bash_aliases ~/.bash_aliases
-	fi
+    cp ../dotfiles/bash_aliases ~/.bash_aliases
     (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 	. /usr/share/autojump/autojump.sh
@@ -51,6 +47,9 @@ function lsdInstall {
 if [[ -z ${shell_choice} ]]; then
 	shellChoice
 fi
+
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf
