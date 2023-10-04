@@ -25,7 +25,7 @@ alias cat='batcat'
 if test -f "/usr/bin/lsd"; then
     alias la='lsd -A --icon never'
     alias ls='lsd --icon never'
-    alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,size,date,name'
+    alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,group,size,date,name'
 else
     alias ls='ls --color=auto'
     alias la='ls -A'
