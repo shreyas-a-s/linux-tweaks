@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-debianversion=$(cat /etc/debian_version | awk -F '.' '{print $1}')
+debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 
 # Install
 if [ "$debianversion" -ge 12 ]; then
