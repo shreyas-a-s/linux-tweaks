@@ -9,7 +9,7 @@ fi
 # Get username, working directory path, debian version & distro name
 username=$(id -u -n 1000)
 builddir=$(pwd)
-debianversion=$(cat /etc/debian_version) && debianversion=${debianversion%.*}
+debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 distroname=$(awk '{print $1;}' /etc/issue)
 
 # Updating system & installing programs
