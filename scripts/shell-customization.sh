@@ -19,7 +19,7 @@ function customiseBash {
     cp ../dotfiles/bash-extra ~/.config/bash/extra
 	mv ~/.bashrc ~/.config/bash/rc
 	mv ~/.bash_history ~/.config/bash/history
-	echo ". ~/.config/bash/extra" >> ~/.config/bash/rc
+	echo -e "\n# Bash extra customisations\n. ~/.config/bash/extra" >> ~/.config/bash/rc
 	echo -e "\nif [ -f ~/.config/bash/rc ]; then\n\t. ~/.config/bash/rc\nfi" | sudo tee -a /etc/bash.bashrc > /dev/null
 
 	# Shell color scripts
