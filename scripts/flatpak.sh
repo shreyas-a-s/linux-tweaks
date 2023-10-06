@@ -26,3 +26,6 @@ if [ -e "$inputfile" ]; then
 else
     echo "File does not exist: $inputfile"
 fi
+
+echo 'XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"' >> ~/.config/user-dirs.dirs
+xdg-user-dirs-update
