@@ -71,3 +71,4 @@ if [ "$shell_choice" = 'bash' ]; then
 elif [ "$shell_choice" = 'fish' ]; then
 	customiseFish
 fi
+setupXDGUserDirs
