@@ -34,6 +34,11 @@ function customiseBash {
 		rm ~/.sudo_as_admin_successful
 	fi
 	echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
+
+	# Move .bash_logout from home folder to /etc
+	if [ -f ~/.bash_logout ]; then
+		sudo mv ~/.bash_logout /etc/bash.bash_logout
+	fi
 }
 
 # Function to customise fish shell
