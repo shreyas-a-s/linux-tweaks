@@ -22,6 +22,10 @@ function customiseBash {
     (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 	. /usr/share/autojump/autojump.sh
+
+	# Disable creation of .sudo_as_admin_successful
+	rm ~/.sudo_as_admin_successful
+	echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 }
 
 # Function to customise fish shell
