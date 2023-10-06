@@ -30,7 +30,9 @@ function customiseBash {
 	. /usr/share/autojump/autojump.sh
 
 	# Disable creation of .sudo_as_admin_successful
-	rm ~/.sudo_as_admin_successful
+	if [ -f ~/.sudo_as_admin_successful ]; then
+		rm ~/.sudo_as_admin_successful
+	fi
 	echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 }
 
