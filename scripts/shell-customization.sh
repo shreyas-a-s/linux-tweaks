@@ -7,7 +7,7 @@ debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 function customiseBash {
     sudo apt-get -y install bash-completion git make
 	mkdir -p ~/.config/bash
-    cp ../dotfiles/bash-extra ~/.config/bash/
+    cp ../dotfiles/bash-extra ~/.config/bash/extra
 	echo ". ~/.config/bash/bash-extra" >> ~/.bashrc
     (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
