@@ -13,14 +13,20 @@ function setupXDGUserDirs {
 # Function to customise bash shell
 function customiseBash {
     sudo apt-get -y install bash-completion git make
+
+	# XDG directory for bash files
 	mkdir -p ~/.config/bash
     cp ../dotfiles/bash-extra ~/.config/bash/extra
 	mv ~/.bashrc ~/.config/bash/rc
 	mv ~/.bash_history ~/.config/bash/history
 	echo ". ~/.config/bash/extra" >> ~/.config/bash/rc
 	echo -e "if [ -f ~/.config/bash/rc ]; then\n\t. ~/.config/bash/rc\nfi" | sudo tee -a /etc/bash.bashrc > /dev/null
+
+	# Shell color scripts
     (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
+
+	# Initialise autojump
 	. /usr/share/autojump/autojump.sh
 
 	# Disable creation of .sudo_as_admin_successful
