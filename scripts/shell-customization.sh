@@ -3,6 +3,13 @@
 # Variables
 debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 
+#
+function setupXDGUserDirs {
+	rm -r ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
+	mkdir ~/.config ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/templates ~/videos ~/public
+	cp ../dotfiles/user-dirs.dirs ~/.config/
+	xdg-user-dirs-update
+}
 # Function to customise bash shell
 function customiseBash {
     sudo apt-get -y install bash-completion git make
