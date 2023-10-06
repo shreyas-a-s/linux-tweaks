@@ -18,7 +18,7 @@ function customiseBash {
 	mv ~/.bashrc ~/.config/bash/rc
 	mv ~/.bash_history ~/.config/bash/history
 	echo ". ~/.config/bash/extra" >> ~/.config/bash/rc
-	echo ". ~/.config/bash/rc" | sudo tee -a /etc/bash.bashrc
+	echo -e "if [ -f ~/.config/bash/rc ]; then\n\t. ~/.config/bash/rc\nfi" | sudo tee -a /etc/bash.bashrc > /dev/null
     (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 	. /usr/share/autojump/autojump.sh
