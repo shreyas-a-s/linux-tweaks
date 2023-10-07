@@ -37,7 +37,7 @@ fi
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
-alias pc1='ping -c 1 example.com'
+alias ping='ping -c 1 example.com'
 
 # Autojump
 if test -f "/usr/share/autojump/autojump.sh"; then
