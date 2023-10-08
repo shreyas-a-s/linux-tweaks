@@ -12,7 +12,7 @@ function setupXDGUserDirs {
 }
 # Function to customise bash shell
 function customiseBash {
-    sudo apt-get -y install bash-completion git make
+    sudo apt-get -y install bash-completion git make command-not-found
 
 	# XDG directory for bash files
 	mkdir -p ~/.config/bash
@@ -39,6 +39,9 @@ function customiseBash {
 	if [ -f ~/.bash_logout ]; then
 		sudo mv ~/.bash_logout /etc/bash.bash_logout
 	fi
+
+	# Update database of command-not-found
+	sudo update-command-not-found
 }
 
 # Function to customise fish shell
