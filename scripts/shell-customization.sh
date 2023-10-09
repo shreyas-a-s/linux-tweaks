@@ -42,6 +42,7 @@ function customiseBash {
 
 	# Update database of command-not-found
 	sudo update-command-not-found
+	sudo apt update
 }
 
 # Function to customise fish shell
