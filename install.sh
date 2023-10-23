@@ -26,6 +26,7 @@ function customScripts {
   ./scripts/github-desktop.sh # github-desktop for linux
   ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
   ./scripts/nala.sh # apt, but colorful
+  ./scripts/onlyoffice.sh # office suite
   if [ "$qemu_choice" = 'yes' ]; then
     ./scripts/qemu.sh # qemu and virt-manager
   fi
