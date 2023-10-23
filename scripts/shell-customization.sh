@@ -53,7 +53,6 @@ function customiseFish {
 	cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp dotfiles/config.fish ~/.config/fish/
 	chsh -s /usr/bin/fish # setting user shell to fish
-	sudo chsh -s /usr/bin/fish # setting root shell to fish
 }
 
 # Shell choice
