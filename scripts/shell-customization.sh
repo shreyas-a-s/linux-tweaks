@@ -12,7 +12,7 @@ function setupXDGUserDirs {
 }
 # Function to customise bash shell
 function customiseBash {
-    sudo apt-get -y install bash-completion git make command-not-found
+    sudo apt-get -y install bash-completion make
 
 	# XDG directory for bash files
 	mkdir -p ~/.config/bash
@@ -80,7 +80,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
 mkdir -p ~/.config/lscolors
-sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf
+sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git
 lsdInstall
 if [ "$shell_choice" = 'bash' ]; then
 	customiseBash
