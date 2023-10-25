@@ -146,7 +146,7 @@ end
 
 # Cuter, cooler command-not-found-handler
 function __fish_command_not_found_handler --on-event fish_command_not_found
-     echo "sorry, brother. I don't know any ["$argv[1]"]."
+    command-not-found "$argv[1]"
 end
 
 # DT's Shell Color Scripts
