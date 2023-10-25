@@ -119,7 +119,7 @@ function extract
 end
 
 # Make a directory (and parents if necessary) & move to that directory
-function mkdirg
+function mkdircd
     mkdir -pv "$argv"
     cd "$argv"
 end
@@ -137,4 +137,8 @@ end
 # Cuter, cooler command-not-found-handler
 function __fish_command_not_found_handler --on-event fish_command_not_found
      echo "sorry, brother. I don't know any ["$argv[1]"]."
+end
+
+if test -f /usr/local/bin/colorscript;
+    bash colorscript --random;
 end
