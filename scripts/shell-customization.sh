@@ -34,15 +34,15 @@ function customiseBash {
 	fi
 
 	# Adding some spash of colors to the good old ls command
-	cp dotfiles/lscolors.sh ~/.config/lscolors/
+	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 }
 
 # Function to customise fish shell
 function customiseFish {
     sudo apt-get -y install fish python-is-python3
 	mkdir -p ~/.config/fish
-	cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
-	cp dotfiles/config.fish ~/.config/fish/
+	cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
+	cp ../dotfiles/config.fish ~/.config/fish/
 }
 
 # Shell choice
