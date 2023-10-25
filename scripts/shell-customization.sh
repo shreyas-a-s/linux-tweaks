@@ -47,16 +47,21 @@ function customiseFish {
 	mkdir -p ~/.config/fish
 	cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp dotfiles/config.fish ~/.config/fish/
-	chsh -s /usr/bin/fish # setting user shell to fish
 }
 
 # Shell choice
 function shellChoice {
-	read -r -p "Which shell you prefer? (bash/fish) : " shell_choice
-	if [ "$shell_choice" != 'bash' ] && [ "$shell_choice" != 'fish' ]; then
-		echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
-    	shellChoice
-  	fi
+	echo "Which shell you prefer to customise?"
+	echo "[1] Bash only"
+	echo "[2] Fish only"
+	echo "[3] Both but set Bash as Interactive Shell"
+	echo "[4] Both but set Fish as Interactive Shell"
+	echo "[5] None"
+	read -r -p "Choose an option (1/2/3/4/5) : " shell_choice
+	if ! [[ "$shell_choice" =~ ^[1-5]$ ]]; then
+		echo -e "Invalid Choice..!!!\n"
+		shellChoice
+	fi
 }
 
 # lsd, the nexy-gen ls command
@@ -82,11 +87,20 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 mkdir -p ~/.config/lscolors
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git
 lsdInstall
-if [ "$shell_choice" = 'bash' ]; then
-	customiseBash
-elif [ "$shell_choice" = 'fish' ]; then
-	customiseFish
-fi
+case $shell_choice in
+    1)
+        customiseBash && chsh -s /usr/bin/bash
+        ;;
+    2)
+        customiseFish && chsh -s /usr/bin/fish
+        ;;
+    3)
+        customiseFish; customiseBash && chsh -s /usr/bin/bash
+        ;;
+    4)
+        customiseBash; customiseFish && chsh -s /usr/bin/fish
+        ;;
+esac
 setupXDGUserDirs
 
 # Shell color scripts
