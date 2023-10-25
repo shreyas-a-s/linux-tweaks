@@ -92,3 +92,6 @@ elif [ "$shell_choice" = 'fish' ]; then
 	customiseFish
 fi
 setupXDGUserDirs
+
+# Add password feedback (asterisks) for sudo
+echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
