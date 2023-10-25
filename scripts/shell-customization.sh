@@ -33,6 +33,9 @@ function customiseBash {
 		sudo mv ~/.bash_logout /etc/bash.bash_logout
 	fi
 
+	# Adding some spash of colors to the good old ls command
+	cp dotfiles/lscolors.sh ~/.config/lscolors/
+
 	# Update database of command-not-found
 	sudo update-command-not-found
 	sudo apt update
@@ -42,7 +45,6 @@ function customiseBash {
 function customiseFish {
     sudo apt-get -y install fish python-is-python3
 	mkdir -p ~/.config/fish
-	mkdir -p ~/.config/lscolors
 	cp dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp dotfiles/config.fish ~/.config/fish/
 	chsh -s /usr/bin/fish # setting user shell to fish
@@ -77,6 +79,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
+mkdir -p ~/.config/lscolors
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf
 lsdInstall
 if [ "$shell_choice" = 'bash' ]; then
