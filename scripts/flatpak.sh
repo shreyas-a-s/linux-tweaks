@@ -5,7 +5,9 @@ sudo apt-get -y install flatpak
 if [ "$DESKTOP_SESSION" == "gnome" ]; then
 	sudo apt-get -y install gnome-software-plugin-flatpak
 fi
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+while ! flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo; do
+    sleep 1
+done
 
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
