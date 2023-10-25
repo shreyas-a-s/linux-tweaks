@@ -35,10 +35,6 @@ function customiseBash {
 
 	# Adding some spash of colors to the good old ls command
 	cp dotfiles/lscolors.sh ~/.config/lscolors/
-
-	# Update database of command-not-found
-	sudo update-command-not-found
-	sudo apt update
 }
 
 # Function to customise fish shell
@@ -121,3 +117,7 @@ if [ -f /usr/bin/micro ]; then
 else
 	sudo update-alternatives --set editor /usr/bin/nano
 fi
+
+# Update database of command-not-found
+sudo update-command-not-found
+sudo apt update
