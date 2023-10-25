@@ -75,7 +75,7 @@ alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Searc
 # Some extra aliases
 if test -f /usr/bin/nala;
     alias apt='nala';
-done
+end
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
