@@ -23,7 +23,7 @@ end
 ###############################################################################
 
 # "Useless" cat -> "Useless" batcat
-alias cat='batcat'
+alias cat='batcat --style=plain'
 
 # ls
 alias la='lsd -A --icon never'

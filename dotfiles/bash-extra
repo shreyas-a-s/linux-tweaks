@@ -21,7 +21,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias rm='trash -v'
-alias cat='batcat'
+alias cat='batcat --style=plain'
 if test -f "/usr/bin/lsd"; then
     alias la='lsd -A --icon never'
     alias ls='lsd --icon never'
