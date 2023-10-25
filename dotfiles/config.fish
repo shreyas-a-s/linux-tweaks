@@ -76,10 +76,6 @@ alias history='history -R | cat -n'
 alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Search for the process to kill:" -sb "#1D7C3A" -sf "#FFFFFF" | awk \'{print $2}\' | xargs pkill -f'
 
 # Some extra aliases
-if test -f /usr/bin/nala;
-    alias apt='nala';
-end
-alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
 alias ping='ping -c 1 example.com'
@@ -136,11 +132,13 @@ function mkdircd
     cd "$argv"
 end
 
-# Replacement for Bash 'sudo !!' command to run last command using sudo
+# Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
 function sudo
     if test "$argv" = !!
         echo sudo $history[1]
         eval command sudo $history[1]
+    else if test "$argv[1]" = apt -a -f /usr/bin/nala
+        command sudo nala (echo (echo $argv | cut -d " " -f 2-))
     else
         command sudo $argv
     end
