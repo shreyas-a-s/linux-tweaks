@@ -67,6 +67,6 @@ export LESSHISTFILE=-
 export HISTFILE=$HOME/.config/bash/history
 
 # Set colors for ls command
-if test -f "~/.config/lscolors/lscolors.sh"; then
+if test -f "$HOME/.config/lscolors/lscolors.sh"; then
     source ~/.config/lscolors/lscolors.sh
 fi
