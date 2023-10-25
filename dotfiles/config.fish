@@ -72,6 +72,15 @@ alias history='history -R | cat -n'
 # Kill a process after searching using dmenu
 alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Search for the process to kill:" -sb "#1D7C3A" -sf "#FFFFFF" | awk \'{print $2}\' | xargs pkill -f'
 
+# Some extra aliases
+if test -f /usr/bin/nala;
+    alias apt='nala';
+done
+alias sudo='sudo '
+alias grep='grep --color=auto'
+alias shellcheck='shellcheck -x'
+alias ping='ping -c 1 example.com'
+
 ###############################################################################
 #################### --<<<-( User Defined Functions )->>>-- ###################
 ###############################################################################
@@ -139,6 +148,19 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
      echo "sorry, brother. I don't know any ["$argv[1]"]."
 end
 
+# DT's Shell Color Scripts
 if test -f /usr/local/bin/colorscript;
     bash colorscript --random;
 end
+
+# Function to use ix.io (the command-line pastebin)
+function ix
+    curl -F "f:1=@$1" ix.io
+end
+
+# Variables
+set DATE $(date -I)
+
+# Colored Man Pages
+set MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER
