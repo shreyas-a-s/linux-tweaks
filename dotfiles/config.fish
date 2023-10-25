@@ -162,5 +162,5 @@ end
 set DATE $(date -I)
 
 # Colored Man Pages
-set MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+set MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 export MANPAGER
