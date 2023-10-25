@@ -22,18 +22,11 @@ function customiseBash {
 	echo -e "\n# Bash extra customisations\n. ~/.config/bash/extra" >> ~/.config/bash/rc
 	echo -e "\nif [ -f ~/.config/bash/rc ]; then\n\t. ~/.config/bash/rc\nfi" | sudo tee -a /etc/bash.bashrc > /dev/null
 
-	# Shell color scripts
-    (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
+	# Neofetch for root shell
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 
 	# Initialise autojump
 	. /usr/share/autojump/autojump.sh
-
-	# Disable creation of .sudo_as_admin_successful
-	if [ -f ~/.sudo_as_admin_successful ]; then
-		rm ~/.sudo_as_admin_successful
-	fi
-	echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 
 	# Move .bash_logout from home folder to /etc
 	if [ -f ~/.bash_logout ]; then
@@ -92,6 +85,15 @@ elif [ "$shell_choice" = 'fish' ]; then
 	customiseFish
 fi
 setupXDGUserDirs
+
+# Shell color scripts
+(cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
+
+# Disable creation of .sudo_as_admin_successful
+if [ -f ~/.sudo_as_admin_successful ]; then
+	rm ~/.sudo_as_admin_successful
+fi
+echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
