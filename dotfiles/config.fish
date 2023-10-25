@@ -138,7 +138,7 @@ function sudo
         echo sudo $history[1]
         eval command sudo $history[1]
     else if test "$argv[1]" = apt -a -f /usr/bin/nala
-        command sudo nala (echo (echo $argv | cut -d " " -f 2-))
+        set argv[1] nala && command sudo $argv
     else
         command sudo $argv
     end
