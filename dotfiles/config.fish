@@ -155,7 +155,7 @@ end
 
 # Function to use ix.io (the command-line pastebin)
 function ix
-    curl -F "f:1=@$1" ix.io
+    curl -F "f:1=@$argv[1]" ix.io
 end
 
 # Variables
