@@ -8,7 +8,7 @@ set -U fish_greeting
 ################## --<<<-( Colors for the ls command )->>>-- ##################
 ###############################################################################
 
-if test -f source ~/.config/lscolors/lscolors.csh;
+if test -f ~/.config/lscolors/lscolors.csh;
     source ~/.config/lscolors/lscolors.csh;
 end
 
