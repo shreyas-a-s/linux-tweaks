@@ -95,3 +95,10 @@ setupXDGUserDirs
 
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
+
+# Set default text editor
+if [ -f /usr/bin/micro ]; then
+	sudo update-alternatives --set editor /usr/bin/micro
+else
+	sudo update-alternatives --set editor /usr/bin/nano
+fi
