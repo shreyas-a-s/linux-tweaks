@@ -15,7 +15,7 @@ function setupXDGUserDirs {
 # Function to customise bash shell
 function customiseBash {
 
-    sudo apt-get -y install bash-completion make
+    sudo apt-get -y install bash-completion make gawk
 
 	# Create necessary directories
 	mkdir -p ~/.config/lscolors
