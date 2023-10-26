@@ -12,7 +12,7 @@ function setupXDGUserDirs {
 }
 # Function to customise bash shell
 function customiseBash {
-	
+
     sudo apt-get -y install bash-completion make
 
 	# Neofetch for root shell
@@ -23,18 +23,22 @@ function customiseBash {
 
 	# Adding some spash of colors to the good old ls command
 	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
+
 }
 
 # Function to customise fish shell
 function customiseFish {
+
     sudo apt-get -y install fish python-is-python3
 	mkdir -p ~/.config/fish
 	cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp ../dotfiles/config.fish ~/.config/fish/
+
 }
 
 # Shell choice
 function shellChoice {
+
 	echo "Which shell you prefer to customise?"
 	echo "[1] Bash only"
 	echo "[2] Fish only"
@@ -46,10 +50,12 @@ function shellChoice {
 		echo -e "Invalid Choice..!!!\n"
 		shellChoice
 	fi
+
 }
 
 # lsd, the nexy-gen ls command
 function lsdInstall {
+
 	if [ "$debianversion" -lt 12 ]; then
 		wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
 		sudo dpkg -i lsd_0.23.1_amd64.deb
@@ -57,6 +63,7 @@ function lsdInstall {
 	else
 		sudo apt-get -y install lsd
 	fi
+
 }
 
 # Check if variable is set
@@ -73,17 +80,13 @@ sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli w
 lsdInstall
 case $shell_choice in
     1)
-        customiseBash && chsh -s /usr/bin/bash
-        ;;
+        customiseBash && chsh -s /usr/bin/bash;;
     2)
-        customiseFish && chsh -s /usr/bin/fish
-        ;;
+        customiseFish && chsh -s /usr/bin/fish;;
     3)
-        customiseFish; customiseBash && chsh -s /usr/bin/bash
-        ;;
+        customiseFish; customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
     4)
-        customiseBash; customiseFish && chsh -s /usr/bin/fish
-        ;;
+        customiseBash; customiseFish && while ! chsh -s /usr/bin/fish; do :; done;;
 esac
 setupXDGUserDirs
 
