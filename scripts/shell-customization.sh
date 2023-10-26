@@ -28,11 +28,6 @@ function customiseBash {
 	# Initialise autojump
 	. /usr/share/autojump/autojump.sh
 
-	# Move .bash_logout from home folder to /etc
-	if [ -f ~/.bash_logout ]; then
-		sudo mv ~/.bash_logout /etc/bash.bash_logout
-	fi
-
 	# Adding some spash of colors to the good old ls command
 	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 }
