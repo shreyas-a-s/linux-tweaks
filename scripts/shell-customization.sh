@@ -36,6 +36,11 @@ function customiseBash {
 	echo -e "\n\n# Bash Extra\n. ~/.bash_extra" ~/.bashrc
 	echo -e "\n\n# Bash Functions\n. ~/.bash_functions" ~/.bashrc
 	
+	# Bash Line Editor by @akinomyoga on github
+	git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+	make -C ble.sh install PREFIX=~/.local
+	echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bash_extra
+
 }
 
 # Function to customise fish shell
