@@ -37,7 +37,15 @@ fi
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
-alias ping='ping -c 1 example.com'
+
+# My Ping ;)
+function ping {
+	if [ -z "$1" ]; then
+		command ping -c 1 example.org
+	else
+		command ping "$@"
+	fi
+}
 
 # Autojump
 if test -f "/usr/share/autojump/autojump.sh"; then
