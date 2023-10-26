@@ -103,10 +103,10 @@ setupXDGUserDirs
 (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
 
 # Disable creation of .sudo_as_admin_successful
+echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 if [ -f ~/.sudo_as_admin_successful ]; then
 	rm ~/.sudo_as_admin_successful
 fi
-echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
