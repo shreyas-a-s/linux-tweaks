@@ -78,7 +78,6 @@ alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Searc
 # Some extra aliases
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
-alias ping='ping -c 1 example.com'
 
 ###############################################################################
 #################### --<<<-( User Defined Functions )->>>-- ###################
@@ -160,3 +159,12 @@ set DATE $(date -I)
 # Colored Man Pages
 set MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 export MANPAGER
+
+# My Ping ;)
+function ping
+	if test -z "$argv[1]"
+		command ping -c 1 example.org
+	else
+		command ping $argv
+	end
+end
