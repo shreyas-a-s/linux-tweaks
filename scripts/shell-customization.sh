@@ -12,15 +12,8 @@ function setupXDGUserDirs {
 }
 # Function to customise bash shell
 function customiseBash {
+	
     sudo apt-get -y install bash-completion make
-
-	# XDG directory for bash files
-	mkdir -p ~/.config/bash
-    cp ../dotfiles/bash-extra ~/.config/bash/extra
-	mv ~/.bashrc ~/.config/bash/rc
-	mv ~/.bash_history ~/.config/bash/history
-	echo -e "\n# Bash extra customisations\n. ~/.config/bash/extra" >> ~/.config/bash/rc
-	echo -e "\nif [ -f ~/.config/bash/rc ]; then\n\t. ~/.config/bash/rc\nfi" | sudo tee -a /etc/bash.bashrc > /dev/null
 
 	# Neofetch for root shell
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
