@@ -4,6 +4,23 @@
 
 set -U fish_greeting
 
+
+###############################################################################
+################### --<<<-( Variables & Other stuff )->>>-- ###################
+###############################################################################
+
+# Variables
+set DATE $(date -I)
+
+# Colored Man Pages
+set MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER
+
+# DT's Shell Color Scripts
+if test -f /usr/local/bin/colorscript;
+    bash colorscript --random;
+end
+
 ###############################################################################
 ################## --<<<-( Colors for the ls command )->>>-- ##################
 ###############################################################################
@@ -11,7 +28,6 @@ set -U fish_greeting
 if test -f ~/.config/lscolors/lscolors.csh;
     source ~/.config/lscolors/lscolors.csh;
 end
-
 
 ###############################################################################
 ####################### --<<<-( Autojump Config )->>>-- #######################
@@ -143,22 +159,10 @@ function sudo
     end
 end
 
-# DT's Shell Color Scripts
-if test -f /usr/local/bin/colorscript;
-    bash colorscript --random;
-end
-
 # Function to use ix.io (the command-line pastebin)
 function ix
     curl -F "f:1=@$argv[1]" ix.io
 end
-
-# Variables
-set DATE $(date -I)
-
-# Colored Man Pages
-set MANPAGER "sh -c 'col -bx | batcat -l man -p'"
-export MANPAGER
 
 # My Ping ;)
 function ping
