@@ -6,8 +6,8 @@ debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 #
 function setupXDGUserDirs {
 
-	rm -r ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
-	mkdir ~/.config ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/templates ~/videos ~/public
+	rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
+	mkdir -p ~/.config ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/templates ~/videos ~/public
 	cp ../dotfiles/user-dirs.dirs ~/.config/
 	xdg-user-dirs-update
 
