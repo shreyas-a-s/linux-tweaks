@@ -20,3 +20,4 @@ fi
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
+alias btop='btop --utf-force'

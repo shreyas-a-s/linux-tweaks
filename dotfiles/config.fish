@@ -94,6 +94,7 @@ alias dkill='ps aux | awk \'NR!=1 {print "Process: "$11}\'  | dmenu -i -p "Searc
 # Some extra aliases
 alias grep='grep --color=auto'
 alias shellcheck='shellcheck -x'
+alias btop='btop --utf-force'
 
 ###############################################################################
 #################### --<<<-( User Defined Functions )->>>-- ###################
