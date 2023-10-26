@@ -5,15 +5,20 @@ debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 
 #
 function setupXDGUserDirs {
+
 	rm -r ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 	mkdir ~/.config ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/templates ~/videos ~/public
 	cp ../dotfiles/user-dirs.dirs ~/.config/
 	xdg-user-dirs-update
+
 }
 # Function to customise bash shell
 function customiseBash {
 
     sudo apt-get -y install bash-completion make
+
+	# Create necessary directories
+	mkdir -p ~/.config/lscolors
 
 	# Neofetch for root shell
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
@@ -21,16 +26,28 @@ function customiseBash {
 	# Initialise autojump
 	. /usr/share/autojump/autojump.sh
 
-	# Adding some spash of colors to the good old ls command
+	# Copy necessary files
+	cp ../dotfiles/bash_aliases ~/.bash_aliases
+	cp ../dotfiles/bash_extra ~/.bash_extra
+	cp ../dotfiles/bash_functions ~/.bash_functions
 	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
+	# Source extra files in .bashrc
+	echo -e "\n\n# Bash Extra\n. ~/.bash_extra" ~/.bashrc
+	echo -e "\n\n# Bash Functions\n. ~/.bash_functions" ~/.bashrc
+	
 }
 
 # Function to customise fish shell
 function customiseFish {
 
     sudo apt-get -y install fish python-is-python3
+
+	# Create necessary directories
 	mkdir -p ~/.config/fish
+	mkdir -p ~/.config/lscolors
+
+	# Copy necessary files
 	cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp ../dotfiles/config.fish ~/.config/fish/
 
@@ -75,7 +92,6 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
-mkdir -p ~/.config/lscolors
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git
 lsdInstall
 case $shell_choice in

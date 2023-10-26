@@ -8,56 +8,12 @@ bind "set completion-ignore-case on"
 # Show auto-completion list automatically, without double tab
 bind "set show-all-if-ambiguous On"
 
-# Create and go to the directory
-function mkdirg {
-	mkdir -p "$1"
-	cd "$1"
-}
-
-# Aliases put by user
-alias cd..='cd ..'
-alias cd..='cd ..'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias mkdir='mkdir -pv'
-alias rm='trash -v'
-alias cat='batcat --style=plain'
-if test -f "/usr/bin/lsd"; then
-    alias la='lsd -A --icon never'
-    alias ls='lsd --icon never'
-    alias ll='lsd -Al --icon never --date "+%-d/%-m %H:%M" --size short --blocks permission,user,group,size,date,name'
-else
-    alias ls='ls --color=auto'
-    alias la='ls -A'
-    alias ll='ls -alh'
-fi
-if test -f "/usr/bin/nala"; then
-    alias apt='nala'
-fi
-alias sudo='sudo '
-alias grep='grep --color=auto'
-alias shellcheck='shellcheck -x'
-
-# My Ping ;)
-function ping {
-	if [ -z "$1" ]; then
-		command ping -c 1 example.org
-	else
-		command ping "$@"
-	fi
-}
-
 # Autojump
 if test -f "/usr/share/autojump/autojump.sh"; then
     . /usr/share/autojump/autojump.sh
 fi
 
-# Function to use ix.io (the command-line pastebin)
-function ix {
-    curl -F "f:1=@$1" ix.io
-}
-
-# Variables
+# Set date variable
 DATE=$(date -I)
 
 # Colored Man Pages
