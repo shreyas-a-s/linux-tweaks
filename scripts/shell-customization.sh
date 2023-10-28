@@ -101,9 +101,9 @@ sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli w
 lsdInstall
 case $shell_choice in
     1)
-        customiseBash && chsh -s /usr/bin/bash;;
+        customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
     2)
-        customiseFish && chsh -s /usr/bin/fish;;
+        customiseFish && while ! chsh -s /usr/bin/fish; do :; done;;
     3)
         customiseFish; customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
     4)
