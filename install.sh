@@ -71,9 +71,9 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 
 # Don't install kdeconnect & keepassxc on GNOME
 if dpkg-query -l | grep gnome &> /dev/null; then
-	sudo apt-get -y install kdeconnect keepassxc
+	sudo apt-get -y install secrets
 else
-  sudo apt-get -y install secrets
+  sudo apt-get -y install kdeconnect keepassxc
 fi
 
 # My custom scripts
