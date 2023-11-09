@@ -67,7 +67,7 @@ fi
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get -y install ufw man git gparted keepassxc vlc shellcheck curl wget python-is-python3 obs-studio
+sudo apt-get -y install ufw man git gparted keepassxc vlc shellcheck curl wget python-is-python3 obs-studio kdeconnect
 
 # My custom scripts
 customScripts
