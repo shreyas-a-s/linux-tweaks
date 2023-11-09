@@ -3,8 +3,12 @@ alias cd..='cd ..'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
-alias rm='trash'
-alias cat='batcat --style=plain'
+if test -f "/usr/bin/trash"; then
+    alias rm='trash'
+fi
+if test -f "/usr/bin/batcat"; then
+    alias cat='batcat --style=plain'
+fi
 if test -f "/usr/bin/lsd"; then
     alias la='lsd -A --icon never'
     alias ls='lsd --icon never'
