@@ -67,11 +67,11 @@ fi
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get -y install ufw man git gparted keepassxc vlc shellcheck curl wget python-is-python3 obs-studio
+sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio
 
 # Don't install kdeconnect on GNOME
 if [ "$DESKTOP_SESSION" != "gnome" ]; then
-	sudo apt-get -y install kdeconnect
+	sudo apt-get -y install kdeconnect keepassxc
 fi
 
 # My custom scripts
