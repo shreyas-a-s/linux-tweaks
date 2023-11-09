@@ -69,9 +69,11 @@ echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio
 
-# Don't install kdeconnect on GNOME
+# Don't install kdeconnect & keepassxc on GNOME
 if [ "$DESKTOP_SESSION" != "gnome" ]; then
 	sudo apt-get -y install kdeconnect keepassxc
+else
+  sudo apt-get -y install secrets
 fi
 
 # My custom scripts
