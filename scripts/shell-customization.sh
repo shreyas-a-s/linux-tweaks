@@ -3,7 +3,7 @@
 # Variables
 debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 
-#
+# Function to setup XDG user dirs
 function setupXDGUserDirs {
 
 	rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
