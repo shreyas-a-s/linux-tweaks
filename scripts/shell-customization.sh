@@ -134,7 +134,7 @@ else
 fi
 
 # Copy config file for micro
-cp ../dotfiles/config.json ~/.config/micro/
+cp ../dotfiles/settings.json ~/.config/micro/
 
 # Update database of command-not-found
 sudo update-command-not-found
