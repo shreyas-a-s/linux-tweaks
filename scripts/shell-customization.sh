@@ -6,12 +6,21 @@ debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
 # Function to setup XDG user dirs
 function setupXDGUserDirs {
 
-	rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
-	mkdir -p ~/.config ~/desktop ~/documents ~/downloads ~/music ~/pictures ~/templates ~/videos ~/public
+	for dirname in "$@"; do
+	local newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
+
+	if [ -d "$dirname" ]; then
+		mv "$dirname" "$newdirname"
+	else
+		mkdir "$newdirname"
+	fi
+	done
+
 	cp ../dotfiles/user-dirs.dirs ~/.config/
 	xdg-user-dirs-update
 
 }
+
 # Function to customise bash shell
 function customiseBash {
 
@@ -109,7 +118,7 @@ case $shell_choice in
     4)
         customiseBash; customiseFish && while ! chsh -s /usr/bin/fish; do :; done;;
 esac
-setupXDGUserDirs
+setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
 # Shell color scripts
 (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
