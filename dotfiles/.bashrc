@@ -112,13 +112,13 @@ IFS=$SAVEIFS
 
 # Changing "ls" to "exa"
 if test -f "/usr/bin/exa"; then
-    alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
-    alias ll='exa -al --color=always --group-directories-first' # my preferred listing
-    alias lt='exa -aT --color=always --group-directories-first' # tree listing
+  alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
+  alias ll='exa -al --color=always --group-directories-first' # my preferred listing
+  alias lt='exa -aT --color=always --group-directories-first' # tree listing
 else
-    alias ls='ls --color=auto'
-    alias la='ls -A --color=auto'
-    alias ll='ls -alh --color=auto'
+  alias ls='ls --color=auto'
+  alias la='ls -A --color=auto'
+  alias ll='ls -alh --color=auto'
 fi
 
 # Colorize grep output (good for log files)
@@ -137,12 +137,12 @@ alias mkdir='mkdir -pv'
 
 # Enable command-line trash
 if test -f "/usr/bin/trash"; then
-    alias rm='trash'
+  alias rm='trash'
 fi
 
 # Colorize cat command
 if test -f "/usr/bin/batcat"; then
-    alias cat='batcat --style=plain'
+  alias cat='batcat --style=plain'
 fi
 
 # Make aliases work even if preceded by sudo
@@ -150,7 +150,7 @@ alias sudo='sudo '
 
 # Change apt command to nala
 if test -f "/usr/bin/nala"; then
-    alias apt='nala'
+  alias apt='nala'
 fi
 
 # Allows shellcheck to follow any file the script may source
@@ -172,8 +172,6 @@ fi
 
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
-	. /usr/share/autojump/autojump.sh
-elif [ -f "/usr/share/autojump/autojump.bash" ]; then
 	. /usr/share/autojump/autojump.bash
 else
 	echo "can't found the autojump script"
@@ -181,7 +179,7 @@ fi
 
 # Set colors for ls command
 if test -f "$HOME/.config/lscolors/lscolors.sh"; then
-    source ~/.config/lscolors/lscolors.sh
+  source ~/.config/lscolors/lscolors.sh
 fi
 
 ### FUNCTIONS ###
@@ -203,5 +201,5 @@ function ping {
 
 # Function to use ix.io (the command-line pastebin)
 function ix {
-    curl -F "f:1=@$1" ix.io
+  curl -F "f:1=@$1" ix.io
 }
