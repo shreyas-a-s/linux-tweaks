@@ -11,13 +11,6 @@ fi
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 
-# Enable bash programmable completion features in interactive shells
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-fi
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -94,18 +87,53 @@ IFS=$SAVEIFS
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -al --color=always --group-directories-first' # my preferred listing
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+if test -f "/usr/bin/exa"; then
+    alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
+    alias ll='exa -al --color=always --group-directories-first' # my preferred listing
+    alias lt='exa -aT --color=always --group-directories-first' # tree listing
+else
+    alias ls='ls --color=auto'
+    alias la='ls -A --color=auto'
+    alias ll='ls -alh --color=auto'
+fi
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# adding flags
+# Adding flags
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
+
+# Add verbose output to cp, mv & mkdir
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+
+# Enable command-line trash
+if test -f "/usr/bin/trash"; then
+  alias rm='trash'
+fi
+
+# Colorize cat command
+if test -f "/usr/bin/batcat"; then
+  alias cat='batcat --style=plain'
+fi
+
+# Make aliases work even if preceded by sudo
+alias sudo='sudo '
+
+# Change apt command to nala
+if test -f "/usr/bin/nala"; then
+  alias apt='nala'
+fi
+
+# Allows shellcheck to follow any file the script may source
+alias shellcheck='shellcheck -x'
+
+# Force start btop even if no UTF-8 locale was detected
+alias btop='btop --utf-force'
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
@@ -113,3 +141,37 @@ colorscript random
 
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init zsh)"
+
+### AUTOJUMP
+if [ -f "/usr/share/autojump/autojump.sh" ]; then
+	. /usr/share/autojump/autojump.bash
+else
+	echo "can't found the autojump script"
+fi
+
+# Set colors for ls command
+if test -f "$HOME/.config/lscolors/lscolors.sh"; then
+  source ~/.config/lscolors/lscolors.sh
+fi
+
+### FUNCTIONS ###
+
+# Create and go to the directory
+function mkdircd {
+	mkdir -p "$1"
+	cd "$1"
+}
+
+# My Ping ;)
+function ping {
+	if [ -z "$1" ]; then
+		command ping -c 1 example.org
+	else
+		command ping "$@"
+	fi
+}
+
+# Function to use ix.io (the command-line pastebin)
+function ix {
+  curl -F "f:1=@$1" ix.io
+}
