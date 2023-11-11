@@ -99,7 +99,7 @@ IFS=$SAVEIFS
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-if test -f "/usr/bin/exa"; then
+if [ -f "/usr/bin/exa" ]; then
   alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
   alias ll='exa -al --color=always --group-directories-first' # my preferred listing
   alias lt='exa -aT --color=always --group-directories-first' # tree listing
@@ -124,12 +124,12 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
 # Enable command-line trash
-if test -f "/usr/bin/trash"; then
+if [ -f "/usr/bin/trash" ]; then
   alias rm='trash'
 fi
 
 # Colorize cat command
-if test -f "/usr/bin/batcat"; then
+if [ -f "/usr/bin/batcat" ]; then
   alias cat='batcat --style=plain'
 fi
 
@@ -137,7 +137,7 @@ fi
 alias sudo='sudo '
 
 # Change apt command to nala
-if test -f "/usr/bin/nala"; then
+if [ -f "/usr/bin/nala" ]; then
   alias apt='nala'
 fi
 
@@ -159,7 +159,7 @@ else
 fi
 
 # Set colors for ls command
-if test -f "$HOME/.config/lscolors/lscolors.sh"; then
+if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
   source ~/.config/lscolors/lscolors.sh
 fi
 

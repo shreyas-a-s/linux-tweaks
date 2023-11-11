@@ -3,10 +3,10 @@ set -U fish_greeting
 
 ### EXPORT ###
 setenv TERM "xterm-256color" # getting proper colors
-if test -f /usr/bin/micro
+if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
 end
-if test -f /usr/bin/codium
+if [ -f /usr/bin/codium ]
   setenv VISUAL "codium"
 end
 
@@ -14,19 +14,19 @@ end
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
 ### PATH ###
-if test -d "$HOME/.bin"
+if [ -d "$HOME/.bin" ]
   then PATH="$HOME/.bin:$PATH"
 end
 
-if test -d "$HOME/.local/bin"
+if [ -d "$HOME/.local/bin" ]
   then PATH="$HOME/.local/bin:$PATH"
 end
 
-if test -d "$HOME/Applications"
+if [ -d "$HOME/Applications" ]
   then PATH="$HOME/Applications:$PATH"
 end
 
-if test -d "/var/lib/flatpak/exports/bin/"
+if [ -d "/var/lib/flatpak/exports/bin/" ]
   then PATH="/var/lib/flatpak/exports/bin/:$PATH"
 end  
 
@@ -37,7 +37,7 @@ end
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-if test -f "/usr/bin/exa"
+if [ -f "/usr/bin/exa" ]
   alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
   alias ll='exa -al --color=always --group-directories-first' # my preferred listing
   alias lt='exa -aT --color=always --group-directories-first' # tree listing
@@ -62,12 +62,12 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
 # Enable command-line trash
-if test -f "/usr/bin/trash"
+if [ -f "/usr/bin/trash" ]
   alias rm='trash'
 end
 
 # Colorize cat command
-if test -f "/usr/bin/batcat"
+if [ -f "/usr/bin/batcat" ]
   alias cat='batcat --style=plain'
 end
 
@@ -82,19 +82,19 @@ alias history='history -R | cat -n'
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
-if test -f /usr/local/bin/colorscript
+if [ -f /usr/local/bin/colorscript ]
   bash colorscript random
 end
 
 ### AUTOJUMP ###
-if test -f /usr/share/autojump/autojump.fish
+if [ -f /usr/share/autojump/autojump.fish ]
   . /usr/share/autojump/autojump.fish
 else
   echo "Can't find the autojump script"
 end
 
 # Set colors for ls command
-if test -f "$HOME/.config/lscolors/lscolors.csh"
+if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
   source ~/.config/lscolors/lscolors.csh
 end
 
@@ -150,10 +150,10 @@ end
 
 # Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
 function sudo
-  if test "$argv" = !!
+  if [ "$argv" = !! ]
 	echo sudo $history[1]
 	eval command sudo $history[1]
-  else if test "$argv[1]" = apt -a -f /usr/bin/nala
+  else if [ "$argv[1]" = apt ] -a [ -f /usr/bin/nala ]
 	set argv[1] nala && command sudo $argv
   else
 	command sudo $argv
@@ -162,7 +162,7 @@ end
 
 # My Ping ;)
 function ping
-  if test -z "$argv[1]"
+  if [ -z "$argv[1]" ]
 	command ping -c 1 example.org
   else
 	command ping $argv
