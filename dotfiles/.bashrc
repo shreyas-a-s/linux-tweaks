@@ -165,11 +165,6 @@ if [ -f /usr/local/bin/colorscript ]; then
   colorscript random
 fi
 
-### SETTING THE STARSHIP PROMPT ###
-if [ -f /usr/local/bin/starship ]; then
-  eval "$(starship init bash)"
-fi
-
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
 	. /usr/share/autojump/autojump.bash
@@ -203,3 +198,8 @@ function ping {
 function ix {
   curl -F "f:1=@$1" ix.io
 }
+
+### SETTING THE STARSHIP PROMPT ###
+if [ -f /usr/local/bin/starship ]; then
+  eval "$(starship init bash)"
+fi

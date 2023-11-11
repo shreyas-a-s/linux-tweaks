@@ -139,9 +139,6 @@ alias btop='btop --utf-force'
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
 colorscript random
 
-### SETTING THE STARSHIP PROMPT ###
-eval "$(starship init zsh)"
-
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
 	. /usr/share/autojump/autojump.zsh
@@ -175,3 +172,8 @@ function ping {
 function ix {
   curl -F "f:1=@$1" ix.io
 }
+
+### SETTING THE STARSHIP PROMPT ###
+if [ -f /usr/local/bin/starship ]; then
+  eval "$(starship init zsh)"
+fi
