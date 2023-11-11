@@ -144,7 +144,7 @@ eval "$(starship init zsh)"
 
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
-	. /usr/share/autojump/autojump.bash
+	. /usr/share/autojump/autojump.zsh
 else
 	echo "can't found the autojump script"
 fi
