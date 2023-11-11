@@ -147,7 +147,9 @@ alias btop='btop --utf-force'
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
-colorscript random
+if [ -f /usr/local/bin/colorscript ]; then
+  colorscript random
+fi
 
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
