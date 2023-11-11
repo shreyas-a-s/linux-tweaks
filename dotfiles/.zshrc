@@ -12,8 +12,8 @@ if [ -f /usr/bin/codium ]; then
 fi
 
 # HISTORY SETTINGS
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=2000
 HISTFILE=~/.shell_history
 
 ### SET MANPAGER
