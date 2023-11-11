@@ -15,23 +15,23 @@ setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
 ### PATH ###
 if [ -d "$HOME/.bin" ]
-  then PATH="$HOME/.bin:$PATH"
+  PATH="$HOME/.bin:$PATH"
 end
 
 if [ -d "$HOME/.local/bin" ]
-  then PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 end
 
 if [ -d "$HOME/Applications" ]
-  then PATH="$HOME/Applications:$PATH"
+  PATH="$HOME/Applications:$PATH"
 end
 
 if [ -d "/var/lib/flatpak/exports/bin/" ]
-  then PATH="/var/lib/flatpak/exports/bin/:$PATH"
+  PATH="/var/lib/flatpak/exports/bin/:$PATH"
 end  
 
 if [ -d "/usr/games/" ] ;
-  then PATH="/usr/games/:$PATH"
+  PATH="/usr/games/:$PATH"
 end
 
 ### ALIASES ###
