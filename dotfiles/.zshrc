@@ -12,6 +12,7 @@ fi
 # HISTORY SETTINGS
 HISTSIZE=2000
 SAVEHIST=2000
+HISTFILE=~/.zsh_history
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"

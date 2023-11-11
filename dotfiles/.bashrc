@@ -9,6 +9,7 @@ fi
 # HISTORY SETTINGS
 HISTSIZE=2000
 SAVEHIST=2000
+HISTFILE=~/.bash_history
 
 # Set MANPAGER
 if [ -f /usr/bin/batcat ]; then
