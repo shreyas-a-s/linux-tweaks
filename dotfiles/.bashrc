@@ -8,6 +8,11 @@ if [ -f /usr/bin/codium ]; then
   export VISUAL="codium"
 fi
 
+# HISTORY SETTINGS
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.shell_history
+
 # Set MANPAGER
 if [ -f /usr/bin/batcat ]; then
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
