@@ -74,19 +74,6 @@ function shellChoice {
 
 }
 
-# lsd, the nexy-gen ls command
-function lsdInstall {
-
-	if [ "$debianversion" -lt 12 ]; then
-		wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
-		sudo dpkg -i lsd_0.23.1_amd64.deb
-		rm lsd_0.23.1_amd64.deb
-	else
-		sudo apt-get -y install lsd
-	fi
-
-}
-
 # Check if variable is set
 if [[ -z ${shell_choice} ]]; then
 	shellChoice
@@ -96,8 +83,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
-sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop
-lsdInstall
+sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop exa
 case $shell_choice in
     1)
         customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
