@@ -151,7 +151,7 @@ colorscript random
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
 	. /usr/share/autojump/autojump.zsh
 else
-	echo "can't found the autojump script"
+	echo "Can't find the autojump script"
 fi
 
 # Set colors for ls command

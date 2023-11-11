@@ -86,7 +86,7 @@ end
 if test -f /usr/share/autojump/autojump.fish
   . /usr/share/autojump/autojump.fish
 else
-  echo "can't found the autojump script"
+  echo "Can't find the autojump script"
 end
 
 # Set colors for ls command
