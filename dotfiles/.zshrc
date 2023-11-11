@@ -96,13 +96,13 @@ IFS=$SAVEIFS
 
 # Changing "ls" to "exa"
 if test -f "/usr/bin/exa"; then
-    alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
-    alias ll='exa -al --color=always --group-directories-first' # my preferred listing
-    alias lt='exa -aT --color=always --group-directories-first' # tree listing
+  alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
+  alias ll='exa -al --color=always --group-directories-first' # my preferred listing
+  alias lt='exa -aT --color=always --group-directories-first' # tree listing
 else
-    alias ls='ls --color=auto'
-    alias la='ls -A --color=auto'
-    alias ll='ls -alh --color=auto'
+  alias ls='ls --color=auto'
+  alias la='ls -A --color=auto'
+  alias ll='ls -alh --color=auto'
 fi
 
 # Colorize grep output (good for log files)
