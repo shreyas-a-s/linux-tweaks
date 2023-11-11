@@ -10,9 +10,6 @@ if [ -f /usr/bin/codium ]
   setenv VISUAL "codium"
 end
 
-# HISTORY SETTINGS
-set -x fish_history "shell"
-
 #### SET MANPAGER ###
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
