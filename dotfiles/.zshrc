@@ -1,3 +1,6 @@
+### SETUP THE PROMPT
+setopt histignorealldups sharehistory
+
 ### EXPORT
 export TERM="xterm-256color" # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
@@ -181,4 +184,14 @@ function ix {
 ### SETTING THE STARSHIP PROMPT ###
 if [ -f /usr/local/bin/starship ]; then
   eval "$(starship init zsh)"
+fi
+
+### AUTOSUGGESTIONS ###
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+### SYNTAX-HIGHLIGHTING ###
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
