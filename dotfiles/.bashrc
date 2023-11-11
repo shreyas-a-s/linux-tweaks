@@ -156,7 +156,7 @@ fi
 alias sudo='sudo '
 
 # Change apt command to nala
-if [ -f "/usr/bin/nala ]"; then
+if [ -f "/usr/bin/nala" ]; then
   alias apt='nala'
 fi
 
