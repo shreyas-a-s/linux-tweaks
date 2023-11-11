@@ -32,24 +32,14 @@ function customiseBash {
 	# Neofetch for root shell
 	sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
 
-	# Initialise autojump
-	. /usr/share/autojump/autojump.sh
-
 	# Copy necessary files
-	cp ../dotfiles/bash_aliases ~/.bash_aliases
-	cp ../dotfiles/bash_extra ~/.bash_extra
-	cp ../dotfiles/bash_functions ~/.bash_functions
+	cp ../dotfiles/.bashrc ~/
 	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
-
-	# Source extra files in .bashrc
-	echo -e "\n\n# Bash Extra\n. ~/.bash_extra" >> ~/.bashrc
-	echo -e "\n\n# Bash Functions\n. ~/.bash_functions" >> ~/.bashrc
 	
 	# Bash Line Editor by @akinomyoga on github
 	git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 	make -C ble.sh install PREFIX=~/.local
 	echo -e "\n\n#Bash Line Editor by @akinomyoga on github\nsource ~/.local/share/blesh/ble.sh" >> ~/.bashrc
-
 }
 
 # Function to customise fish shell
