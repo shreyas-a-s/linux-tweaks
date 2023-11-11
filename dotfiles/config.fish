@@ -10,28 +10,31 @@ if [ -f /usr/bin/codium ]
   setenv VISUAL "codium"
 end
 
+# HISTORY SETTINGS
+set -x fish_history "shell"
+
 #### SET MANPAGER ###
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
 ### PATH ###
 if [ -d "$HOME/.bin" ]
-  PATH="$HOME/.bin:$PATH"
+  set -Ux PATH "$HOME/.bin:$PATH"
 end
 
 if [ -d "$HOME/.local/bin" ]
-  PATH="$HOME/.local/bin:$PATH"
+  set -Ux PATH "$HOME/.local/bin:$PATH"
 end
 
 if [ -d "$HOME/Applications" ]
-  PATH="$HOME/Applications:$PATH"
+  set -Ux PATH "$HOME/Applications:$PATH"
 end
 
 if [ -d "/var/lib/flatpak/exports/bin/" ]
-  PATH="/var/lib/flatpak/exports/bin/:$PATH"
+  set -Ux PATH "/var/lib/flatpak/exports/bin/:$PATH"
 end  
 
 if [ -d "/usr/games/" ] ;
-  PATH="/usr/games/:$PATH"
+  set -Ux PATH "/usr/games/:$PATH"
 end
 
 ### ALIASES ###

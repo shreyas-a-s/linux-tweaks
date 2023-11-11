@@ -11,7 +11,7 @@ fi
 # HISTORY SETTINGS
 HISTSIZE=2000
 SAVEHIST=2000
-HISTFILE=~/.shell_history
+HISTFILE=~/.local/share/fish/shell_history
 
 # Set MANPAGER
 if [ -f /usr/bin/batcat ]; then
