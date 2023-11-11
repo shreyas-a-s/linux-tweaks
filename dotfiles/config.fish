@@ -30,6 +30,10 @@ if test -d "/var/lib/flatpak/exports/bin/"
   then PATH="/var/lib/flatpak/exports/bin/:$PATH"
 end  
 
+if [ -d "/usr/games/" ] ;
+  then PATH="/usr/games/:$PATH"
+end
+
 ### ALIASES ###
 
 # Changing "ls" to "exa"
