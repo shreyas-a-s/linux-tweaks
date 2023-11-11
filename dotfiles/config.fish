@@ -5,9 +5,7 @@ set -U fish_greeting
 setenv TERM "xterm-256color" # getting proper colors
 if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
-end
-if [ -f /usr/bin/codium ]
-  setenv VISUAL "codium"
+  setenv VISUAL "micro"
 end
 
 #### SET MANPAGER ###

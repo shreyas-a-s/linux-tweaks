@@ -6,9 +6,7 @@ export TERM="xterm-256color" # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
-fi
-if [ -f /usr/bin/codium ]; then
-  export VISUAL="codium"
+  export VISUAL="micro"
 fi
 
 # HISTORY SETTINGS
