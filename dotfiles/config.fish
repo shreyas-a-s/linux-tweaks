@@ -151,7 +151,7 @@ function sudo
   if [ "$argv" = !! ]
 	echo sudo $history[1]
 	eval command sudo $history[1]
-  else if [ "$argv[1]" = apt ] -a [ -f /usr/bin/nala ]
+  else if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
 	set argv[1] nala && command sudo $argv
   else
 	command sudo $argv
