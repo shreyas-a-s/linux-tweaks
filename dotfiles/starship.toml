@@ -74,8 +74,7 @@ ahead = "⇡${count} 🏎💨"
 diverged = '⇕⇡${ahead_count}⇣${behind_count} 😵'
 behind = "⇣${count} 😰"
 untracked = "[${count}?](blue) 🤷" 
-staged = "[${count}+](green)" 
-up_to_date = '✓'
+staged = "[${count}+](green)"
 renamed = '👅'
 
 [git_state]
