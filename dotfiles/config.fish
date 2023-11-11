@@ -8,6 +8,10 @@ if [ -f /usr/bin/micro ]
   setenv VISUAL "micro"
 end
 
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
 #### SET MANPAGER ###
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
