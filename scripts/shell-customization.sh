@@ -89,7 +89,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
-sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop exa
+sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop exa
 
 case $shell_choice in
     1)
@@ -99,6 +99,10 @@ case $shell_choice in
     3)
         customiseZsh && while ! chsh -s /usr/bin/zsh; do :; done;;
 esac
+
+# Setup Starship
+curl -sS https://starship.rs/install.sh | sh
+cp ../dotfiles/starship.toml ~/.config/
 
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
