@@ -90,11 +90,6 @@ shellChoice() {
 
 }
 
-# Check if variable is set
-if [ -z "${shell_choice}" ]; then
-	shellChoice
-fi
-
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
