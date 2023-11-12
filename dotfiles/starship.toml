@@ -41,7 +41,7 @@ style = "bold red"
 symbol = "🅰  "
 
 [conda]
-symbol = " "
+symbol = "🅒 "
 
 [dart]
 format = 'via [🔰 $version](bold red) '
@@ -66,16 +66,15 @@ symbol = "🌱 "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
-stashed = "[${count}*](green) 📦" 
+stashed = "[${count}*](green)" 
 modified = "[${count}+](yellow)" 
-deleted =  "[${count}-](red) 🗑" 
-conflicted =  "[${count}~](red) 🏳" 
-ahead = "⇡${count} 🏎💨"
-diverged = '⇕⇡${ahead_count}⇣${behind_count} 😵'
-behind = "⇣${count} 😰"
-untracked = "[${count}?](blue) 🤷" 
+deleted =  "[${count}-](red)" 
+conflicted =  "[${count}~](red)" 
+ahead = "⇡${count}"
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = "⇣${count}"
+untracked = "[${count}?](blue)" 
 staged = "[${count}+](green)"
-renamed = '👅'
 
 [git_state]
 style =	"bold red"
