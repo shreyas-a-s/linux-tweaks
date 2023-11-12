@@ -90,6 +90,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
 sudo apt-get update && sudo apt-get -y install autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop exa
+
 case $shell_choice in
     1)
         customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
@@ -98,6 +99,7 @@ case $shell_choice in
     3)
         customiseZsh && while ! chsh -s /usr/bin/zsh; do :; done;;
 esac
+
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
 # Shell color scripts
