@@ -202,19 +202,8 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 ### COMMAND-NOT-FOUND ###
-if [[ -x /usr/lib/command-not-found || -x /usr/share/command-not-found/command-not-found ]]; then
-  command_not_found_handler() {
-    if [[ -x /usr/lib/command-not-found ]]; then
-      /usr/lib/command-not-found -- "$1"
-      return $?
-    elif [[ -x /usr/share/command-not-found/command-not-found ]]; then
-      /usr/share/command-not-found/command-not-found -- "$1"
-      return $?
-    else
-      printf "zsh: command not found: %s\n" "$1" >&2
-      return 127
-    fi
-  }
+if [ -f /etc/zsh_command_not_found ]; then
+  . /etc/zsh_command_not_found
 fi
 
 ### SETTING THE STARSHIP PROMPT ###
