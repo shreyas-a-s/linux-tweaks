@@ -85,7 +85,7 @@ alias history='history -R | cat -n'
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
 if [ -f /usr/local/bin/colorscript ]
-  bash colorscript random
+  colorscript random
 end
 
 ### AUTOJUMP ###
