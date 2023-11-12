@@ -56,12 +56,16 @@ function customiseZsh {
   sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
 
 	# Create necessary directories
+	mkdir -p ~/.config/zsh
 	mkdir -p ~/.config/lscolors
 
 	# Copy necessary files
-	cp ../dotfiles/.zshrc ~/
+	cp ../dotfiles/.zshrc ~/.config/zsh/
 	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
+  # Set dotfile directory for zsh
+  sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv
+  
 }
 
 # Shell choice
