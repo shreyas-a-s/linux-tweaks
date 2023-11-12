@@ -12,10 +12,8 @@ sudo apt-get -y autoremove
 # Symlink gedit to gnome-text-editor
 sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
 
-# Install & Enable Rounded Window Corners
+# Install Rounded Window Corner
 busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt
-while ! gnome-extensions list | grep rounded-window-corners@yilozt > /dev/null; do :; done
-gnome-extensions enable rounded-window-corners@yilozt
 
-# Enable GSConnect
-gnome-extensions enable gsconnect@andyholmes.github.io
+# Restore dconf settings
+dconf load /org/gnome/ < gnome-dconf.conf
