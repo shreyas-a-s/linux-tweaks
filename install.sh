@@ -19,18 +19,6 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 # Variables
 distroname=$(awk '{print $1;}' /etc/issue)
 
-# Scripts
-customScripts() {
-  ./scripts/brave.sh # brave-browser
-  ./scripts/flatpak.sh # flatpak and most used apps
-  ./scripts/github-desktop.sh # github-desktop for linux
-  ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
-  ./scripts/nala.sh # apt, but colorful
-  ./scripts/onlyoffice.sh # office suite
-  ./scripts/vscodium.sh # open source vscode
-  ./scripts/shell-customization.sh # bash/fish customizations
-}
-
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
@@ -44,7 +32,14 @@ else
 fi
 
 # My custom scripts
-customScripts
+./scripts/brave.sh # brave-browser
+./scripts/flatpak.sh # flatpak and most used apps
+./scripts/github-desktop.sh # github-desktop for linux
+./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
+./scripts/nala.sh # apt, but colorful
+./scripts/onlyoffice.sh # office suite
+./scripts/vscodium.sh # open source vscode
+./scripts/shell-customization.sh # bash/fish customizations
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
 if [ "$distroname" = "Antix" ]; then
