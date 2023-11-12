@@ -14,7 +14,7 @@ fi
 ### HISTORY SETTINGS ###
 HISTSIZE=2000
 SAVEHIST=2000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.config/zsh/.zsh_history
 
 ### USE MODERN COMPLETION SYSTEM ###
 autoload -Uz compinit
