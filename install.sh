@@ -22,19 +22,13 @@ distroname=$(awk '{print $1;}' /etc/issue)
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio
-
-# Don't install kdeconnect & keepassxc on GNOME
-if dpkg-query -l | grep gnome > /dev/null; then
-	sudo apt-get -y install secrets
-else
-  sudo apt-get -y install kdeconnect keepassxc
-fi
+sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio kdeconnect keepassxc
 
 # My custom scripts
 ./scripts/brave.sh # brave-browser
 ./scripts/flatpak.sh # flatpak and most used apps
 ./scripts/github-desktop.sh # github-desktop for linux
+./scripts/gnome.sh # gnome-specific-customisations
 ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
