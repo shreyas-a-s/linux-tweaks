@@ -27,41 +27,9 @@ customScripts() {
   ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
   ./scripts/nala.sh # apt, but colorful
   ./scripts/onlyoffice.sh # office suite
-  if [ "$qemu_choice" = 'yes' ]; then
-    ./scripts/qemu.sh # qemu and virt-manager
-  fi
   ./scripts/vscodium.sh # open source vscode
   ./scripts/shell-customization.sh # bash/fish customizations
 }
-
-# QEMU Choice
-qemuChoice() {
-  echo "Continue to install qemu and virt-manager? (yes/no): " && read -r qemu_choice
-  if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
-    printf "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
-    qemuChoice
-  fi
-}
-
-# Shell Choice
-shellChoice() {
-	echo "Which shell you prefer to customise?"
-	echo "[1] Bash"
-	echo "[2] Fish"
-	echo "[3] Zsh"
-	echo "[4] None"
-	echo "Choose an option (1/2/3/4) : " && read -r shell_choice
-  if ! [ "$shell_choice" -ge 1 ] || ! [ "$shell_choice" -le 4 ]; then
-    printf "Invalid Choice..!!!\n\n"
-    shellChoice
-  fi
-}
-
-# Taking user choices
-if [ "$customisation_choice" != 'yes' ]; then
-  qemuChoice
-  shellChoice && export shell_choice
-fi
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
