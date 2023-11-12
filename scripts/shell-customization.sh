@@ -6,12 +6,7 @@ setupXDGUserDirs() {
 	for dirname in "$@"; do
 	newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
 
-	if [ -d "$dirname" ]; then
-		mv "$dirname" "$newdirname"
-	else
-		mkdir "$newdirname"
-	fi
-	done
+	[ -d "$dirname" ] && mv "$dirname" "$newdirname" || mkdir "$newdirname"
 
 	cp ../dotfiles/user-dirs.dirs ~/.config/
 	xdg-user-dirs-update
