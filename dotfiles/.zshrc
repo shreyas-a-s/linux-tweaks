@@ -1,7 +1,9 @@
-### SETUP THE PROMPT
+### SETUP THE PROMPT ###
+autoload -Uz promptinit
+promptinit
 setopt histignorealldups sharehistory
 
-### EXPORT
+### EXPORT ###
 export TERM="xterm-256color" # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 if [ -f /usr/bin/micro ]; then
@@ -9,10 +11,32 @@ if [ -f /usr/bin/micro ]; then
   export VISUAL="micro"
 fi
 
-# HISTORY SETTINGS
+### HISTORY SETTINGS ###
 HISTSIZE=2000
 SAVEHIST=2000
 HISTFILE=~/.zsh_history
+
+### USE MODERN COMPLETION SYSTEM ###
+autoload -Uz compinit
+compinit
+
+### SOME ZSH DEFAULT STUFF THAT MAKES IT FASTER ###
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
@@ -20,7 +44,7 @@ export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-### PATH
+### PATH ###
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -41,7 +65,7 @@ if [ -d "/usr/games/" ] ;
   then PATH="/usr/games/:$PATH"
 fi
 
-### CHANGE TITLE OF TERMINALS
+### CHANGE TITLE OF TERMINALS ###
 case ${TERM} in
   xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st|konsole*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
@@ -50,49 +74,6 @@ case ${TERM} in
     PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
     ;;
 esac
-
-### Function extract for common file formats ###
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
-
-function extract {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
- else
-    for n in "$@"
-    do
-      if [ -f "$n" ] ; then
-          case "${n%,}" in
-            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                         tar xvf "$n"       ;;
-            *.lzma)      unlzma ./"$n"      ;;
-            *.bz2)       bunzip2 ./"$n"     ;;
-            *.cbr|*.rar)       unrar x -ad ./"$n" ;;
-            *.gz)        gunzip ./"$n"      ;;
-            *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
-            *.z)         uncompress ./"$n"  ;;
-            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
-                         7z x ./"$n"        ;;
-            *.xz)        unxz ./"$n"        ;;
-            *.exe)       cabextract ./"$n"  ;;
-            *.cpio)      cpio -id < ./"$n"  ;;
-            *.cba|*.ace)      unace x ./"$n"      ;;
-            *)
-                         echo "extract: '$n' - unknown archive method"
-                         return 1
-                         ;;
-          esac
-      else
-          echo "'$n' - file does not exist"
-          return 1
-      fi
-    done
-fi
-}
-
-IFS=$SAVEIFS
 
 ### ALIASES ###
 
@@ -185,10 +166,48 @@ function ix {
   curl -F "f:1=@$1" ix.io
 }
 
-### SETTING THE STARSHIP PROMPT ###
-if [ -f /usr/local/bin/starship ]; then
-  eval "$(starship init zsh)"
+### Function extract for common file formats ###
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+function extract {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+ else
+    for n in "$@"
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.cbr|*.rar)       unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *.cpio)      cpio -id < ./"$n"  ;;
+            *.cba|*.ace)      unace x ./"$n"      ;;
+            *)
+                         echo "extract: '$n' - unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
 fi
+}
+
+IFS=$SAVEIFS
 
 ### AUTOSUGGESTIONS ###
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -198,4 +217,25 @@ fi
 ### SYNTAX-HIGHLIGHTING ###
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+### COMMAND-NOT-FOUND ###
+if [[ -x /usr/lib/command-not-found || -x /usr/share/command-not-found/command-not-found ]]; then
+  command_not_found_handler() {
+    if [[ -x /usr/lib/command-not-found ]]; then
+      /usr/lib/command-not-found -- "$1"
+      return $?
+    elif [[ -x /usr/share/command-not-found/command-not-found ]]; then
+      /usr/share/command-not-found/command-not-found -- "$1"
+      return $?
+    else
+      printf "zsh: command not found: %s\n" "$1" >&2
+      return 127
+    fi
+  }
+fi
+
+### SETTING THE STARSHIP PROMPT ###
+if [ -f /usr/local/bin/starship ]; then
+  eval "$(starship init zsh)"
 fi
