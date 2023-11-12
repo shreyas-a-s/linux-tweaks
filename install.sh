@@ -46,13 +46,12 @@ function qemuChoice {
 # Shell Choice
 function shellChoice {
 	echo "Which shell you prefer to customise?"
-	echo "[1] Bash only"
-	echo "[2] Fish only"
-	echo "[3] Both but set Bash as Interactive Shell"
-	echo "[4] Both but set Fish as Interactive Shell"
-	echo "[5] None"
-	read -r -p "Choose an option (1/2/3/4/5) : " shell_choice
-	if ! [[ "$shell_choice" =~ ^[1-5]$ ]]; then
+	echo "[1] Bash"
+	echo "[2] Fish"
+	echo "[3] Zsh"
+	echo "[4] None"
+	read -r -p "Choose an option (1/2/3/4) : " shell_choice
+	if ! [[ "$shell_choice" =~ ^[1-4]$ ]]; then
 		echo -e "Invalid Choice..!!!\n"
 		shellChoice
 	fi
