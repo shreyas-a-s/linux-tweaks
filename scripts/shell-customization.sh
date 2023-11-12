@@ -78,10 +78,7 @@ shellChoice() {
 	echo "[3] Zsh"
 	echo "[4] None"
 	echo "Choose an option (1/2/3/4) : " && read -r shell_choice
-  if ! [ "$shell_choice" -ge 1 ] || ! [ "$shell_choice" -le 4 ]; then
-    printf "Invalid Choice..!!!\n\n"
-    shellChoice
-  fi
+	[ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 4 ] && printf "Invalid Choice..!!!\n\n" && shellChoice
 
 }
 
@@ -89,6 +86,7 @@ shellChoice() {
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
+shellChoice
 sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop exa
 
 case $shell_choice in
