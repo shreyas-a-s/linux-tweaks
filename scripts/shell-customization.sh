@@ -108,6 +108,7 @@ curl -sS https://starship.rs/install.sh | sh
 cp ../dotfiles/starship.toml ~/.config/
 
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
+rm -r ~/desktop ~/music ~/templates ~/public
 
 # Shell color scripts
 (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
