@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Variables
-debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)
-
 # Function to setup XDG user dirs
 function setupXDGUserDirs {
 
@@ -50,6 +47,20 @@ function customiseFish {
 	# Copy necessary files
 	cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
 	cp ../dotfiles/config.fish ~/.config/fish/
+
+}
+
+# Function to customise zsh shell
+function customiseZsh {
+
+    sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
+
+	# Create necessary directories
+	mkdir -p ~/.config/lscolors
+
+	# Copy necessary files
+	cp ../dotfiles/.zshrc ~/
+	cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
 }
 
