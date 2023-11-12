@@ -42,9 +42,7 @@ fi
 ./scripts/shell-customization.sh # bash/fish customizations
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
-if [ "$distroname" = "Antix" ]; then
-	sudo apt-get -y install libnss3
-fi
+[ "$distroname" = "Antix" ] && sudo apt-get -y install libnss3
 
 # Enabling firewall
 sudo ufw enable
