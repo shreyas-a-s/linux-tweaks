@@ -8,7 +8,7 @@
 # ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝
 
 # Check if script is run as root
-if [[ $EUID == 0 ]]; then
+if [ "$EUID" -eq 0 ]; then
   echo "You must NOT be a root user when running this script, please run ./install.sh" 2>&1
   exit 1
 fi
@@ -80,7 +80,7 @@ fi
 customScripts
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
-if [ "$distroname" == "Antix" ]; then
+if [ "$distroname" = "Antix" ]; then
 	sudo apt-get -y install libnss3
 fi
 
