@@ -93,11 +93,11 @@ sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-
 
 case $shell_choice in
     1)
-        customiseBash && while ! chsh -s /usr/bin/bash; do :; done;;
+        customiseBash && while ! chsh -s "$(whereis bash | awk '{print $2}')"; do :; done;;
     2)
-        customiseFish && while ! chsh -s /usr/bin/fish; do :; done;;
+        customiseFish && while ! chsh -s "$(whereis fish | awk '{print $2}')"; do :; done;;
     3)
-        customiseZsh && while ! chsh -s /usr/bin/zsh; do :; done;;
+        customiseZsh && while ! chsh -s "$(whereis zsh | awk '{print $2}')"; do :; done;;
 esac
 
 # Setup Starship
