@@ -38,7 +38,7 @@ function customiseBash {
 # Function to customise fish shell
 function customiseFish {
 
-    sudo apt-get -y install fish python-is-python3
+  sudo apt-get -y install fish python-is-python3
 
 	# Create necessary directories
 	mkdir -p ~/.config/fish
@@ -53,7 +53,7 @@ function customiseFish {
 # Function to customise zsh shell
 function customiseZsh {
 
-    sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
+  sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
 
 	# Create necessary directories
 	mkdir -p ~/.config/lscolors
