@@ -1,3 +1,2 @@
-com.spotify.Client
 de.haeckerfelix.Fragments
 net.cozic.joplin_desktop
