@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Variables
 debianversion=$(awk -F '.' '{print $1}' < /etc/debian_version)

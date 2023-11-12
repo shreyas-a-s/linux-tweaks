@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 # Install flatpak
 sudo apt-get -y install flatpak
-if dpkg-query -l | grep gnome-software &> /dev/null; then
+if dpkg-query -l | grep gnome-software > /dev/null; then
 	sudo apt-get -y install gnome-software-plugin-flatpak
 fi
 while ! flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo; do

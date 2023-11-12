@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # ██████╗ ███████╗██████╗ ██╗ █████╗ ███╗   ██╗       ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗
 # ██╔══██╗██╔════╝██╔══██╗██║██╔══██╗████╗  ██║      ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║
@@ -8,7 +8,7 @@
 # ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝
 
 # Check if script is run as root
-if [ "$EUID" -eq 0 ]; then
+if [ "$(id -u)" -eq 0 ]; then
   echo "You must NOT be a root user when running this script, please run ./install.sh" 2>&1
   exit 1
 fi
@@ -20,7 +20,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 distroname=$(awk '{print $1;}' /etc/issue)
 
 # Scripts
-function customScripts {
+customScripts() {
   ./scripts/brave.sh # brave-browser
   ./scripts/flatpak.sh # flatpak and most used apps
   ./scripts/github-desktop.sh # github-desktop for linux
@@ -35,26 +35,26 @@ function customScripts {
 }
 
 # QEMU Choice
-function qemuChoice {
-  read -r -p "Continue to install qemu and virt-manager? (yes/no): " qemu_choice
+qemuChoice() {
+  echo "Continue to install qemu and virt-manager? (yes/no): " && read -r qemu_choice
   if [ "$qemu_choice" != 'yes' ] && [ "$qemu_choice" != 'no' ]; then
-    echo -e "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
+    printf "Invalid Choice! Keep in mind this is CASE-SENSITIVE.\n"
     qemuChoice
   fi
 }
 
 # Shell Choice
-function shellChoice {
+shellChoice() {
 	echo "Which shell you prefer to customise?"
 	echo "[1] Bash"
 	echo "[2] Fish"
 	echo "[3] Zsh"
 	echo "[4] None"
-	read -r -p "Choose an option (1/2/3/4) : " shell_choice
-	if ! [[ "$shell_choice" =~ ^[1-4]$ ]]; then
-		echo -e "Invalid Choice..!!!\n"
-		shellChoice
-	fi
+	echo "Choose an option (1/2/3/4) : " && read -r shell_choice
+  if ! [ "$shell_choice" -ge 1 ] || ! [ "$shell_choice" -le 4 ]; then
+    printf "Invalid Choice..!!!\n\n"
+    shellChoice
+  fi
 }
 
 # Taking user choices
@@ -69,7 +69,7 @@ sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio
 
 # Don't install kdeconnect & keepassxc on GNOME
-if dpkg-query -l | grep gnome &> /dev/null; then
+if dpkg-query -l | grep gnome > /dev/null; then
 	sudo apt-get -y install secrets
 else
   sudo apt-get -y install kdeconnect keepassxc

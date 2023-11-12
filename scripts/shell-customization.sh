@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 # Function to setup XDG user dirs
-function setupXDGUserDirs {
+setupXDGUserDirs() {
 
 	for dirname in "$@"; do
-	local newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
+	newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
 
 	if [ -d "$dirname" ]; then
 		mv "$dirname" "$newdirname"
@@ -19,7 +19,7 @@ function setupXDGUserDirs {
 }
 
 # Function to customise bash shell
-function customiseBash {
+customiseBash() {
 
   sudo apt-get -y install bash-completion make gawk git
 
@@ -37,12 +37,12 @@ function customiseBash {
   (cd ../.. &&\
 	git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git &&\
 	make -C ble.sh install PREFIX=~/.local &&\
-	echo -e "\n\n#Bash Line Editor by @akinomyoga on github\nsource ~/.local/share/blesh/ble.sh" >> ~/.bashrc)
+	printf '\n\n#Bash Line Editor by @akinomyoga on github\nsource ~/.local/share/blesh/ble.sh' >> ~/.bashrc)
 
 }
 
 # Function to customise fish shell
-function customiseFish {
+customiseFish() {
 
   sudo apt-get -y install fish python-is-python3
 
@@ -57,7 +57,7 @@ function customiseFish {
 }
 
 # Function to customise zsh shell
-function customiseZsh {
+customiseZsh() {
 
   sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
 
@@ -75,23 +75,23 @@ function customiseZsh {
 }
 
 # Shell choice
-function shellChoice {
+shellChoice() {
 
 	echo "Which shell you prefer to customise?"
 	echo "[1] Bash"
 	echo "[2] Fish"
 	echo "[3] Zsh"
 	echo "[4] None"
-	read -r -p "Choose an option (1/2/3/4) : " shell_choice
-	if ! [[ "$shell_choice" =~ ^[1-4]$ ]]; then
-		echo -e "Invalid Choice..!!!\n"
-		shellChoice
-	fi
+	echo "Choose an option (1/2/3/4) : " && read -r shell_choice
+  if ! [ "$shell_choice" -ge 1 ] || ! [ "$shell_choice" -le 4 ]; then
+    printf "Invalid Choice..!!!\n\n"
+    shellChoice
+  fi
 
 }
 
 # Check if variable is set
-if [[ -z ${shell_choice} ]]; then
+if [ -z "${shell_choice}" ]; then
 	shellChoice
 fi
 
