@@ -131,9 +131,7 @@ fi
 
 ### AUTOJUMP ###
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
-	. /usr/share/autojump/autojump.bash
-else
-	echo "Can't find the autojump script"
+  . /usr/share/autojump/autojump.bash
 fi
 
 # Set colors for ls command
@@ -210,3 +208,4 @@ IFS=$SAVEIFS
 if [ -f /usr/local/bin/starship ]; then
   eval "$(starship init bash)"
 fi
+

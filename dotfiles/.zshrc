@@ -115,10 +115,8 @@ if [ -f /usr/local/bin/colorscript ]; then
 fi
 
 ### AUTOJUMP
-if [ -f "/usr/share/autojump/autojump.sh" ]; then
-	. /usr/share/autojump/autojump.zsh
-else
-	echo "Can't find the autojump script"
+if [ -f "/usr/share/autojump/autojump.zsh" ]; then
+  . /usr/share/autojump/autojump.zsh
 fi
 
 # Set colors for ls command
