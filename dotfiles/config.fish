@@ -96,6 +96,35 @@ end
 
 ### FUNCTIONS ###
 
+# Create and go to the directory
+function mkdircd
+  mkdir -pv "$argv"
+  cd "$argv"
+end
+
+# Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
+function sudo
+  if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
+	set argv[1] nala && command sudo $argv
+  else
+	command sudo $argv
+  end
+end
+
+# My Ping ;)
+function ping
+  if [ -z "$argv[1]" ]
+	command ping -c 1 example.org
+  else
+	command ping $argv
+  end
+end
+
+# Function to use ix.io (the command-line pastebin)
+function ix
+  curl -F "f:1=@$argv[1]" ix.io
+end
+
 # Function to extract common file formats
 function extract
   set archiveextension (echo "$argv" | awk -F . {'print $NF'})
@@ -137,46 +166,6 @@ function extract
 		echo "sorry, brother. I have no idea what you are trying to extract."
   end
 end
-
-# Create and go to the directory
-function mkdircd
-  mkdir -pv "$argv"
-  cd "$argv"
-end
-
-# Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
-function sudo
-  if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
-	set argv[1] nala && command sudo $argv
-  else
-	command sudo $argv
-  end
-end
-
-# My Ping ;)
-function ping
-  if [ -z "$argv[1]" ]
-	command ping -c 1 example.org
-  else
-	command ping $argv
-  end
-end
-
-# Function to use ix.io (the command-line pastebin)
-function ix
-  curl -F "f:1=@$argv[1]" ix.io
-end
-
-# Function to select correct neovim
-function vim {
-  if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
-    command nvim "$@"
-  elif flatpak list | grep nvim > /dev/null; then
-    flatpak run io.neovim.nvim "$@"
-  else
-    command vim "$@"
-  fi
-}
 
 ### SETTING THE STARSHIP PROMPT ###
 if [ -f /usr/local/bin/starship ]
