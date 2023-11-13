@@ -34,6 +34,9 @@ end
 
 ### ALIASES ###
 
+# Tree command - Show all files including hidden ones
+alias tree='tree -a'
+
 # Neovim
 alias vim='nvim'
 
