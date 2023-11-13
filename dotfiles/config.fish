@@ -167,6 +167,17 @@ function ix
   curl -F "f:1=@$argv[1]" ix.io
 end
 
+# Function to select correct neovim
+function vim {
+  if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
+    command nvim "$@"
+  elif flatpak list | grep nvim > /dev/null; then
+    flatpak run io.neovim.nvim "$@"
+  else
+    command vim "$@"
+  fi
+}
+
 ### SETTING THE STARSHIP PROMPT ###
 if [ -f /usr/local/bin/starship ]
   starship init fish | source

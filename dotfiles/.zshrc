@@ -145,6 +145,17 @@ function ix {
   curl -F "f:1=@$1" ix.io
 }
 
+# Function to select correct neovim
+function vim {
+  if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
+    command nvim "$@"
+  elif flatpak list | grep nvim > /dev/null; then
+    flatpak run io.neovim.nvim "$@"
+  else
+    command vim "$@"
+  fi
+}
+
 # Function to extract common file formats
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
