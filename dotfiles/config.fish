@@ -96,7 +96,7 @@ end
 
 ### FUNCTIONS ###
 
-# Extract all types of archive file formats
+# Function to extract common file formats
 function extract
   set archiveextension (echo "$argv" | awk -F . {'print $NF'})
   set archiveextensionprefix (echo "$argv" | awk -F . {'print $(NF-1)'})

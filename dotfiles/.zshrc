@@ -145,7 +145,7 @@ function ix {
   curl -F "f:1=@$1" ix.io
 }
 
-### Function extract for common file formats ###
+# Function to extract common file formats
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
