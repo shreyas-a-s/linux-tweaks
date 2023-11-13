@@ -125,6 +125,25 @@ function ix
   curl -F "f:1=@$argv[1]" ix.io
 end
 
+# Function to select correct neovim
+function vim
+  if whereis nvim | awk '{print $2}' | grep nvim > /dev/null
+    if [ -z "$argv[1]" ]
+      command nvim
+    else
+      command nvim "$argv"
+    end
+  else if flatpak list | grep nvim > /dev/null
+    if [ -z "$argv[1]" ]
+      flatpak run io.neovim.nvim
+    else
+      flatpak run io.neovim.nvim "$argv"
+    end
+  else
+    command vim "$argv"
+  end
+end
+
 # Function to extract common file formats
 function extract
   set archiveextension (echo "$argv" | awk -F . {'print $NF'})
