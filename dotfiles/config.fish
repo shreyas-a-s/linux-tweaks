@@ -8,10 +8,6 @@ if [ -f /usr/bin/micro ]
   setenv VISUAL "micro"
 end
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
 #### SET MANPAGER ###
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
@@ -152,10 +148,7 @@ end
 
 # Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
 function sudo
-  if [ "$argv" = !! ]
-	echo sudo $history[1]
-	eval command sudo $history[1]
-  else if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
+  if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
 	set argv[1] nala && command sudo $argv
   else
 	command sudo $argv
