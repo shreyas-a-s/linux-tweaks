@@ -1,6 +1,4 @@
 ### SETUP THE PROMPT ###
-autoload -Uz promptinit
-promptinit
 setopt histignorealldups sharehistory
 
 ### EXPORT ###
@@ -19,6 +17,7 @@ HISTFILE=~/.config/zsh/.zsh_history
 ### USE MODERN COMPLETION SYSTEM ###
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
