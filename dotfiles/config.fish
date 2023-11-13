@@ -34,6 +34,9 @@ end
 
 ### ALIASES ###
 
+# Neovim
+alias vim='nvim'
+
 # Changing "ls" to "exa"
 if [ -f "/usr/bin/exa" ]
   alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
@@ -126,7 +129,7 @@ function ix
 end
 
 # Function to select correct neovim
-function vim
+function nvim
   if whereis nvim | awk '{print $2}' | grep nvim > /dev/null
     if [ -z "$argv[1]" ]
       command nvim

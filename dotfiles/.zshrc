@@ -58,6 +58,9 @@ esac
 
 ### ALIASES ###
 
+# Neovim
+alias vim='nvim'
+
 # Changing "ls" to "exa"
 if [ -f "/usr/bin/exa" ]; then
   alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
@@ -146,7 +149,7 @@ function ix {
 }
 
 # Function to select correct neovim
-function vim {
+function nvim {
   if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
     command nvim "$@"
   elif flatpak list | grep nvim > /dev/null; then
