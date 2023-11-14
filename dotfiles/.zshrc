@@ -22,7 +22,6 @@ fi
 ### USE MODERN COMPLETION SYSTEM ###
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 set +o list_types
