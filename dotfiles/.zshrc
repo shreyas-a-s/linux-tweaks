@@ -141,17 +141,17 @@ fi
 
 # Create and go to the directory
 function mkdircd {
-	mkdir -p "$1"
-	cd "$1"
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # My Ping ;)
 function ping {
-	if [ -z "$1" ]; then
-		command ping -c 1 example.org
-	else
-		command ping "$@"
-	fi
+  if [ -z "$1" ]; then
+    command ping -c 1 example.org
+  else
+    command ping "$@"
+  fi
 }
 
 # Function to use ix.io (the command-line pastebin)

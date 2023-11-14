@@ -114,18 +114,18 @@ end
 # Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
 function sudo
   if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
-	set argv[1] nala && command sudo $argv
+    set argv[1] nala && command sudo $argv
   else
-	command sudo $argv
+    command sudo $argv
   end
 end
 
 # My Ping ;)
 function ping
   if [ -z "$argv[1]" ]
-	command ping -c 1 example.org
+    command ping -c 1 example.org
   else
-	command ping $argv
+    command ping $argv
   end
 end
 
