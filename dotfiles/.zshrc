@@ -1,5 +1,5 @@
 ### SETUP THE PROMPT ###
-setopt histignorealldups sharehistory
+setopt histignorealldups sharehistory noautoremoveslash 
 
 ### EXPORT ###
 export TERM="xterm-256color" # getting proper colors
@@ -14,10 +14,18 @@ HISTSIZE=2000
 SAVEHIST=2000
 HISTFILE=~/.config/zsh/.zsh_history
 
+# Set colors for ls command
+if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
+  source ~/.config/lscolors/lscolors.sh
+fi
+
 ### USE MODERN COMPLETION SYSTEM ###
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+set +o list_types
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
@@ -122,11 +130,6 @@ fi
 ### AUTOJUMP
 if [ -f "/usr/share/autojump/autojump.zsh" ]; then
   . /usr/share/autojump/autojump.zsh
-fi
-
-# Set colors for ls command
-if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
-  source ~/.config/lscolors/lscolors.sh
 fi
 
 ### FUNCTIONS ###

@@ -11,6 +11,11 @@ HISTSIZE=2000
 SAVEHIST=2000
 HISTFILE=~/.bash_history
 
+# Set colors for ls command
+if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
+  source ~/.config/lscolors/lscolors.sh
+fi
+
 ### SET MANPAGER ###
 if [ -f /usr/bin/batcat ]; then
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
@@ -138,11 +143,6 @@ fi
 ### AUTOJUMP ###
 if [ -f "/usr/share/autojump/autojump.sh" ]; then
   . /usr/share/autojump/autojump.bash
-fi
-
-# Set colors for ls command
-if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
-  source ~/.config/lscolors/lscolors.sh
 fi
 
 ### FUNCTIONS ###

@@ -8,6 +8,11 @@ if [ -f /usr/bin/micro ]
   setenv VISUAL "micro"
 end
 
+# Set colors for ls command
+if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
+  source ~/.config/lscolors/lscolors.csh
+end
+
 #### SET MANPAGER ###
 setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
@@ -93,11 +98,6 @@ end
 ### AUTOJUMP ###
 if [ -f /usr/share/autojump/autojump.fish ]
   . /usr/share/autojump/autojump.fish
-end
-
-# Set colors for ls command
-if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
-  source ~/.config/lscolors/lscolors.csh
 end
 
 ### FUNCTIONS ###
