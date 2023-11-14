@@ -1,5 +1,6 @@
 ### SETUP THE PROMPT ###
-setopt histignorealldups sharehistory noautoremoveslash 
+setopt histignorealldups sharehistory noautoremoveslash globdots
+unsetopt listtypes
 
 ### EXPORT ###
 export TERM="xterm-256color" # getting proper colors
@@ -22,9 +23,11 @@ fi
 ### USE MODERN COMPLETION SYSTEM ###
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-set +o list_types
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
