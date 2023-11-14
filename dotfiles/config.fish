@@ -90,7 +90,7 @@ alias shellcheck='shellcheck -x'
 alias btop='btop --utf-force'
 
 # Making history show numbers like other shells
-alias history='history -R | cat -n'
+alias history='history -R | command cat -n'
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
