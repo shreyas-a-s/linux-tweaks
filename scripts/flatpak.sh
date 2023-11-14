@@ -15,7 +15,13 @@ inputfile="flatpak-applist.txt"
 
 # Check if the file exists
 if [ -e "$inputfile" ]; then
-    packages=""
+
+    # Install neovim if the version in debian repo is less than 9
+    if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -lt 9 ]; then
+      packages="io.neovim.nvim"
+    else
+      packages=""
+    fi
 
     while IFS= read -r package; do
         packages="$packages $package"

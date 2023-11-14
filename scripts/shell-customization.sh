@@ -139,3 +139,10 @@ cp ../dotfiles/settings.json ~/.config/micro/
 # Update database of command-not-found
 sudo update-command-not-found
 sudo apt update
+
+# Install neovim
+if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -ge 9 ]; then
+  sudo apt-get install -y neovim
+fi
+
+
