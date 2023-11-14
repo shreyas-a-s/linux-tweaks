@@ -9,7 +9,7 @@ fi
 ### HISTORY SETTINGS ###
 HISTSIZE=2000
 SAVEHIST=2000
-HISTFILE=~/.bash_history
+HISTFILE=~/.config/bash/.bash_history
 
 # Set colors for ls command
 if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
