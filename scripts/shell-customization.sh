@@ -24,6 +24,7 @@ customiseBash() {
   sudo apt-get -y install bash-completion make gawk git
 
   # Create necessary directories
+  mkdir -p ~/.config/bash
   mkdir -p ~/.config/lscolors
 
   # Neofetch for root shell
@@ -31,6 +32,7 @@ customiseBash() {
 
   # Copy necessary files
   cp ../dotfiles/.bashrc ~/
+  mv ~/.bash_history ~/.config/bash/
   cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
   # Bash Line Editor by @akinomyoga on github
