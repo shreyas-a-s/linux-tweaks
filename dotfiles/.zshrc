@@ -1,5 +1,5 @@
 ### SETUP THE PROMPT ###
-setopt histignorealldups sharehistory noautoremoveslash globdots
+setopt histignorealldups histignorespace sharehistory noautoremoveslash globdots
 unsetopt listtypes
 
 ### EXPORT ###
