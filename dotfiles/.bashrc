@@ -1,6 +1,6 @@
 ### EXPORT ###
-export TERM="xterm-256color"                      # getting proper colors
-export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
+export TERM="xterm-256color"                                  # getting proper colors
+export HISTCONTROL=ignoredups:erasedups:ignorespace           # no duplicate entries and no lines that start with a space
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
   export VISUAL="micro"
