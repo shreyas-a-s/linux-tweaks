@@ -39,6 +39,9 @@ end
 
 ### ALIASES ###
 
+# Update all packages on system
+alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'
+
 # Tree command - Show all files including hidden ones
 alias tree='tree -a'
 
