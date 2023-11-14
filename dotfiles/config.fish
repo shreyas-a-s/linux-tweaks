@@ -2,7 +2,8 @@
 set -U fish_greeting
 
 ### EXPORT ###
-setenv TERM "xterm-256color" # getting proper colors
+setenv TERM "xterm-256color"                     # getting proper colors
+setenv WGETRC "$XDG_CONFIG_HOME/wgetrc"          # to set xdg base directory for wget
 if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
   setenv VISUAL "micro"
@@ -38,6 +39,9 @@ if [ -d "/usr/games/" ] ;
 end
 
 ### ALIASES ###
+
+# To set XDG Base Directory for wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'

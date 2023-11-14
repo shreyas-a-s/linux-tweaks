@@ -3,7 +3,8 @@ setopt histignorealldups histignorespace sharehistory noautoremoveslash globdots
 unsetopt listtypes
 
 ### EXPORT ###
-export TERM="xterm-256color" # getting proper colors
+export TERM="xterm-256color"                                  # getting proper colors
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"                       # to set xdg base directory for wget
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
@@ -67,6 +68,9 @@ case ${TERM} in
 esac
 
 ### ALIASES ###
+
+# To set XDG Base Directory for wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'

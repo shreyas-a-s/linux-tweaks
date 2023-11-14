@@ -1,5 +1,6 @@
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"                       # to set xdg base directory for wget
 export HISTCONTROL=ignoredups:erasedups:ignorespace           # no duplicate entries and no lines that start with a space
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
@@ -78,6 +79,9 @@ bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous On"
 
 ### ALIASES ###
+
+# To set XDG Base Directory for wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'
