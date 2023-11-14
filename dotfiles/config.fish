@@ -105,6 +105,18 @@ end
 
 ### FUNCTIONS ###
 
+# Git functions
+function gcom
+  git add .
+  git commit -m "$argv"
+end
+
+function lazyg
+  git add .
+  git commit -m "$argv"
+  git push
+end
+
 # Create and go to the directory
 function mkdircd
   mkdir -pv "$argv"

@@ -139,6 +139,18 @@ fi
 
 ### FUNCTIONS ###
 
+# Git functions
+function gcom {
+  git add .
+  git commit -m "$@"
+}
+
+function lazyg {
+  git add .
+  git commit -m "$@"
+  git push
+}
+
 # Create and go to the directory
 function mkdircd {
   mkdir -p "$1"
