@@ -9,11 +9,11 @@ setenv XDG_STATE_HOME $HOME/.local/state
 
 ### EXPORT ###
 setenv TERM "xterm-256color"                     # getting proper colors
-setenv WGETRC $XDG_CONFIG_HOME/wgetrc                   # set xdg base directory for wget
+setenv WGETRC $XDG_CONFIG_HOME/wgetrc            # set xdg base directory for wget
 setenv LESSHISTFILE -                            # prevent creation of ~/.lesshst file
-if [ -f /usr/bin/micro ]
-  setenv EDITOR "micro"
-  setenv VISUAL "micro"
+if which nvim > /dev/null
+  setenv EDITOR "nvim"
+  setenv VISUAL "nvim"
 end
 
 # Set colors for ls command

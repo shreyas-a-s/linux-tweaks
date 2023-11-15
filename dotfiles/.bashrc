@@ -6,12 +6,12 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
-export WGETRC=$XDG_CONFIG_HOME/wgetrc                                # to set xdg base directory for wget
+export WGETRC=$XDG_CONFIG_HOME/wgetrc                         # to set xdg base directory for wget
 export HISTCONTROL=ignoredups:erasedups:ignorespace           # no duplicate entries and no lines that start with a space
 export LESSHISTFILE=-                                         # prevent creation of ~/.lesshst file
-if [ -f /usr/bin/micro ]; then
-  export EDITOR="micro"
-  export VISUAL="micro"
+if which nvim > /dev/null; then
+  export EDITOR="nvim"
+  export VISUAL="nvim"
 fi
 
 ### HISTORY SETTINGS ###
