@@ -19,7 +19,7 @@ if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
 
   else
 
-    echo "Nothing to do. Neovim is up-to-date with version: $latestnvimversion"
+    printf "\nNothing to do. Neovim is up-to-date with version: $latestnvimversion"
 
   fi
 
