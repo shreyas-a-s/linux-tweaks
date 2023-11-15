@@ -1,6 +1,12 @@
 ### DISABLE GREETING ###
 set -U fish_greeting
 
+### SET XDG USER DIRECTORES ###
+setenv XDG_CONFIG_HOME $HOME/.config
+setenv XDG_CACHE_HOME $HOME/.cache
+setenv XDG_DATA_HOME $HOME/.local/share
+setenv XDG_STATE_HOME $HOME/.local/state
+
 ### EXPORT ###
 setenv TERM "xterm-256color"                     # getting proper colors
 setenv WGETRC ~/.config/wgetrc                   # to set xdg base directory for wget
