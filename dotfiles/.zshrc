@@ -86,7 +86,7 @@ fi
 [ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
-alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'
+alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which neovim-appimage-updater > /dev/null && neovim-appimage-updater'
 
 # Tree command - Show all files including hidden ones
 alias tree='tree -a'
