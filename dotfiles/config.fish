@@ -3,7 +3,7 @@ set -U fish_greeting
 
 ### EXPORT ###
 setenv TERM "xterm-256color"                     # getting proper colors
-setenv WGETRC "$XDG_CONFIG_HOME/wgetrc"          # to set xdg base directory for wget
+setenv WGETRC ~/.config/wgetrc                   # to set xdg base directory for wget
 if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
   setenv VISUAL "micro"
@@ -48,7 +48,7 @@ else if flatpak list | grep nvim > /dev/null
 end
 
 # To set XDG Base Directory for wget
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
+[ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'

@@ -4,7 +4,7 @@ unsetopt listtypes
 
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"                       # to set xdg base directory for wget
+export WGETRC=~/.config/wgetrc                                # to set xdg base directory for wget
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
@@ -77,7 +77,7 @@ elif flatpak list | grep nvim > /dev/null; then
 fi
 
 # To set XDG Base Directory for wget
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
+[ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'
