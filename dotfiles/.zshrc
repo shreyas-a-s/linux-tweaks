@@ -1,7 +1,3 @@
-### SETUP THE PROMPT ###
-setopt histignorealldups histfindnodups histignorespace histreduceblanks sharehistory noautoremoveslash globdots incappendhistory 
-unsetopt listtypes
-
 ### SET XDG USER DIRECTORES ###
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -64,6 +60,17 @@ fi
 if [ -d "/usr/games/" ] ;
   then PATH="/usr/games/:$PATH"
 fi
+
+### SETOPT ###
+setopt histignorealldups # do not put duplicated command into history list
+setopt histsavenodups # do not save duplicated command
+setopt histfindnodups # when searching for history entries, do not display duplicates
+setopt histignorespace # don't store command lines in history when the first character is a space 
+setopt histreduceblanks # remove unnecessary blanks
+setopt sharehistory # imports new commands from the histfile, also apped typed commands to histfile incrementally
+setopt noautoremoveslash # don't remove slash for directories after auto tab completion
+setopt globdots # show hidden files
+unsetopt listtypes # don't show trailing identifying marks for files while listing for completion
 
 ### ALIASES ###
 
