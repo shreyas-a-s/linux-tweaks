@@ -40,6 +40,13 @@ end
 
 ### ALIASES ###
 
+# To select correct neovim
+if whereis nvim | awk '{print $2}' | grep nvim > /dev/null
+  alias vim='nvim'
+else if flatpak list | grep nvim > /dev/null
+  alias vim='flatpak run io.neovim.nvim'
+end
+
 # To set XDG Base Directory for wget
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
 
@@ -48,9 +55,6 @@ alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y'
 
 # Tree command - Show all files including hidden ones
 alias tree='tree -a'
-
-# Neovim
-alias vim='nvim'
 
 # Changing "ls" to "exa"
 if [ -f "/usr/bin/exa" ]
@@ -158,25 +162,6 @@ end
 # Function to use ix.io (the command-line pastebin)
 function ix
   curl -F "f:1=@$argv[1]" ix.io
-end
-
-# Function to select correct neovim
-function nvim
-  if whereis nvim | awk '{print $2}' | grep nvim > /dev/null
-    if [ -z "$argv[1]" ]
-      command nvim
-    else
-      command nvim "$argv"
-    end
-  else if flatpak list | grep nvim > /dev/null
-    if [ -z "$argv[1]" ]
-      flatpak run io.neovim.nvim
-    else
-      flatpak run io.neovim.nvim "$argv"
-    end
-  else
-    command vim "$argv"
-  end
 end
 
 # Function to extract common file formats
