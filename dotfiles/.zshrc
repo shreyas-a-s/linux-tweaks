@@ -6,7 +6,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
-export WGETRC=~/.config/wgetrc                                # to set xdg base directory for wget
+export WGETRC=$XDG_CONFIG_HOME/wgetrc                                # to set xdg base directory for wget
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export LESSHISTFILE=-                                         # prevent creation of ~/.lesshst file
 if [ -f /usr/bin/micro ]; then
@@ -17,11 +17,11 @@ fi
 ### HISTORY SETTINGS ###
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.config/zsh/.zsh_history
+HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
 
 # Set colors for ls command
-if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
-  source ~/.config/lscolors/lscolors.sh
+if [ -f "$XDG_CONFIG_HOME/lscolors/lscolors.sh" ]; then
+  source $XDG_CONFIG_HOME/lscolors/lscolors.sh
 fi
 
 ### USE MODERN COMPLETION SYSTEM ###
@@ -82,7 +82,7 @@ elif flatpak list | grep nvim > /dev/null; then
 fi
 
 # To set XDG Base Directory for wget
-[ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
+[ -f $XDG_CONFIG_HOME/wgetrc ] || touch $XDG_CONFIG_HOME/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which neovim-appimage-updater > /dev/null && neovim-appimage-updater'

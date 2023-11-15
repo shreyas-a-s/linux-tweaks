@@ -9,7 +9,7 @@ setenv XDG_STATE_HOME $HOME/.local/state
 
 ### EXPORT ###
 setenv TERM "xterm-256color"                     # getting proper colors
-setenv WGETRC ~/.config/wgetrc                   # set xdg base directory for wget
+setenv WGETRC $XDG_CONFIG_HOME/wgetrc                   # set xdg base directory for wget
 setenv LESSHISTFILE -                            # prevent creation of ~/.lesshst file
 if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
@@ -18,7 +18,7 @@ end
 
 # Set colors for ls command
 if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
-  source ~/.config/lscolors/lscolors.csh
+  source $XDG_CONFIG_HOME/lscolors/lscolors.csh
 end
 
 #### SET MANPAGER ###
@@ -55,7 +55,7 @@ else if flatpak list | grep nvim > /dev/null
 end
 
 # To set XDG Base Directory for wget
-[ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
+[ -f $XDG_CONFIG_HOME/wgetrc ] || touch $XDG_CONFIG_HOME/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which neovim-appimage-updater > /dev/null && neovim-appimage-updater'

@@ -6,7 +6,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
-export WGETRC=~/.config/wgetrc                                # to set xdg base directory for wget
+export WGETRC=$XDG_CONFIG_HOME/wgetrc                                # to set xdg base directory for wget
 export HISTCONTROL=ignoredups:erasedups:ignorespace           # no duplicate entries and no lines that start with a space
 export LESSHISTFILE=-                                         # prevent creation of ~/.lesshst file
 if [ -f /usr/bin/micro ]; then
@@ -17,11 +17,11 @@ fi
 ### HISTORY SETTINGS ###
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.config/bash/.bash_history
+HISTFILE=$XDG_CONFIG_HOME/bash/.bash_history
 
 # Set colors for ls command
 if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
-  source ~/.config/lscolors/lscolors.sh
+  source $XDG_CONFIG_HOME/lscolors/lscolors.sh
 fi
 
 ### SET MANPAGER ###
@@ -85,7 +85,7 @@ elif flatpak list | grep nvim > /dev/null; then
 fi
 
 # To set XDG Base Directory for wget
-[ -f ~/.config/wgetrc ] || touch ~/.config/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
+[ -f $XDG_CONFIG_HOME/wgetrc ] || touch $XDG_CONFIG_HOME/wgetrc && alias wget='wget --hsts-file=~/.cache/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which neovim-appimage-updater > /dev/null && neovim-appimage-updater'
