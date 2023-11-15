@@ -1,5 +1,5 @@
 ### SETUP THE PROMPT ###
-setopt histignorealldups histignorespace sharehistory noautoremoveslash globdots
+setopt histignorealldups histfindnodups histignorespace sharehistory noautoremoveslash globdots
 unsetopt listtypes
 
 ### SET XDG USER DIRECTORES ###
