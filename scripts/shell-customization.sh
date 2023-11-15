@@ -124,13 +124,6 @@ mkdir -p ~/downloads/kdeconnect
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
-# Set default text editor
-if [ -f /usr/bin/micro ]; then
-  sudo update-alternatives --set editor /usr/bin/micro
-else
-  sudo update-alternatives --set editor /usr/bin/nano
-fi
-
 # Copy config file for micro
 mkdir -p ~/.config/micro/
 cp ../dotfiles/settings.json ~/.config/micro/
@@ -147,4 +140,12 @@ else
   sudo cp neovim-appimage-updater.sh /usr/local/bin/neovim-appimage-updater
 fi
 
+# Set default text editor
+if which nvim > /dev/null; then
+  sudo update-alternatives --set editor $(which nvim)
+elif which micro > /dev/null; then
+  sudo update-alternatives --set editor $(which micro)
+else
+  sudo update-alternatives --set editor $(which nano)
+fi
 
