@@ -27,9 +27,6 @@ customiseBash() {
   mkdir -p ~/.config/bash
   mkdir -p ~/.config/lscolors
 
-  # Neofetch for root shell
-  sudo sed -i '$ a\\n\#Neofetch\nif test -f "/usr/bin/neofetch"; then\n  neofetch\nfi' /root/.bashrc
-
   # Copy necessary files
   cp ../dotfiles/.bashrc ~/
   mv ~/.bash_history ~/.config/bash/
