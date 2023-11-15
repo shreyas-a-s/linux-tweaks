@@ -14,8 +14,8 @@ if [ -f /usr/bin/micro ]; then
 fi
 
 ### HISTORY SETTINGS ###
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.config/bash/.bash_history
 
 # Set colors for ls command
