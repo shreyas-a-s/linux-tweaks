@@ -9,7 +9,8 @@ setenv XDG_STATE_HOME $HOME/.local/state
 
 ### EXPORT ###
 setenv TERM "xterm-256color"                     # getting proper colors
-setenv WGETRC ~/.config/wgetrc                   # to set xdg base directory for wget
+setenv WGETRC ~/.config/wgetrc                   # set xdg base directory for wget
+setenv LESSHISTFILE -                            # prevent creation of ~/.lesshst file
 if [ -f /usr/bin/micro ]
   setenv EDITOR "micro"
   setenv VISUAL "micro"

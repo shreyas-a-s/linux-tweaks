@@ -8,6 +8,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 export TERM="xterm-256color"                                  # getting proper colors
 export WGETRC=~/.config/wgetrc                                # to set xdg base directory for wget
 export HISTCONTROL=ignoredups:erasedups:ignorespace           # no duplicate entries and no lines that start with a space
+export LESSHISTFILE=-                                         # prevent creation of ~/.lesshst file
 if [ -f /usr/bin/micro ]; then
   export EDITOR="micro"
   export VISUAL="micro"
