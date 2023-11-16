@@ -82,7 +82,7 @@ elif flatpak list | grep nvim > /dev/null; then
 fi
 
 # To set XDG Base Directory for wget
-([ -f $XDG_CONFIG_HOME/wgetrc ] || touch $XDG_CONFIG_HOME/wgetrc) && alias wget='wget --hsts-file=$XDG_CACHE_HOME/wget-hsts'
+[ -f $XDG_CONFIG_HOME/wgetrc ] || touch $XDG_CONFIG_HOME/wgetrc && alias wget='wget --hsts-file=$XDG_CACHE_HOME/wget-hsts'
 
 # Update all packages on system
 alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which neovim-appimage-updater > /dev/null && neovim-appimage-updater'
