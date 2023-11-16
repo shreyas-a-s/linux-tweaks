@@ -114,8 +114,9 @@ esac
 curl -sS https://starship.rs/install.sh | sh
 cp ../dotfiles/starship.toml ~/.config/
 
+# Setup Directories
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
-rm -r ~/desktop ~/music ~/templates ~/public
+rm -d ~/desktop ~/music ~/templates ~/public
 mkdir -p ~/downloads/kdeconnect
 
 # Shell color scripts
