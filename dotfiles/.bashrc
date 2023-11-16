@@ -21,7 +21,7 @@ HISTFILE=$XDG_CONFIG_HOME/bash/.bash_history
 
 # Set colors for ls command
 if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
-  source $XDG_CONFIG_HOME/lscolors/lscolors.sh
+  . $XDG_CONFIG_HOME/lscolors/lscolors.sh
 fi
 
 ### SET MANPAGER ###

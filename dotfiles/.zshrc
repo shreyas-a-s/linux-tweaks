@@ -21,7 +21,7 @@ HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
 
 # Set colors for ls command
 if [ -f "$XDG_CONFIG_HOME/lscolors/lscolors.sh" ]; then
-  source $XDG_CONFIG_HOME/lscolors/lscolors.sh
+  . $XDG_CONFIG_HOME/lscolors/lscolors.sh
 fi
 
 ### USE MODERN COMPLETION SYSTEM ###

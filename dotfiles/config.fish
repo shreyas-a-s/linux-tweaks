@@ -18,7 +18,7 @@ end
 
 # Set colors for ls command
 if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
-  source $XDG_CONFIG_HOME/lscolors/lscolors.csh
+  . $XDG_CONFIG_HOME/lscolors/lscolors.csh
 end
 
 #### SET MANPAGER ###
