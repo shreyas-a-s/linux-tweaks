@@ -78,7 +78,7 @@ bind "set show-all-if-ambiguous On"
 ### ALIASES ###
 
 # To select correct neovim
-if whereis nvim | awk '{print $2}' | grep nvim > /dev/null; then
+if which nvim > /dev/null; then
   alias vim='nvim'
 elif flatpak list | grep nvim > /dev/null; then
   alias vim='flatpak run io.neovim.nvim'

@@ -48,7 +48,7 @@ end
 ### ALIASES ###
 
 # To select correct neovim
-if whereis nvim | awk '{print $2}' | grep nvim > /dev/null
+if which nvim > /dev/null
   alias vim='nvim'
 else if flatpak list | grep nvim > /dev/null
   alias vim='flatpak run io.neovim.nvim'
