@@ -69,7 +69,7 @@ setopt histignorespace # don't store command lines in history when the first cha
 setopt histreduceblanks # remove unnecessary blanks
 setopt sharehistory # imports new commands from the histfile, also apped typed commands to histfile incrementally
 setopt noautoremoveslash # don't remove slash for directories after auto tab completion
-setopt globdots # show hidden files
+setopt globdots # show hidden files in tab completion
 unsetopt listtypes # don't show trailing identifying marks for files while listing for completion
 
 ### ALIASES ###
