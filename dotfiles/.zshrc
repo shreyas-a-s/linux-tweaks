@@ -260,6 +260,13 @@ if [ -f /etc/zsh_command_not_found ]; then
   . /etc/zsh_command_not_found
 fi
 
+### OH MY ZSH PLUGINS
+
+# sudo - hit ESC twice to run prev command with sudo or to inset sudo to currently typed command
+if [ -f $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh ]; then
+  . $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh
+fi
+
 ### SETTING THE STARSHIP PROMPT ###
 if which starship > /dev/null; then
   eval "$(starship init zsh)"
