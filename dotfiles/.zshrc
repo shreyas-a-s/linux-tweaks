@@ -39,8 +39,8 @@ zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 echo -ne '\e[5 q'
 
 # use beam shape cursor for each new prompt.
-_fix_cursor() {
-   echo -ne '\e[5 q'
+function _fix_cursor {
+  echo -ne '\e[5 q'
 }
 precmd_functions+=(_fix_cursor)
 
