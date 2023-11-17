@@ -92,15 +92,22 @@ alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which ne
 # Tree command - Show all files including hidden ones
 alias tree='tree -a'
 
-# Changing "ls" to "exa"
-if [ -f "/usr/bin/exa" ]; then
-  alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
-  alias ll='exa -al --color=always --group-directories-first' # my preferred listing
-  alias lt='exa -aT --color=always --group-directories-first' # tree listing
+# Better ls commands
+if [ -f "/usr/bin/lsd" ]; then
+  alias ls='lsd -A'
+  function ll {
+    if [ "$1" = "-g" ]; then
+      shift
+      lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first "$@"
+    else
+      lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first "$@"
+    fi
+  }
+  alias lt='lsd --tree --group-directories-first'
 else
-  alias ls='ls --color=auto'
-  alias la='ls -A --color=auto'
-  alias ll='ls -alh --color=auto'
+  alias ls='ls -A --color=auto --group-directories-first'
+  alias ll='ls -Alh --color=auto --group-directories-first'
+  alias lt='tree --dirsfirst'
 fi
 
 # Colorize grep output (good for log files)
