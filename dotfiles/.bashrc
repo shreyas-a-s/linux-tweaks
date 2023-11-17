@@ -25,7 +25,7 @@ if [ -f "$HOME/.config/lscolors/lscolors.sh" ]; then
 fi
 
 ### SET MANPAGER ###
-if [ -f /usr/bin/batcat ]; then
+if which batcat > /dev/null; then
   export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 fi
 

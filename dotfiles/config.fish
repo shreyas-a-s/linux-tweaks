@@ -22,7 +22,9 @@ if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
 end
 
 #### SET MANPAGER ###
- set -x MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+if which batcat > /dev/null
+  set -x MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+end
 
 ### PATH ###
 if [ -d "$HOME/.bin" ]

@@ -44,7 +44,9 @@ function _fix_cursor {
 precmd_functions+=(_fix_cursor)
 
 ### SET MANPAGER
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+if which batcat > /dev/null; then
+  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
