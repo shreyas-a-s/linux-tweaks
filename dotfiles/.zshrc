@@ -120,9 +120,9 @@ else
 fi
 
 # Colorize grep output (good for log files)
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep='grep -i --color=auto'
+alias egrep='egrep -i --color=auto'
+alias fgrep='fgrep -i --color=auto'
 
 # Adding flags
 alias df='df -h'                          # human-readable sizes
