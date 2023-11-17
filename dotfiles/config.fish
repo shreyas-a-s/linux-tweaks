@@ -64,7 +64,7 @@ alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which ne
 alias tree='tree -a'
 
 # Better ls commands
-if [ -f /usr/bin/lsd ]
+if which lsd > /dev/null
   alias ls='lsd -A'
   function ll
     if [ $argv[1] = '-g' ]
@@ -101,7 +101,7 @@ if [ -f "/usr/bin/trash" ]
 end
 
 # Colorize cat command
-if [ -f "/usr/bin/batcat" ]
+if which batcat > /dev/null
   alias cat='batcat --style=plain'
 end
 
@@ -116,7 +116,7 @@ alias history='history -R | command cat -n'
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my Github: github.com/shreyas-a-s/shell-color-scripts
-if [ -f /usr/local/bin/colorscript ]
+if which colorscript > /dev/null
   colorscript random
 end
 
@@ -157,7 +157,7 @@ end
 
 # Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
 function sudo
-  if [ "$argv[1]" = apt -a -f /usr/bin/nala ]
+  if [ "$argv[1]" = "apt" -a (which nala > /dev/null; echo $status) -eq 0 ]
     set argv[1] nala && command sudo $argv
   else
     command sudo $argv
@@ -221,6 +221,6 @@ function extract
 end
 
 ### SETTING THE STARSHIP PROMPT ###
-if [ -f /usr/local/bin/starship ]
+if which starship > /dev/null
   starship init fish | source
 end

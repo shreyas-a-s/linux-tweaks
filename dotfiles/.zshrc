@@ -101,7 +101,7 @@ alias allup='sudo apt update && sudo apt upgrade -y; flatpak update -y; which ne
 alias tree='tree -a'
 
 # Better ls commands
-if [ -f "/usr/bin/lsd" ]; then
+if which lsd > /dev/null; then
   alias ls='lsd -A'
   function ll {
     if [ "$1" = "-g" ]; then
@@ -133,12 +133,12 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
 # Enable command-line trash
-if [ -f "/usr/bin/trash" ]; then
+if which trash > /dev/null; then
   alias rm='trash'
 fi
 
 # Colorize cat command
-if [ -f "/usr/bin/batcat" ]; then
+if which batcat > /dev/null; then
   alias cat='batcat --style=plain'
 fi
 
@@ -146,7 +146,7 @@ fi
 alias sudo='sudo '
 
 # Change apt command to nala
-if [ -f "/usr/bin/nala" ]; then
+if which nala > /dev/null; then
   alias apt='nala'
 fi
 
@@ -260,7 +260,7 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 ### SETTING THE STARSHIP PROMPT ###
-if [ -f /usr/local/bin/starship ]; then
+if which starship > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
