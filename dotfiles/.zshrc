@@ -28,7 +28,6 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select
-zstyle ':completion:*' completer _extensions _complete 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
