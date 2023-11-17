@@ -33,37 +33,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 
-### VIM MODE CONFIG ###
-
-# Activate vim mode.
-bindkey -v
-
-# Remove mode switching delay.
-KEYTIMEOUT=1
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${keymap} == main ]] ||
-       [[ ${keymap} == viins ]] ||
-       [[ ${keymap} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
 # use beam shape cursor on startup.
 echo -ne '\e[5 q'
-
-# use beam shape cursor for each new prompt.
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
-precmd_functions+=(_fix_cursor)
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
