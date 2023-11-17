@@ -7,7 +7,6 @@ export XDG_STATE_HOME=$HOME/.local/state
 ### EXPORT ###
 export TERM="xterm-256color"                                  # getting proper colors
 export WGETRC=$XDG_CONFIG_HOME/wgetrc                         # to set xdg base directory for wget
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export LESSHISTFILE=-                                         # prevent creation of ~/.lesshst file
 if which nvim > /dev/null; then
   export EDITOR="nvim"
