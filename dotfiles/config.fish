@@ -2,18 +2,18 @@
 set -U fish_greeting
 
 ### SET XDG USER DIRECTORES ###
-setenv XDG_CONFIG_HOME $HOME/.config
-setenv XDG_CACHE_HOME $HOME/.cache
-setenv XDG_DATA_HOME $HOME/.local/share
-setenv XDG_STATE_HOME $HOME/.local/state
+ set -gx XDG_CONFIG_HOME $HOME/.config
+ set -gx XDG_CACHE_HOME $HOME/.cache
+ set -gx XDG_DATA_HOME $HOME/.local/share
+ set -gx XDG_STATE_HOME $HOME/.local/state
 
 ### EXPORT ###
-setenv TERM "xterm-256color"                     # getting proper colors
-setenv WGETRC $XDG_CONFIG_HOME/wgetrc            # set xdg base directory for wget
-setenv LESSHISTFILE -                            # prevent creation of ~/.lesshst file
+ set TERM "xterm-256color"                         # getting proper colors
+ set -gx WGETRC $XDG_CONFIG_HOME/wgetrc            # set xdg base directory for wget
+ set LESSHISTFILE -                                # prevent creation of ~/.lesshst file
 if which nvim > /dev/null
-  setenv EDITOR "nvim"
-  setenv VISUAL "nvim"
+   set EDITOR "nvim"
+   set VISUAL "nvim"
 end
 
 # Set colors for ls command
@@ -22,7 +22,7 @@ if [ -f "$HOME/.config/lscolors/lscolors.csh" ]
 end
 
 #### SET MANPAGER ###
-setenv MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+ set -x MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 
 ### PATH ###
 if [ -d "$HOME/.bin" ]
