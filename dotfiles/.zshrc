@@ -33,8 +33,16 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
 
+### USE BEAM SHAPE CURSOR ###
+
 # use beam shape cursor on startup.
 echo -ne '\e[5 q'
+
+# use beam shape cursor for each new prompt.
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
 
 ### SET MANPAGER
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
