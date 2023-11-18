@@ -85,8 +85,9 @@ end
 
 # Colorize grep output (good for log files)
 alias grep='grep -i --color=auto'
-alias egrep='egrep -i --color=auto'
-alias fgrep='fgrep -i --color=auto'
+alias egrep='grep -e'
+alias fgrep='grep -f'
+alias rgrep='grep -r'
 
 # Adding flags
 alias df='df -h'                          # human-readable sizes
