@@ -202,6 +202,16 @@ function ix {
   curl -F "f:1=@$1" ix.io
 }
 
+# Function to make neovim use same settings even when launching as sudo
+function sudo {
+  if [ "$1" = "nvim" ] && which nvim > /dev/null; then
+    shift
+    (VISUAL=nvim && sudoedit "$@")
+  else
+    command sudo "$@"
+  fi
+}
+
 # Function to extract common file formats
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")

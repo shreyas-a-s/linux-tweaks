@@ -147,10 +147,15 @@ function mkdircd
   cd "$argv"
 end
 
-# Replacement for Bash 'sudo !!' command & replacing 'apt' with 'nala'
+# Replacing 'apt' with 'nala' and 'sudo vim' with 'sudoedit'
 function sudo
   if [ "$argv[1]" = "apt" -a (which nala > /dev/null; echo $status) -eq 0 ]
     set argv[1] nala && command sudo $argv
+  else if [ "$argv[1]" = "vim" -a (type vim > /dev/null; echo $status) -eq 0 ]
+    set -e argv[1]
+    set tempvar "$VISUAL" && set VISUAL vim
+    sudoedit $argv
+    set VISUAL "$tempvar" && set -e tempvar
   else
     command sudo $argv
   end
