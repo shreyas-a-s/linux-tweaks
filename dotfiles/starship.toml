@@ -28,14 +28,12 @@ vicmd_symbol = "[➜](bold orange)"
 read_only = " 🔒"
 truncation_length = 10
 truncate_to_repo = false # truncates directory to root folder if in github repo
-#style = "bold italic blue"
-style = "bold blue"
+style = "blue"
 
 [cmd_duration]
 min_time = 4
 show_milliseconds = false
 disabled = true
-#style = "bold italic red"
 style = "bold red"
 
 [aws]
@@ -64,6 +62,7 @@ format = 'via [🌳 $version](cyan bold) '
 
 [git_branch]
 symbol = "🌱 "
+style = "purple"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -124,7 +123,7 @@ symbol = "🐘 "
 [python]
 symbol = "🐍 "
 format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
-style = "bold yellow"
+style = "yellow"
 pyenv_prefix = "venv "
 python_binary = ["./venv/bin/python", "python", "python3", "python2"]
 detect_extensions = ["py"]
