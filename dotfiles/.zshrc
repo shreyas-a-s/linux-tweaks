@@ -267,6 +267,10 @@ if [ -f $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh ]; then
   . $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh
 fi
 
+# History search using UP and DOWN
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
+
 ### SETTING THE STARSHIP PROMPT ###
 if which starship > /dev/null; then
   eval "$(starship init zsh)"
