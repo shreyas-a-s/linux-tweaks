@@ -77,13 +77,13 @@ customiseZsh() {
 # Shell choice
 shellChoice() {
 
-  echo "Which shell you prefer to customise?"
+  echo "Which shell you prefer?"
   echo "[1] Bash"
   echo "[2] Fish"
   echo "[3] Zsh"
-  echo "[4] None"
-  echo "Choose an option (1/2/3/4) : " && read -r shell_choice
-  [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 4 ] && printf "Invalid Choice..!!!\n\n" && shellChoice
+  echo "If unsure, select Bash."
+  echo "Choose an option (1/2/3) : " && read -r shell_choice
+  [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ] && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" && shellChoice
 
 }
 
@@ -107,13 +107,16 @@ else
 fi
 
 # Shell choice
+customiseBash
+customiseFish
+customiseZsh
 case $shell_choice in
     1)
-        customiseBash && while ! chsh -s "$(which bash)"; do :; done;;
+        while ! chsh -s "$(which bash)"; do :; done;;
     2)
-        customiseFish && while ! chsh -s "$(which fish)"; do :; done;;
+        while ! chsh -s "$(which fish)"; do :; done;;
     3)
-        customiseZsh && while ! chsh -s "$(which zsh)"; do :; done;;
+        while ! chsh -s "$(which zsh)"; do :; done;;
 esac
 
 # Setup Starship
