@@ -21,7 +21,7 @@ setupXDGUserDirs() {
 # Function to customise bash shell
 customiseBash() {
 
-  sudo apt-get -y install bash-completion make gawk git
+  sudo apt-get -y install bash-completion
 
   # Create necessary directories
   mkdir -p ~/.config/bash
