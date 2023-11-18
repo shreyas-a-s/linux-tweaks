@@ -71,6 +71,8 @@ customiseZsh() {
 
   # Copy necessary files
   cp ../dotfiles/.zshrc ~/.config/zsh/
+  cp ../dotfiles/sudo-plugin.zsh ~/.config/zsh/
+  cp ../dotfiles/zsh-history-substring-search.zsh ~/.config/zsh/
   cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
   # Set dotfile directory for zsh

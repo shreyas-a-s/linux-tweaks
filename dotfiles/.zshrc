@@ -268,8 +268,14 @@ if [ -f $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh ]; then
 fi
 
 # History search using UP and DOWN
-bindkey "^[OA" history-beginning-search-backward
-bindkey "^[OB" history-beginning-search-forward
+if [ -f $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh ]; then
+  . $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh
+  bindkey "$key[Up]" history-substring-search-up
+  bindkey "$key[Down]" history-substring-search-down
+else
+  bindkey "$key[Up]" history-beginning-search-backward
+  bindkey "$key[Down]" history-beginning-search-forward
+fi
 
 ### SETTING THE STARSHIP PROMPT ###
 if which starship > /dev/null; then
