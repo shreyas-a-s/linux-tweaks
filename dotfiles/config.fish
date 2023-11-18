@@ -69,13 +69,13 @@ alias tree='tree -a'
 if which lsd > /dev/null
   alias ls='lsd -A'
   function ll
-    if [ $argv[1] = '-g' ]
+    if [ -z "$argv" ] && [ "$argv[1]" = "-g" ]
       set -e argv[1]
       lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first $argv
     else
       lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first $argv
     end
- end
+  end
   alias lt='lsd --tree --group-directories-first'
 else
   alias ls='ls -A --color=auto --group-directories-first'
@@ -150,7 +150,7 @@ end
 
 # Replacing 'apt' with 'nala' and 'sudo vim' with 'sudoedit'
 function sudo
-  if [ "$argv[1]" = "apt" -a (which nala > /dev/null; echo $status) -eq 0 ]
+  if [ "$argv[1]" = "apt" ] && [ (which nala > /dev/null; echo $status) -eq 0 ]
     set argv[1] nala && command sudo $argv
   else if [ "$argv[1]" = "vim" -a (type vim > /dev/null; echo $status) -eq 0 ]
     set -e argv[1]
