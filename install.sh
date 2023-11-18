@@ -17,7 +17,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Variables
-distroname=$(awk '{print $1;}' /etc/issue)
+distroname=$(awk '{print $1}' /etc/issue)
 
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
