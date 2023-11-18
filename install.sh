@@ -41,9 +41,6 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 # Enabling firewall
 sudo ufw enable
 
-# Updating tldr pages
-tldr -u
-
 # Change Grub Timeout
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
 sudo update-grub

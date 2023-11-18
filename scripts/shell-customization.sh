@@ -162,3 +162,6 @@ else
   sudo update-alternatives --set editor $(which nano)
 fi
 
+# Update tldr database
+tldr -u
+
