@@ -111,13 +111,13 @@ require('lazy').setup({
     },
   },
 
--- alpha dashboard
   {
-  'goolord/alpha-nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+    -- Greeter for neovim
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
-  end
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
   },
 
   -- Useful plugin to show you pending keybinds.
