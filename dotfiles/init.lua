@@ -111,6 +111,15 @@ require('lazy').setup({
     },
   },
 
+-- alpha dashboard
+  {
+  'goolord/alpha-nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+  end
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
@@ -153,7 +162,7 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
+    -- Theme that I find as close to my fav theme (i.e atom-dark)
     'rebelot/kanagawa.nvim',
     name = 'kanagawa',
     priority = 1000,
@@ -273,6 +282,11 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.wo.relativenumber = true
 
 -- [[ Basic Keymaps ]]
 
