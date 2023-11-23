@@ -231,11 +231,6 @@ fi
 
 ### OH MY ZSH PLUGINS
 
-# sudo - hit ESC twice to run prev command with sudo or to inset sudo to currently typed command
-if [ -f $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh ]; then
-  . $XDG_CONFIG_HOME/zsh/sudo-plugin.zsh
-fi
-
 # History search using UP and DOWN
 if [ -f $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh ]; then
   . $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh
