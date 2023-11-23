@@ -29,7 +29,6 @@ customiseBash() {
 
   # Copy necessary files
   mv ~/.bash_history ~/.config/bash/
-  cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
 }
 
@@ -55,9 +54,6 @@ customiseZsh() {
   # Create necessary directories
   mkdir -p ~/.config/zsh
   mkdir -p ~/.config/lscolors
-
-  # Copy necessary files
-  cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
   # Set dotfile directory for zsh
   sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv
