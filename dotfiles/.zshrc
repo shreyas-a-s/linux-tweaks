@@ -219,7 +219,7 @@ if [ -f /etc/zsh_command_not_found ]; then
   . /etc/zsh_command_not_found
 fi
 
-### OH MY ZSH PLUGINS
+### OH MY ZSH PLUGINS ###
 
 # History search using UP and DOWN
 if [ -f $XDG_CONFIG_HOME/zsh/zsh-history-substring-search.zsh ]; then
