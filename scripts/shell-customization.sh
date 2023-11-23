@@ -118,7 +118,6 @@ echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
 # Copy config file for micro
 mkdir -p ~/.config/micro/
-cp ../dotfiles/settings.json ~/.config/micro/
 
 # Update database of command-not-found
 sudo update-command-not-found
