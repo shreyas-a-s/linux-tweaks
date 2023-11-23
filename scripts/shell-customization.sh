@@ -28,7 +28,6 @@ customiseBash() {
   mkdir -p ~/.config/lscolors
 
   # Copy necessary files
-  cp ../dotfiles/.bashrc ~/
   mv ~/.bash_history ~/.config/bash/
   cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
