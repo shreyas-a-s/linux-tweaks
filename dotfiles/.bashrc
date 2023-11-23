@@ -138,7 +138,7 @@ if which batcat > /dev/null; then
 fi
 
 # Make aliases work even if preceded by sudo
-alias sudo='sudo '
+alias sudo='nocorrect sudo -E '
 
 # Change apt command to nala
 if which nala > /dev/null; then
@@ -194,16 +194,6 @@ function ping {
 # Function to use ix.io (the command-line pastebin)
 function ix {
   curl -F "f:1=@$1" ix.io
-}
-
-# Function to make neovim use same settings even when launching as sudo
-function sudo {
-  if [ "$1" = "nvim" ] && which nvim > /dev/null; then
-    shift
-    (SUDO_EDITOR=nvim && sudoedit "$@")
-  else
-    command sudo "$@"
-  fi
 }
 
 ### SETTING THE STARSHIP PROMPT ###
