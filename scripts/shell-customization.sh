@@ -41,9 +41,6 @@ customiseFish() {
   mkdir -p ~/.config/fish
   mkdir -p ~/.config/lscolors
 
-  # Copy necessary files
-  cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
-
 }
 
 # Function to customise zsh shell
