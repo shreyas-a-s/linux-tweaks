@@ -161,6 +161,8 @@ require('lazy').setup({
     },
   },
 
+  'lambdalisue/suda.vim',
+
   {
     -- Theme that I find as close to my fav theme (i.e atom-dark)
     'rebelot/kanagawa.nvim',
