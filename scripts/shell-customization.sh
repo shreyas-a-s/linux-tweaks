@@ -44,7 +44,6 @@ customiseFish() {
 
   # Copy necessary files
   cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
-  cp ../dotfiles/config.fish ~/.config/fish/
 
 }
 
