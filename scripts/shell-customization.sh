@@ -41,16 +41,11 @@ customiseFish() {
 
   # Create necessary directories
   mkdir -p ~/.config/fish
-  mkdir -p ~/.config/fish/conf.d
-  mkdir -p ~/.config/fish/functions
   mkdir -p ~/.config/lscolors
 
   # Copy necessary files
   cp ../dotfiles/lscolors.csh ~/.config/lscolors/ # Adding some spash of colors to the good old ls command
   cp ../dotfiles/config.fish ~/.config/fish/
-  cp ../dotfiles/plugin-bang-bang.fish ~/.config/fish/conf.d/
-  cp ../dotfiles/__history_previous_command.fish ~/.config/fish/functions/ 
-  cp ../dotfiles/__history_previous_command_arguments.fish ~/.config/fish/functions/
 
 }
 
