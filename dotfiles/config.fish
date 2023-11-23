@@ -12,8 +12,9 @@ set -U fish_greeting
  set -gx WGETRC $XDG_CONFIG_HOME/wgetrc            # set xdg base directory for wget
  set LESSHISTFILE -                                # prevent creation of ~/.lesshst file
 if which nvim > /dev/null
-   set EDITOR "nvim"
-   set VISUAL "nvim"
+  set EDITOR "nvim"
+  set VISUAL "nvim"
+  set SUDO_EDITOR "nvim"
 end
 
 # Set colors for ls command
@@ -154,9 +155,9 @@ function sudo
     set argv[1] nala && command sudo $argv
   else if [ "$argv[1]" = "vim" -a (type vim > /dev/null; echo $status) -eq 0 ]
     set -e argv[1]
-    set tempvar "$VISUAL" && set VISUAL vim
+    set tempvar "$SUDO_EDITOR" && set SUDO_EDITOR vim
     sudoedit $argv
-    set VISUAL "$tempvar" && set -e tempvar
+    set SUDO_EDITOR "$tempvar" && set -e tempvar
   else
     command sudo $argv
   end

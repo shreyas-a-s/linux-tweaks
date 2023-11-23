@@ -11,6 +11,7 @@ export LESSHISTFILE=-                                         # prevent creation
 if which nvim > /dev/null; then
   export EDITOR="nvim"
   export VISUAL="nvim"
+  export SUDO_EDITOR="nvim"
 fi
 
 ### HISTORY SETTINGS ###
@@ -207,7 +208,7 @@ function ix {
 function sudo {
   if [ "$1" = "nvim" ] && which nvim > /dev/null; then
     shift
-    (VISUAL=nvim && sudoedit "$@")
+    (SUDO_EDITOR=nvim && sudoedit "$@")
   else
     command sudo "$@"
   fi
