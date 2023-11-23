@@ -27,9 +27,6 @@ customiseBash() {
   mkdir -p ~/.config/bash
   mkdir -p ~/.config/lscolors
 
-  # Copy necessary files
-  mv ~/.bash_history ~/.config/bash/
-
 }
 
 # Function to customise fish shell
