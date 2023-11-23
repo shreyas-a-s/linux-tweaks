@@ -72,9 +72,9 @@ if which lsd > /dev/null
   function ll
     if [ -z "$argv" ] && [ "$argv[1]" = "-g" ]
       set -e argv[1]
-      lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first $argv
+      lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%M --size short --group-directories-first $argv
     else
-      lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first $argv
+      lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%M --size short --group-directories-first $argv
     end
   end
   alias lt='lsd --tree --group-directories-first'

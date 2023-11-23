@@ -108,9 +108,9 @@ if which lsd > /dev/null; then
   function ll {
     if [ "$1" = "-g" ]; then
       shift
-      lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first "$@"
+      lsd -Al --blocks permission,user,group,size,date,name --date +%d\ %b\ %H:%M --size short --group-directories-first "$@"
     else
-      lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%m --size short --group-directories-first "$@"
+      lsd -Al --blocks permission,user,size,date,name --date +%d\ %b\ %H:%M --size short --group-directories-first "$@"
     fi
   }
   alias lt='lsd --tree --group-directories-first'
