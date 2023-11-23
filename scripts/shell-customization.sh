@@ -140,12 +140,3 @@ fi
 # Update tldr database
 tldr -u
 
-# Declutter HOME directory
-echo "Do you want to declutter your home folder by removing some files? (yes/no)" && read -r declutter_choice
-case $declutter_choice in
-  y|yes|Yes|YES)
-    rm ~/.bash_logout
-    rm ~/.profile
-    rm ~/.sudo_as_admin_successful
-    rm ~/.wget-hsts
-esac
