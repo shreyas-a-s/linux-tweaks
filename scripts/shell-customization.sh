@@ -58,7 +58,6 @@ customiseZsh() {
   mkdir -p ~/.config/lscolors
 
   # Copy necessary files
-  cp ../dotfiles/zsh-history-substring-search.zsh ~/.config/zsh/
   cp ../dotfiles/lscolors.sh ~/.config/lscolors/
 
   # Set dotfile directory for zsh
