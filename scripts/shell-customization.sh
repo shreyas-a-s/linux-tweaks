@@ -39,7 +39,7 @@ while true; do
   echo "[3] Zsh"
   echo "If unsure, select Bash."
   printf "Choose an option (1/2/3) : " && read -r shell_choice
-  { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ] } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
+  { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
 case $shell_choice in
     1)
