@@ -33,13 +33,13 @@ sudo apt-get -y install fish python-is-python3 # install fish customisations
 sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
 sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
 while true; do
-echo "Which shell you prefer?"
-echo "[1] Bash"
-echo "[2] Fish"
-echo "[3] Zsh"
-echo "If unsure, select Bash."
-echo "Choose an option (1/2/3) : " && read -r shell_choice
-{ [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ] } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
+  echo "Which shell you prefer?"
+  echo "[1] Bash"
+  echo "[2] Fish"
+  echo "[3] Zsh"
+  echo "If unsure, select Bash."
+  echo "Choose an option (1/2/3) : " && read -r shell_choice
+  { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ] } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
 case $shell_choice in
     1)
