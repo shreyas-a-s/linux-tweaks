@@ -48,8 +48,7 @@ sudo apt-get install -y tar xz-utils bzip2 unrar-free gzip unzip p7zip-full cabe
 sudo apt-get -y install bash-completion # install bash customisations
 sudo apt-get -y install fish python-is-python3 # install fish customisations
 sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
-# Set dotfile directory for zsh
-sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv
+sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
  
 case $shell_choice in
     1)
