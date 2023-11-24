@@ -22,7 +22,6 @@ setupXDGUserDirs() {
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
-shellChoice
 sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop fonts-font-awesome fonts-noto-color-emoji
 
 # Install lsd
@@ -82,11 +81,11 @@ fi
 
 # Set default text editor
 if which nvim > /dev/null; then
-  sudo update-alternatives --set editor $(which nvim)
+  sudo update-alternatives --set editor "$(which nvim)"
 elif which micro > /dev/null; then
-  sudo update-alternatives --set editor $(which micro)
+  sudo update-alternatives --set editor "$(which micro)"
 else
-  sudo update-alternatives --set editor $(which nano)
+  sudo update-alternatives --set editor "$(which nano)"
 fi
 
 # Update tldr database
