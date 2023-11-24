@@ -25,9 +25,6 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 shellChoice
 sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop fonts-font-awesome fonts-noto-color-emoji
 
-# Install utilities for extract function
-sudo apt-get install -y tar xz-utils bzip2 unrar-free gzip unzip p7zip-full cabextract cpio unace
-
 # Install lsd
 ./lsd.sh
 
