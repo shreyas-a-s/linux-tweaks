@@ -13,7 +13,7 @@ setupXDGUserDirs() {
     fi
   done
 
-  cp ../dotfiles/user-dirs.dirs ~/.config/
+  cp user-dirs.dirs ~/.config/
   xdg-user-dirs-update
 
 }
