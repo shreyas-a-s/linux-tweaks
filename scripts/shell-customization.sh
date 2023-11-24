@@ -18,42 +18,6 @@ setupXDGUserDirs() {
 
 }
 
-# Function to customise bash shell
-customiseBash() {
-
-  sudo apt-get -y install bash-completion
-
-  # Create necessary directories
-  mkdir -p ~/.config/bash
-  mkdir -p ~/.config/lscolors
-
-}
-
-# Function to customise fish shell
-customiseFish() {
-
-  sudo apt-get -y install fish python-is-python3
-
-  # Create necessary directories
-  mkdir -p ~/.config/fish
-  mkdir -p ~/.config/lscolors
-
-}
-
-# Function to customise zsh shell
-customiseZsh() {
-
-  sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
-
-  # Create necessary directories
-  mkdir -p ~/.config/zsh
-  mkdir -p ~/.config/lscolors
-
-  # Set dotfile directory for zsh
-  sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv
-  
-}
-
 # Shell choice
 shellChoice() {
 
@@ -87,9 +51,12 @@ else
 fi
 
 # Shell choice
-customiseBash
-customiseFish
-customiseZsh
+sudo apt-get -y install bash-completion # install bash customisations
+sudo apt-get -y install fish python-is-python3 # install fish customisations
+sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
+# Set dotfile directory for zsh
+sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv
+ 
 case $shell_choice in
     1)
         while ! chsh -s "$(which bash)"; do :; done;;
