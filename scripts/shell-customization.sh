@@ -56,7 +56,6 @@ curl -sS https://starship.rs/install.sh | sh
 # Setup Directories
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 rm -d ~/desktop ~/music ~/templates ~/public
-mkdir -p ~/downloads/kdeconnect
 
 # Shell color scripts
 (cd ~ && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
@@ -64,20 +63,12 @@ mkdir -p ~/downloads/kdeconnect
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
-# Copy config file for micro
-mkdir -p ~/.config/micro/
+# Install neovim
+./neovim.sh
 
 # Update database of command-not-found
 sudo update-command-not-found
 sudo apt update
-
-# Install neovim
-if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -ge 9 ]; then
-  sudo apt-get install -y neovim
-else
-  ./neovim-appimage-updater.sh
-  sudo cp neovim-appimage-updater.sh /usr/local/bin/neovim-appimage-updater
-fi
 
 # Set default text editor
 if which nvim > /dev/null; then
