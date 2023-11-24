@@ -44,7 +44,6 @@ cd "$builddir" || exit
 echo ""; echo "Copying wallpaper, config files, fonts and rebuilding font cache..."
 sudo cp garden.jpg /usr/share/backgrounds/ # My current fav wallpaper
 sudo cp dotfiles/lightdm.conf dotfiles/slick-greeter.conf /etc/lightdm/ # Customising lightdm & slick-greeter
-cp dotfiles/CodeNewRomanNerdFontMono-Regular.otf ~/.local/share/fonts/ && fc-cache -vf # Adding my fav terminal font & rebuilding font cache
 cp scripts/wall-set.sh ~/ # Script to set nitrogen command in autostart to --restore
 cp scripts/dkill.sh ~/.config/ # dmenu script to kill process by typing name
 
