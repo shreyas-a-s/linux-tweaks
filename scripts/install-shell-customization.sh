@@ -3,7 +3,6 @@
 # Function to customise bash shell
 function customiseBash {
 	sudo apt install bash-completion -y
-	cp dotfiles/bashextra ~/.config/.bashextra # my bash tweaks
 	echo "source /home/""$username""/.config/.bashextra" | tee -a ~/.bashrc > /dev/null
 	echo "source /home/""$username""/.config/.bashextra" | sudo tee -a /root/.bashrc > /dev/null
 	curl -sS https://starship.rs/install.sh | sh # installing starship
