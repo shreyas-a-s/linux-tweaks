@@ -63,6 +63,9 @@ rm -d ~/desktop ~/music ~/templates ~/public
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
+# Disable creation of ~/.sudo_as_admin_successful
+echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
+
 # Install neovim
 ./neovim.sh
 
