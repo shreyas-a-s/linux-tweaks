@@ -40,6 +40,11 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 
 # Enabling firewall
 sudo ufw enable
+if which kdeconnect-cli > /dev/null || gnome-extensions list | grep gsconnect > /dev/null; then
+  sudo ufw allow 1714:1764/udp
+  sudo ufw allow 1714:1764/tcp
+  sudo ufw reload
+fi
 
 # Change Grub Timeout
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
