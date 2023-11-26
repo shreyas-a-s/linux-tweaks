@@ -22,7 +22,7 @@ setupXDGUserDirs() {
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Installation
-sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop make gh fonts-noto-color-emoji
+sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop make gh fonts-noto-color-emoji vifm
 
 # Install lsd
 ./lsd.sh
