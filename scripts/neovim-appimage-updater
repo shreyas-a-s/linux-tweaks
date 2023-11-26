@@ -31,7 +31,7 @@ if whereis nvim | awk '{print $2}' | grep -q nvim; then
 
 else
 
-  printf "/n/nNeovim is not installed. Installing now...\n"
+  printf "\n\nNeovim is not installed. Installing now...\n"
   sleep 1
 
   wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
