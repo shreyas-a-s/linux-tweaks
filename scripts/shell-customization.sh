@@ -28,10 +28,6 @@ sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-
 ./lsd.sh
 
 # Shell choice
-sudo apt-get -y install bash-completion # install bash customisations
-sudo apt-get -y install fish python-is-python3 # install fish customisations
-sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
-sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
 while true; do
   echo "Which shell you prefer?"
   echo "[1] Bash"
@@ -43,10 +39,14 @@ while true; do
 done
 case $shell_choice in
     1)
+        sudo apt-get -y install bash-completion # install bash customisations
         while ! chsh -s "$(which bash)"; do :; done;;
     2)
+        sudo apt-get -y install fish python-is-python3 # install fish customisations
         while ! chsh -s "$(which fish)"; do :; done;;
     3)
+        sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
+        sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
         while ! chsh -s "$(which zsh)"; do :; done;;
 esac
 
