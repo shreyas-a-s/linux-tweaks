@@ -26,7 +26,6 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 
 # My custom scripts
 ./scripts/brave.sh # brave-browser
-./scripts/flatpak.sh # flatpak and most used apps
 ./scripts/github-desktop.sh # github-desktop for linux
 ./scripts/gnome.sh # gnome-specific-customisations
 ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
