@@ -21,13 +21,7 @@ setupXDGUserDirs() {
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Installation
-sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop make gh fonts-noto-color-emoji vifm ncdu
-
-# Install lsd
-./lsd.sh
-
-# Shell choice
+# Taking shell choice
 while true; do
   echo "Which shell you prefer?"
   echo "[1] Bash"
@@ -37,6 +31,14 @@ while true; do
   printf "Choose an option (1/2/3) : " && read -r shell_choice
   { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
+
+# Installation
+sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop make gh fonts-noto-color-emoji vifm ncdu
+
+# Install lsd
+./lsd.sh
+
+# Executing shell choice
 case $shell_choice in
     1)
         sudo apt-get -y install bash-completion # install bash customisations
