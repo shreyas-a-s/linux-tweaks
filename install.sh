@@ -32,7 +32,7 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
 ./scripts/vscodium.sh # open source vscode
-./scripts/shell-customization.sh # bash/fish customizations
+./scripts/shell-customization.sh # bash/fish/zsh customizations
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
 [ "$distroname" = "Antix" ] && sudo apt-get -y install libnss3
