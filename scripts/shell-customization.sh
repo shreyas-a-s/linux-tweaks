@@ -75,15 +75,6 @@ echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 sudo update-command-not-found
 sudo apt update
 
-# Set default text editor
-if which nvim > /dev/null; then
-  sudo update-alternatives --set editor "$(which nvim)"
-elif which micro > /dev/null; then
-  sudo update-alternatives --set editor "$(which micro)"
-else
-  sudo update-alternatives --set editor "$(which nano)"
-fi
-
 # Update tldr database
 tldr -u
 
