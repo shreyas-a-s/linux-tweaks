@@ -10,4 +10,5 @@ else
     sudo apt install -y snapd
   fi
   sudo snap install nvim 2>/dev/null || sudo snap install nvim --classic
+  sudo ln -s /snap/bin/nvim /usr/local/bin/
 fi
