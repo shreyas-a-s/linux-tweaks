@@ -6,6 +6,8 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -ge 9 ]; then
   sudo apt-get install -y neovim
 else
-  ./neovim-appimage-updater
-  sudo cp neovim-appimage-updater /usr/local/bin/
+  if ! which snap > /dev/null; then
+    sudo apt install -y snapd
+  fi
+  sudo snap install nvim 2>/dev/null || sudo snap install nvim --classic
 fi
