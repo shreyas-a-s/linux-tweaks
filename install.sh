@@ -31,6 +31,7 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
+./scripts/snap.sh # snap package manager
 ./scripts/vscodium.sh # open source vscode
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
 
