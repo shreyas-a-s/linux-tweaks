@@ -22,10 +22,10 @@ busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gn
 busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s gsconnect@andyholmes.github.io
 
 # Uninstall qbittorrent if present
-which qbittorrent > /dev/null && sudo apt purge -y qbittorrent
+command -v qbittorrent > /dev/null && sudo apt purge -y qbittorrent
 
 # Install fragments - bittorrent client
-which snap > /dev/null || sudo apt install -y snapd
+command -v snap > /dev/null || sudo apt install -y snapd
 sudo snap install fragments
 
 # Restore dconf settings

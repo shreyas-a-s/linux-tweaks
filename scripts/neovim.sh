@@ -10,7 +10,7 @@ sudo apt-get update && sudo apt-get install -y gcc
 if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -ge 9 ]; then
   sudo apt-get install -y neovim
 else
-  if ! which snap > /dev/null; then
+  if ! command -v snap > /dev/null; then
     sudo apt-get install -y snapd
   fi
   sudo snap install nvim 2>/dev/null || sudo snap install nvim --classic
