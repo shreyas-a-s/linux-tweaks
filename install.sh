@@ -40,7 +40,7 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 
 # Enabling firewall
 sudo ufw enable
-if command -v kdeconnect-cli > /dev/null || dpkg-query -l | grep gsconnect > /dev/null; then
+if command -v kdeconnect-cli > /dev/null || gnome-extensions list | grep -q gsconnect; then
   sudo ufw allow 1714:1764/udp
   sudo ufw allow 1714:1764/tcp
   sudo ufw reload
