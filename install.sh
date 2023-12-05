@@ -50,5 +50,8 @@ fi
 sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
 sudo update-grub
 
+# Lower swappiness value for better utilization of RAM
+sudo sysctl vm.swappiness=10
+
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
