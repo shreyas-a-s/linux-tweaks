@@ -54,13 +54,13 @@ sudo update-grub
 sudo sysctl vm.swappiness=10
 
 # Add script to toggle wifi
-echo "#!/bin/sh
+echo '#!/bin/sh
 
 if [ $(rfkill list wifi | grep "Soft blocked: yes" | wc -l) -gt 0 ] ; then
   rfkill unblock wifi
 else
   rfkill block wifi
-fi" | sudo tee /usr/local/bin/wifi-toggle
+f' | sudo tee /usr/local/bin/wifi-toggle
 sudo chmod +x /usr/local/bin/wifi-toggle
 
 # Done
