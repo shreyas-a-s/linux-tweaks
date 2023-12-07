@@ -60,7 +60,7 @@ if [ $(rfkill list wifi | grep "Soft blocked: yes" | wc -l) -gt 0 ] ; then
   rfkill unblock wifi
 else
   rfkill block wifi
-f' | sudo tee /usr/local/bin/wifi-toggle
+f' | sudo tee /usr/local/bin/wifi-toggle > /dev/null
 sudo chmod +x /usr/local/bin/wifi-toggle
 
 # Done
