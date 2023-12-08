@@ -56,11 +56,11 @@ sudo sysctl vm.swappiness=10
 # Add script to toggle wifi
 echo '#!/bin/sh
 
-if [ $(rfkill list wifi | grep "Soft blocked: yes" | wc -l) -gt 0 ] ; then
-  rfkill unblock wifi
+if nmcli radio wifi | grep -q disabled; then
+  nmcli radio wifi on
 else
-  rfkill block wifi
-f' | sudo tee /usr/local/bin/wifi-toggle > /dev/null
+  nmcli radio wifi off
+fi' | sudo tee /usr/local/bin/wifi-toggle > /dev/null
 sudo chmod +x /usr/local/bin/wifi-toggle
 
 # Done
