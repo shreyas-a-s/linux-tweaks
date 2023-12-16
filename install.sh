@@ -54,14 +54,7 @@ sudo update-grub
 sudo sysctl vm.swappiness=10
 
 # Add script to toggle wifi
-echo '#!/bin/sh
-
-if nmcli radio wifi | grep -q disabled; then
-  nmcli radio wifi on
-else
-  nmcli radio wifi off
-fi' | sudo tee /usr/local/bin/wifi-toggle > /dev/null
-sudo chmod +x /usr/local/bin/wifi-toggle
+sudo cp scripts/wifi-toggle.sh /usr/local/bin/wifi-toggle
 
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
