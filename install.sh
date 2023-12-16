@@ -47,8 +47,15 @@ if command -v kdeconnect-cli > /dev/null || gnome-extensions list | grep -q gsco
 fi
 
 # Change Grub Timeout
-sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
-sudo update-grub
+if [ -f /etc/default/grub ]; then
+  sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
+  sudo update-grub
+fi
+
+# Change systemd-boot Timeout
+if [ -f /boot/loader/loader.conf ]; then
+  sudo sed -i "/timeout/ c\timeout 1" /boot/loader/loader.conf
+fi
 
 # Lower swappiness value for better utilization of RAM
 sudo sysctl vm.swappiness=10
