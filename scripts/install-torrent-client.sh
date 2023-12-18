@@ -7,7 +7,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
   if apt-cache show fragments > /dev/null; then
     sudo apt-get install -y fragments
   else
-    ./snap.sh
+    ./install-snap.sh
     sudo snap install fragments
   fi
 else
