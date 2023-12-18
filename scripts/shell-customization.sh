@@ -28,30 +28,20 @@ case $shell_choice in
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
 
-# Install terminal apps that I use
-./install-terminal-apps.sh
-
-# Install lsd
-./lsd.sh
+# My custom scripts
+./install-terminal-apps.sh # Install terminal apps that I use
+./lsd.sh # Install lsd
+./install-command-not-found.sh # Install command-not-found handler
+./neovim.sh # Install neovim
+./install-tldr.sh # install and update tldr database
+./setup-xdg-base-dirs.sh # Setup XDG Base Directories
 
 # Setup Starship
 curl -sS https://starship.rs/install.sh | sh
-
-# Setup XDG Base Directories
-./setup-xdg-base-dirs.sh
 
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
 # Disable creation of ~/.sudo_as_admin_successful
 echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
-
-# Install command-not-found handler
-./install-command-not-found.sh
-
-# Install neovim
-./neovim.sh
-
-# Update tldr database
-./install-tldr.sh
 
