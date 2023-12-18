@@ -17,11 +17,12 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Updating system & installing programs
-sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio kdeconnect keepassxc qbittorrent
+sudo apt-get -y install python-is-python3 kdeconnect keepassxc qbittorrent
 
 # My custom scripts
 ./scripts/update-system.sh # Updating installed programs
 ./scripts/brave.sh # brave-browser
+./scripts/install-essential-apps.sh # As the name suggests
 ./scripts/github-desktop.sh # github-desktop for linux
 ./scripts/gnome.sh # GNOME Desktop Environment Customisations
 ./scripts/librewolf.sh # firefox fork that is truely the best (IMO)

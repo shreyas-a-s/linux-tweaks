@@ -1,0 +1,9 @@
+ufw
+man
+git
+gparted
+vlc
+shellcheck
+curl
+wget
+obs-studio
