@@ -1,3 +1,6 @@
 #!/bin/sh
 
-apt show nala > /dev/null && sudo apt-get -y install nala
+if apt-cache show nala > /dev/null; then
+  sudo apt-get -y install nala
+fi
+
