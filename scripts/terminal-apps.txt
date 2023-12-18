@@ -8,7 +8,6 @@ tldr
 fzf
 command-not-found
 git
-micro
 btop
 make
 gh
