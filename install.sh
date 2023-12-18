@@ -16,9 +16,6 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Variables
-distro_name=$(awk '{print $1}' /etc/issue)
-
 # Updating system & installing programs
 echo ""; echo "Doing a system update & Installing required programs..."
 sudo apt-get update && sudo apt-get -y upgrade
@@ -34,9 +31,6 @@ sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-p
 ./scripts/snap.sh # snap package manager
 ./scripts/vscodium.sh # open source vscode
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
-
-# Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
-[ "$distro_name" = "Antix" ] && sudo apt-get -y install libnss3
 
 # Enabling firewall
 sudo ufw enable
