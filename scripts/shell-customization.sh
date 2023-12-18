@@ -29,10 +29,10 @@ case $shell_choice in
 esac
 
 # My custom scripts
-./install-terminal-apps.sh # Install terminal apps that I use
-./install-lsd.sh # Install lsd
 ./install-command-not-found.sh # Install command-not-found handler
+./install-lsd.sh # Install lsd
 ./install-neovim.sh # Install neovim
+./install-terminal-apps.sh # Install terminal apps that I use
 ./install-tldr.sh # install and update tldr database
 ./setup-xdg-base-dirs.sh # Setup XDG Base Directories
 

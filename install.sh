@@ -21,14 +21,14 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/install-brave.sh # brave-browser
 ./scripts/install-essential-apps.sh # As the name suggests
 ./scripts/install-github-desktop.sh # github-desktop for linux
-./scripts/setup-gnome.sh # GNOME Desktop Environment Customisations
 ./scripts/install-nala.sh # apt, but colorful
 ./scripts/install-onlyoffice.sh # office suite
-./scripts/setup-antix.sh # Antix Linux Customisations
-./scripts/setup-bootloader.sh # Bootloader Customisations
-./scripts/shell-customization.sh # bash/fish/zsh customizations
 ./scripts/install-ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
 ./scripts/install-vscodium.sh # open source vscode
+./scripts/setup-antix.sh # Antix Linux Customisations
+./scripts/setup-bootloader.sh # Bootloader Customisations
+./scripts/setup-gnome.sh # GNOME Desktop Environment Customisations
+./scripts/shell-customization.sh # bash/fish/zsh customizations
 
 # Lower swappiness value for better utilization of RAM
 sudo sysctl vm.swappiness=10
