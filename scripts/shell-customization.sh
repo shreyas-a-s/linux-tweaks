@@ -1,23 +1,5 @@
 #!/bin/sh
 
-# Function to setup XDG user dirs
-setupXDGUserDirs() {
-
-  for dirname in "$@"; do
-    newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
-
-    if [ -d "$dirname" ]; then
-      mv "$dirname" "$newdirname"
-    else
-      mkdir "$newdirname"
-    fi
-  done
-
-  cp user-dirs.dirs ~/.config/
-  xdg-user-dirs-update
-
-}
-
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
@@ -55,9 +37,8 @@ esac
 # Setup Starship
 curl -sS https://starship.rs/install.sh | sh
 
-# Setup Directories
-setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
-rm -d ~/desktop ~/music ~/templates ~/public
+# Setup XDG Base Directories
+./setup-xdg-base-dirs.sh
 
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
