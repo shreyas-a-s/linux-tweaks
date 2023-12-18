@@ -28,7 +28,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/setup-bootloader.sh # Bootloader Customisations
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
 ./scripts/install-ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
-./scripts/vscodium.sh # open source vscode
+./scripts/install-vscodium.sh # open source vscode
 
 # Lower swappiness value for better utilization of RAM
 sudo sysctl vm.swappiness=10
