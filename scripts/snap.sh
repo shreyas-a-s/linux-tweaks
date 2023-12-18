@@ -11,6 +11,3 @@ if command -v apt-get > /dev/null; then
   sudo apt-get update && sudo apt-get install -y snapd
 fi
 
-# Install snap apps that I use
-sudo snap install joplin-desktop
-
