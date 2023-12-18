@@ -1,0 +1,17 @@
+curl
+autojump
+bat
+neofetch
+trash-cli
+wget
+tldr
+fzf
+command-not-found
+git
+micro
+btop
+make
+gh
+fonts-noto-color-emoji
+vifm
+ncdu

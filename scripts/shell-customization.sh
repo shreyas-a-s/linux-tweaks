@@ -32,8 +32,8 @@ while true; do
   { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
 
-# Installation
-sudo apt-get update && sudo apt-get -y install curl autojump bat neofetch trash-cli wget tldr fzf command-not-found git micro btop make gh fonts-noto-color-emoji vifm ncdu
+# Install terminal apps that I use
+./install-terminal-apps.sh
 
 # Install lsd
 ./lsd.sh
