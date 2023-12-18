@@ -20,7 +20,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/update-system.sh # Updating installed programs
 ./scripts/install-brave.sh # brave-browser
 ./scripts/install-essential-apps.sh # As the name suggests
-./scripts/github-desktop.sh # github-desktop for linux
+./scripts/install-github-desktop.sh # github-desktop for linux
 ./scripts/gnome.sh # GNOME Desktop Environment Customisations
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
