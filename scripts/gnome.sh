@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Exit if NOT gnome
-echo "$XDG_CURRENT_DESKTOP" | grep GNOME > /dev/null || exit 1
+if [ "$XDG_CURRENT_DESKTOP" != "GNOME" ]; then
+  echo "This doesn't seem to be a gnome environment." 2>&1
+  exit 1
+fi
 
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
