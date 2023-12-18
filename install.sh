@@ -17,7 +17,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Updating system & installing programs
-sudo apt-get -y install python-is-python3 kdeconnect keepassxc qbittorrent
+sudo apt-get -y install python-is-python3 kdeconnect qbittorrent
 
 # My custom scripts
 ./scripts/update-system.sh # Updating installed programs
