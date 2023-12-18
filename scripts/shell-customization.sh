@@ -14,12 +14,6 @@ while true; do
   { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
 
-# Install terminal apps that I use
-./install-terminal-apps.sh
-
-# Install lsd
-./lsd.sh
-
 # Executing shell choice
 case $shell_choice in
     1)
@@ -33,6 +27,12 @@ case $shell_choice in
         sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
+
+# Install terminal apps that I use
+./install-terminal-apps.sh
+
+# Install lsd
+./lsd.sh
 
 # Setup Starship
 curl -sS https://starship.rs/install.sh | sh
