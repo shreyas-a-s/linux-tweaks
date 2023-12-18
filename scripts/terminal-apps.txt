@@ -6,7 +6,6 @@ trash-cli
 wget
 tldr
 fzf
-command-not-found
 git
 btop
 make

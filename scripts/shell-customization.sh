@@ -68,10 +68,6 @@ echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 # Install neovim
 ./neovim.sh
 
-# Update database of command-not-found
-sudo update-command-not-found
-sudo apt update
-
 # Update tldr database
 tldr -u
 
