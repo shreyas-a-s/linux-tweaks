@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Install snapd
-sudo apt update && sudo apt install -y snapd
+sudo apt-get update && sudo apt-get install -y snapd
 
 # Install snap apps that I use
 sudo snap install joplin-desktop
