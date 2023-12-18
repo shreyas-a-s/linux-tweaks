@@ -10,13 +10,17 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Begin
-sudo apt-get update
-sudo apt-get -y purge firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
-sudo apt-get -y install gnome-console gnome-tweaks gnome-text-editor fonts-cantarell nautilus baobab gnome-calculator
-sudo apt-get -y autoremove
+if command -v apt-get > /dev/null; then
+  sudo apt-get update
+  sudo apt-get -y purge firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
+  sudo apt-get -y install gnome-console gnome-tweaks gnome-text-editor fonts-cantarell nautilus baobab gnome-calculator
+  sudo apt-get -y autoremove
+fi
 
 # Symlink gedit to gnome-text-editor
-sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
+if [ -f /usr/bin/gnome-text-editor ]; then
+  sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
+fi
 
 # Install Rounded Window Corner
 busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt
