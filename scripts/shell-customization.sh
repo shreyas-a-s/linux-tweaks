@@ -59,9 +59,6 @@ curl -sS https://starship.rs/install.sh | sh
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 rm -d ~/desktop ~/music ~/templates ~/public
 
-# Shell color scripts
-(cd ../.. && git clone https://github.com/shreyas-a-s/shell-color-scripts.git && cd shell-color-scripts/ && sudo make install)
-
 # Add password feedback (asterisks) for sudo
 echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
 
