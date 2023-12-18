@@ -18,12 +18,5 @@ sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
 # Install Rounded Window Corner
 busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt
 
-# Uninstall qbittorrent if present
-command -v qbittorrent > /dev/null && sudo apt purge -y qbittorrent
-
-# Install fragments - bittorrent client
-command -v snap > /dev/null || sudo apt install -y snapd
-sudo snap install fragments
-
 # Restore dconf settings
 dconf load /org/gnome/ < gnome-dconf.conf
