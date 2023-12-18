@@ -19,4 +19,4 @@ sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
 busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt
 
 # Restore dconf settings
-dconf load /org/gnome/ < gnome-dconf.conf
+dconf load /org/gnome/ < dconf.conf
