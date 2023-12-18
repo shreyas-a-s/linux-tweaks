@@ -29,21 +29,11 @@ sudo apt-get -y install python-is-python3 kdeconnect keepassxc qbittorrent
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
 ./scripts/setup-antix.sh # Antix Linux Customisations
+./scripts/setup-bootloader.sh # Bootloader Customisations
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
 ./scripts/snap.sh # snap package manager
 ./scripts/ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
 ./scripts/vscodium.sh # open source vscode
-
-# Change Grub Timeout
-if [ -f /etc/default/grub ]; then
-  sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
-  sudo update-grub
-fi
-
-# Change systemd-boot Timeout
-if [ -f /boot/loader/loader.conf ]; then
-  sudo sed -i "/timeout/ c\timeout 1" /boot/loader/loader.conf
-fi
 
 # Lower swappiness value for better utilization of RAM
 sudo sysctl vm.swappiness=10
