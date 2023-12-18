@@ -17,9 +17,7 @@ These are the customisations for debian that I use regardless of the Desktop Env
 - [Gparted](https://gitlab.gnome.org/GNOME/gparted) (The best disks & partition manager ever)
 - [Joplin](https://github.com/laurent22/joplin) (Note taking app with sync capabilities & ed-to-end encryption)
 - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
-- [LibreWolf](https://gitlab.com/librewolf-community/browser) (a Firefox fork browser)
 - [lsd](https://github.com/lsd-rs/lsd) (the better ls command)
-- [Micro](https://github.com/zyedidia/micro/) & [Lite-XL](https://github.com/lite-xl/lite-xl) (Text Editors)
 - [TLDR](https://github.com/tldr-pages/tldr) (Simplified man pages)
 - [Trash-cli](https://github.com/andreafrancia/trash-cli) (Command-line Trashcan)
 - [Shellcheck](https://github.com/koalaman/shellcheck) (Analyse your shell scripts)
@@ -30,12 +28,12 @@ These are the customisations for debian that I use regardless of the Desktop Env
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone -b de https://github.com/shreyas-a-s/debian-customisation.git
+ git clone https://github.com/shreyas-a-s/debian-customisation.git
  cd debian-customisation/
  ./install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone -b de https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
+ git clone https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
 ```
