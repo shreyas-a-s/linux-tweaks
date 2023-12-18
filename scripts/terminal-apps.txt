@@ -12,5 +12,4 @@ btop
 make
 gh
 fonts-noto-color-emoji
-vifm
 ncdu
