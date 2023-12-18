@@ -1,4 +1,3 @@
-ufw
 man
 git
 gparted

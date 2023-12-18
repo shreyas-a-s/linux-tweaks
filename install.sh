@@ -33,14 +33,6 @@ sudo apt-get -y install python-is-python3 kdeconnect keepassxc qbittorrent
 ./scripts/vscodium.sh # open source vscode
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
 
-# Enabling firewall
-sudo ufw enable
-if command -v kdeconnect-cli > /dev/null || gnome-extensions list | grep -q gsconnect; then
-  sudo ufw allow 1714:1764/udp
-  sudo ufw allow 1714:1764/tcp
-  sudo ufw reload
-fi
-
 # Change Grub Timeout
 if [ -f /etc/default/grub ]; then
   sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
