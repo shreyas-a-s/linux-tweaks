@@ -21,8 +21,11 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/install-brave.sh # brave-browser
 ./scripts/install-essential-apps.sh # As the name suggests
 ./scripts/install-github-desktop.sh # github-desktop for linux
+./scripts/install-kde-or-gsconnect.sh # connect phone to computer for copy pasting files and command and more
 ./scripts/install-nala.sh # apt, but colorful
 ./scripts/install-onlyoffice.sh # office suite
+./scripts/install-passwd-manager.sh # As name suggests
+./scripts/install-torrent-client.sh # Also, as name suggests
 ./scripts/install-ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
 ./scripts/install-vscodium.sh # open source vscode
 ./scripts/setup-antix.sh # Antix Linux Customisations
