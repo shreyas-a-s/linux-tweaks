@@ -29,9 +29,10 @@ sudo apt-get -y install python-is-python3 kdeconnect keepassxc qbittorrent
 ./scripts/nala.sh # apt, but colorful
 ./scripts/onlyoffice.sh # office suite
 ./scripts/setup-antix.sh # Antix Linux Customisations
-./scripts/snap.sh # snap package manager
-./scripts/vscodium.sh # open source vscode
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
+./scripts/snap.sh # snap package manager
+./scripts/ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
+./scripts/vscodium.sh # open source vscode
 
 # Change Grub Timeout
 if [ -f /etc/default/grub ]; then
