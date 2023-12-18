@@ -4,7 +4,6 @@ bat
 neofetch
 trash-cli
 wget
-tldr
 fzf
 git
 btop

@@ -72,5 +72,5 @@ echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
 ./neovim.sh
 
 # Update tldr database
-tldr -u
+./install-tldr.sh
 
