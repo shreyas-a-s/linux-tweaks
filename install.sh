@@ -27,7 +27,6 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/setup-antix.sh # Antix Linux Customisations
 ./scripts/setup-bootloader.sh # Bootloader Customisations
 ./scripts/shell-customization.sh # bash/fish/zsh customizations
-./scripts/snap.sh # snap package manager
 ./scripts/ufw.sh # Install and Setup UFW - The Uncomplicated Firewall
 ./scripts/vscodium.sh # open source vscode
 
