@@ -16,9 +16,6 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Updating system & installing programs
-sudo apt-get -y install python-is-python3
-
 # My custom scripts
 ./scripts/update-system.sh # Updating installed programs
 ./scripts/brave.sh # brave-browser
