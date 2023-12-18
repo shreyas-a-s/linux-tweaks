@@ -32,7 +32,7 @@ esac
 ./install-terminal-apps.sh # Install terminal apps that I use
 ./install-lsd.sh # Install lsd
 ./install-command-not-found.sh # Install command-not-found handler
-./neovim.sh # Install neovim
+./install-neovim.sh # Install neovim
 ./install-tldr.sh # install and update tldr database
 ./setup-xdg-base-dirs.sh # Setup XDG Base Directories
 
