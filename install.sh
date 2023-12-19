@@ -19,7 +19,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 # My custom scripts
 ./scripts/update-system.sh              # Updating installed programs
 ./scripts/install-brave.sh              # My fav browser
-./scripts/install-essential-apps.sh     # As the name suggests
+./scripts/install-gui-apps.sh           # GUI apps common to all default package managers
 ./scripts/install-github-desktop.sh     # Github-desktop for linux
 ./scripts/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files and command and more
 ./scripts/install-nala.sh               # Good old apt, but colorful
