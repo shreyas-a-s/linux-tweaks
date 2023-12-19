@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
+
 # Define an array of programs
 xdg_programs=("xdg-user-dirs" "xdg-desktop-portal")
 
