@@ -6,10 +6,11 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 fi
 
 # Enable ufw service
-if command -v systemctl > /dev/null; then
-  sudo systemctl enable ufw
-else
-  sudo ufw enable
+sudo ufw enable
+if [ "$?" -ne 0 ]; then
+  if command -v systemctl > /dev/null; then
+    sudo systemctl enable ufw
+  fi
 fi
 
 # Add rules to allow kdeconnect to work properly
