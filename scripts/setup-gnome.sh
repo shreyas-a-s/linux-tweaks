@@ -9,12 +9,16 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Begin
+# Uninstall apps that I don't use
 if command -v apt-get > /dev/null; then
   sudo apt-get update
   sudo apt-get -y purge firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
-  sudo apt-get -y install gnome-console gnome-tweaks gnome-text-editor fonts-cantarell nautilus baobab gnome-calculator
   sudo apt-get -y autoremove
+fi
+
+# Install apps that I do use
+if command -v apt-get > /dev/null; then
+  sudo apt-get -y install gnome-console gnome-tweaks gnome-text-editor fonts-cantarell nautilus baobab gnome-calculator
 fi
 
 # Symlink gedit to gnome-text-editor
@@ -27,3 +31,4 @@ busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gn
 
 # Restore dconf settings
 dconf load /org/gnome/ < dconf.conf
+

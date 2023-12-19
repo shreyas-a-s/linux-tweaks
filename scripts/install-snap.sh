@@ -7,7 +7,7 @@ if command -v snap > /dev/null; then
 fi
 
 # Install snapd
-if command -v apt-get > /dev/null; then
+if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get update && sudo apt-get install -y snapd
 fi
 

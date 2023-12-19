@@ -1,7 +1,6 @@
 #!/bin/sh
 
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  
   # Add repository
   sudo apt-get update
   sudo apt-get -y install curl

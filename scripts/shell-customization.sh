@@ -14,34 +14,30 @@ while true; do
   { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
 done
 
-# Executing shell choice
+# Executing switch statement based on shell choice
 case $shell_choice in
     1)
-        sudo apt-get -y install bash-completion # install bash customisations
+        sudo apt-get -y install bash-completion                                  # Apply bash customisations
         while ! chsh -s "$(command -v bash)"; do :; done;;
     2)
-        sudo apt-get -y install fish python-is-python3 # install fish customisations
+        sudo apt-get -y install fish python-is-python3                           # Apply fish customisations
         while ! chsh -s "$(command -v fish)"; do :; done;;
     3)
-        sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting # install zsh customisations
+        sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting  # Apply zsh customisations
         sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
 
 # My custom scripts
-./install-command-not-found.sh # Install command-not-found handler
-./install-lsd.sh # Install lsd
-./install-neovim.sh # Install neovim
-./install-terminal-apps.sh # Install terminal apps that I use
-./install-tldr.sh # install and update tldr database
-./setup-xdg-base-dirs.sh # Setup XDG Base Directories
+./install-command-not-found.sh  # Command-not-found handler
+./install-lsd.sh                # LSDeluxe - the fancy ls command
+./install-neovim.sh             # Best text editor in the world ;)
+./install-terminal-apps.sh      # Terminal apps that I use
+./install-tldr.sh               # Man pages, but simpler to understand
+./setup-xdg-base-dirs.sh        # Setup XDG Base Directories
 
-# Setup Starship
-curl -sS https://starship.rs/install.sh | sh
-
-# Add password feedback (asterisks) for sudo
-echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null
-
-# Disable creation of ~/.sudo_as_admin_successful
-echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null
+# Custom tweaks
+curl -sS https://starship.rs/install.sh | sh                           # Install starship prompt
+echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null   # Add password feedback (asterisks) for sudo
+echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null  # Disable creation of ~/.sudo_as_admin_successful
 

@@ -30,7 +30,13 @@ setupXDGUserDirs() {
 
 # Actual setup
 setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
+
+# Assign new values to xdg user directories
 cp user-dirs.dirs ~/.config/
+
+# Update the list of values
 xdg-user-dirs-update
+
+# Remove directories that I don't use
 rm -d ~/desktop ~/music ~/templates ~/public
 
