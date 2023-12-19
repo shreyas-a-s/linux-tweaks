@@ -32,6 +32,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/setup-bootloader.sh           # Bootloader Customisations
 ./scripts/setup-gnome.sh                # GNOME Desktop Environment Customisations
 ./scripts/shell-customization.sh        # Shell (bash/fish/zsh) customizations
+./scripts/cleanup.sh                    # Cleanup package manager cache
 
 # Custom tweaks
 sudo sysctl vm.swappiness=10                               # Lower swappiness value for better utilization of RAM
