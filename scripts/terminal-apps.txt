@@ -6,7 +6,7 @@ trash-cli
 wget
 fzf
 git
-btop
+htop
 make
 gh
 fonts-noto-color-emoji
