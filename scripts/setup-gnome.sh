@@ -18,7 +18,7 @@ fi
 
 # Install apps that I do use
 if command -v apt-get > /dev/null; then
-  sudo apt-get -y install gnome-console gnome-tweaks gnome-text-editor fonts-cantarell nautilus baobab gnome-calculator
+  sudo apt-get -y install gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator
 fi
 
 # Symlink gedit to gnome-text-editor
