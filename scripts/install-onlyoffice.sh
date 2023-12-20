@@ -10,7 +10,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
 
   # To set third-party repositories to have least priority
-  echo "Package: *
+  printf "Package: *
   Pin: origin download.onlyoffice.com
   Pin-Priority: 100" | sudo tee /etc/apt/preferences.d/onlyoffice.pref > /dev/null
 

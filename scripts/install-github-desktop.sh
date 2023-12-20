@@ -8,7 +8,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
 
   # To set third-party repositories to have least priority
-  echo "Package: *\
+  printf "Package: *\
   \nPin: origin apt.packages.shiftkey.dev\
   \nPin-Priority: 100" | sudo tee /etc/apt/preferences.d/shiftkey.pref > /dev/null
 
