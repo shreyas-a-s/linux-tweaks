@@ -1,11 +1,15 @@
 #!/bin/sh
 
-if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then # Install secrets (password manager for GNOME)
   if command -v apt-get > /dev/null; then
     sudo apt-get install -y secrets
+  elif command -v pacman > /dev/null; then
+    sudo pacman -S --noconfirm secrets
   fi
-else
+else # Install Keepassxc (another password manager)
   if command -v apt-get > /dev/null; then
     sudo apt-get install -y keepassxc
+  elif command -v pacman > /dev/null; then
+    sudo pacman -S --noconfirm keepassxc
   fi
 fi
