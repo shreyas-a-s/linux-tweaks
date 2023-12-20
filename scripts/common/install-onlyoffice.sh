@@ -19,3 +19,11 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get -y install onlyoffice-desktopeditors
 fi
 
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  if pacman -Ss onlyoffice-desktopeditors > /dev/null; then
+    sudo pacman -S --noconfirm onlyoffice-desktopeditors
+  elif command -v yay > /dev/null; then
+    yay -S --noconfirm onlyoffice-bin
+  fi
+fi
+
