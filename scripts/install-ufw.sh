@@ -6,8 +6,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 fi
 
 # Enable ufw service
-sudo ufw enable
-if [ "$?" -ne 0 ]; then
+if ! sudo ufw enable; then
   if command -v systemctl > /dev/null; then
     sudo systemctl enable ufw
   fi
