@@ -7,3 +7,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   xargs -a "terminal-apps.txt" sudo apt-get install -y gh fonts-noto-color-emoji
 fi
 
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  xargs -a "terminal-apps.txt" sudo pacman -S --noconfirm github-cli noto-fonts noto-fonts-cjk noto-fonts-emoji
+fi
+
