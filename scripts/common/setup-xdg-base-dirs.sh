@@ -12,8 +12,11 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
 fi
 
 # Install xdg apps
-if command -v apt-get > /dev/null; then
+if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y $xdg_programs
+fi
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  sudo pacman -S --noconfirm $xdg_programs
 fi
 
 # Function to setup XDG user dirs
