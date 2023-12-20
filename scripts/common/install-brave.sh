@@ -21,7 +21,7 @@ if command -v pacman > /dev/null; then # Install for archlinux-based distros
   if pacman -Ss brave-browser > /dev/null; then
     sudo pacman -S --noconfirm brave-browser
   elif command -v yay > /dev/null; then
-    yay -S brave-bin
+    yay -S --noconfirm brave-bin
   fi
 fi
 
