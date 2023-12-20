@@ -35,6 +35,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/common/install-torrent-client.sh     # Also, as name suggests
 ./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
 ./scripts/common/install-vscodium.sh           # Open source vscode
+./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
 ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
 ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
 ./scripts/common/shell-customization.sh        # Shell (bash/fish/zsh) customizations
