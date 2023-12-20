@@ -10,12 +10,12 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install GNOME apps that I use
-apps_to_install="gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator"
+apps_to_install="gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator gnome-tweaks gnome-control-center gnome-keyring gnome-backgrounds gnome-calculator nautilus qt6-wayland"
 if command -v apt-get > /dev/null; then
   sudo apt-get install -y $apps_to_install
 fi
 if command -v pacman > /dev/null; then
-  sudo pacman -S --noconfirm $apps_to_install
+  sudo pacman -S --noconfirm $apps_to_install gdm gvfs-mtp gvfs-gphoto2
 fi
 
 # Uninstall GNOME apps that I don't use
@@ -30,6 +30,11 @@ fi
 # Symlink gedit to gnome-text-editor
 if [ -f /usr/bin/gnome-text-editor ]; then
   sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
+fi
+
+# Enable gdm if not enabled already
+if command -v systemctl > /dev/null; then
+  sudo systemctl enable gdm
 fi
 
 # Install Rounded Window Corner
