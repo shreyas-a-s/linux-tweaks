@@ -3,17 +3,17 @@
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Define an array of programs
-xdg_programs=("xdg-user-dirs" "xdg-desktop-portal")
+# Define a string of programs
+xdg_programs="xdg-user-dirs xdg-desktop-portal"
 
 # Add xdg-desktop-portal-gnome if gnome is detected
 if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
-  xdg_programs+=("xdg-desktop-portal-gnome")
+  xdg_programs="$xdg_programs xdg-desktop-portal-gnome"
 fi
 
 # Install xdg apps
 if command -v apt-get > /dev/null; then
-  sudo apt-get install -y "${xdg_programs[@]}"
+  sudo apt-get install -y $xdg_programs
 fi
 
 # Function to setup XDG user dirs
