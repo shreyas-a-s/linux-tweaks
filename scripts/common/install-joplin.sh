@@ -15,3 +15,11 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   fi
 fi
 
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  if pacman -Ss joplin-desktop > /dev/null; then
+    sudo pacman -S --noconfirm joplin-desktop
+  elif command -v yay > /dev/null; then
+    yay -S --noconfirm joplin-appimage
+  fi
+fi
+
