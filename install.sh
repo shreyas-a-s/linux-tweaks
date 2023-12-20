@@ -7,9 +7,12 @@
 # ██████╔╝███████╗██████╔╝██║██║  ██║██║ ╚████║      ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║██╗
 # ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝
 
+# Source colors
+source ./colors.sh
+
 # Check if script is run as root
 if [ "$(id -u)" -eq 0 ]; then
-  echo "You must NOT be a root user when running this script, please run ./install.sh" 2>&1
+  printf "\n${BRED}You must NOT be a root user when running this script,${NC} please run ./install.sh as normal user\n" 2>&1
   exit 1
 fi
 
