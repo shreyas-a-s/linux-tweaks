@@ -8,6 +8,9 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get update
   sudo apt-get install -y gcc xsel
 fi
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  sudo pacman -S --noconfirm gcc xsel
+fi
 
 # Install neovim
 if command -v apt-get > /dev/null; then # Install for debian-based distros
@@ -20,5 +23,8 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
     sudo snap install nvim 2>/dev/null || sudo snap install nvim --classic
     sudo ln -s /snap/bin/nvim /usr/local/bin/
   fi
+fi
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  sudo pacman -S --noconfirm neovim
 fi
 
