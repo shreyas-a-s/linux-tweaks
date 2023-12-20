@@ -33,3 +33,15 @@ else
   \nturbo = never" | sudo tee /etc/auto-cpufreq.conf > /dev/null
 fi
 
+# Install thermald (a program that complements auto-cpufreq)
+if command -v apt-get > /dev/null; then # For debian-based distros
+  sudo apt-get install -y thermald
+elif command -v pacman > /dev/null; then # For archlinux-based distros
+  sudo pacman -S --noconfirm thermald
+fi
+
+# Enable thermald service
+if command -v systemctl > /dev/null; then
+  sudo systemctl enable thermald
+fi
+
