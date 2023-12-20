@@ -11,7 +11,11 @@ while true; do
   echo "[3] Zsh"
   echo "If unsure, select Bash."
   printf "Choose an option (1/2/3) : " && read -r shell_choice
-  { [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; } && printf "\n[ $shell_choice is an invalid Choice..\!\! ]\n\n" || break
+  if [ "$shell_choice" -lt 1 ] || [ "$shell_choice" -gt 3 ]; then
+    printf "\n[ %s is an invalid Choice..\!\! ]\n\n" "$shell_choice"
+  else
+    break
+  fi
 done
 
 # Executing switch statement based on shell choice
