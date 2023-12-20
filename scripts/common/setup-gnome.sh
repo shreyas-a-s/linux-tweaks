@@ -11,14 +11,18 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install GNOME apps that I use
 if command -v apt-get > /dev/null; then
-  sudo apt-get -y install gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator
+  sudo apt-get install -y gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator
+fi
+if command -v pacman > /dev/null; then
+  sudo pacman -S --noconfirm gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator
 fi
 
 # Uninstall GNOME apps that I don't use
 if command -v apt-get > /dev/null; then
-  sudo apt-get update
-  sudo apt-get -y purge firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
-  sudo apt-get -y autoremove
+  sudo apt-get purge -y firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
+fi
+if command -v pacman > /dev/null; then
+  sudo pacman -R --noconfirm firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser
 fi
 
 # Symlink gedit to gnome-text-editor
