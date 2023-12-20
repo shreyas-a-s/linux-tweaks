@@ -2,7 +2,7 @@
 
 # Check if snap is already installed
 if command -v snap > /dev/null; then
-  printf "${BRED}Error: snap is already installed at${NC} $(command -v snap)\n" 2>&1
+  printf "\n${BRED}Error: snap is already installed at${NC} $(command -v snap)\n" 2>&1
   exit 1
 fi
 
