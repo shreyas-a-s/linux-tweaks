@@ -7,7 +7,9 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then # Install fragments - Torrent clie
   if command -v apt-get > /dev/null && apt-cache search 'fragments' > /dev/null; then # Install for debian-based distros
     sudo apt-get install -y fragments
   else
-    ./install-snap.sh
+    if ! command -v snap > /dev/null; then
+      ./install-snap.sh
+    fi
     sudo snap install fragments
   fi
 else # Install qbittorrent - Just another torrent client
