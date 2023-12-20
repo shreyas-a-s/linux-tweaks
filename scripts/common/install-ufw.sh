@@ -4,6 +4,9 @@
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y ufw
 fi
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  sudo pacman -S --noconfirm ufw
+fi
 
 # Enable ufw service
 if ! sudo ufw enable; then
