@@ -9,9 +9,9 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
       | sudo tee /etc/apt/sources.list.d/vscodium.list
 
   # To set third-party repositories to have least priority
-  echo 'Package: *\
+  echo "Package: *\
   \nPin: origin download.vscodium.com\
-  \nPin-Priority: 100' | sudo tee /etc/apt/preferences.d/vscodium.pref > /dev/null
+  \nPin-Priority: 100" | sudo tee /etc/apt/preferences.d/vscodium.pref > /dev/null
 
   # Install the app
   sudo apt-get update
