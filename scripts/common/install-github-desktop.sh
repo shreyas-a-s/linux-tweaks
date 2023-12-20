@@ -17,3 +17,11 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get -y install github-desktop
 fi
 
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  if pacman -Ss github-desktop > /dev/null; then
+    sudo pacman -S --noconfirm github-desktop
+  elif command -v yay > /dev/null; then
+    yay -S --noconfirm github-desktop-bin
+  fi
+fi
+
