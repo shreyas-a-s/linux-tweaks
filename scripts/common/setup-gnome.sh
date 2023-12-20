@@ -2,7 +2,7 @@
 
 # Exit if NOT gnome
 if [ "$XDG_CURRENT_DESKTOP" != "GNOME" ]; then
-  echo "This doesn't seem to be a gnome environment." 2>&1
+  printf "\n${BRED}This doesn't seem to be a gnome environment.${NC}\n\n" 2>&1
   exit 1
 fi
 
