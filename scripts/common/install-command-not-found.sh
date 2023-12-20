@@ -8,3 +8,12 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo update-command-not-found
   sudo apt-get update
 fi
+
+if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  # Install the app
+  sudo pacman -S --noconfirm pkgfile
+
+  # Update database of pkgfile
+  sudo pkgfile -u
+fi
+
