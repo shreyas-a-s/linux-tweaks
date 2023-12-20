@@ -24,6 +24,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/common/install-brave.sh              # My fav browser
 ./scripts/common/install-gui-apps.sh           # GUI apps common to all default package managers
 ./scripts/common/install-github-desktop.sh     # Github-desktop for linux
+./scripts/common/install-joplin.sh             # Cloud-synced note-taking app
 ./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files and command and more
 ./scripts/common/install-onlyoffice.sh         # Office suite
 ./scripts/common/install-passwd-manager.sh     # As name suggests
