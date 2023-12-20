@@ -1,6 +1,5 @@
 bat
 curl
-fonts-noto-color-emoji
 fzf
 git
 htop
