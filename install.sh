@@ -21,6 +21,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # My custom scripts
 ./scripts/common/update-system.sh              # Updating installed programs
+./scripts/arch-linux/install-aur-helper.sh     # App that helps install packages from AUR (the user contributed arch linux repository)
 ./scripts/common/install-auto-cpufreq.sh       # Automatically change cpu freq to save battery
 ./scripts/common/install-brave.sh              # My fav browser
 ./scripts/common/install-github-desktop.sh     # Github-desktop for linux
