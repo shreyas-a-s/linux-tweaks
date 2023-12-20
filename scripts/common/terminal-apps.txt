@@ -2,7 +2,6 @@ bat
 curl
 fonts-noto-color-emoji
 fzf
-gh
 git
 htop
 make
