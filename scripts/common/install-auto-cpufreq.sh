@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! find /sys/class/power_supply -mindepth 1 -maxdepth 1 | read; then
+if ! find /sys/class/power_supply -mindepth 1 -maxdepth 1 -print -quit | grep -q .; then
   printf "\n${BRED}This does't seem like a laptop,${NC} hence not installing auto-cpufreq\n\n" 2>&1
   exit 1
 fi
