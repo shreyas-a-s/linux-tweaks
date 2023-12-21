@@ -20,9 +20,9 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # My custom scripts
-./scripts/arch-linux/install-aur-helper.sh     # Program that helps install packages from AUR (the user contributed arch linux repository)
-./scripts/arch-linux/install-paccache.sh       # Program that helps clear pacman cache in archlinux
-./scripts/arch-linux/setup-pacman.sh           # Make arch package manager work better
+./scripts/archlinux/install-aur-helper.sh      # Program that helps install packages from AUR (the user contributed arch linux repository)
+./scripts/archlinux/install-paccache.sh        # Program that helps clear pacman cache in archlinux
+./scripts/archlinux/setup-pacman.sh            # Make arch package manager work better
 ./scripts/common/update-system.sh              # Updating installed programs
 ./scripts/common/install-auto-cpufreq.sh       # Automatically change cpu freq to save battery
 ./scripts/common/install-brave.sh              # My fav browser
