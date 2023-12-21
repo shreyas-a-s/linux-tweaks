@@ -16,6 +16,11 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
+# Souce functions
+for fn in ./functions/*; do
+  . "$fn"
+done
+
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
