@@ -34,9 +34,13 @@ if [ -f /usr/bin/gnome-text-editor ]; then
   sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
 fi
 
-# Enable gdm if not enabled already
+# Enable GDM - GNOME Display Manager
 if command -v systemctl > /dev/null; then
-  sudo systemctl enable gdm
+  if systemctl list-units | grep -q gdm.service; then
+    sudo systemctl enable gdm
+  elif systemctl list-units | grep -q gdm3.service; then
+    sudo systemctl enable gdm3
+  fi
 fi
 
 # Install Rounded Window Corner
