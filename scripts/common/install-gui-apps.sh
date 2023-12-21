@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - GRAPHICAL APPS"
+fi
+
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 

@@ -5,6 +5,11 @@ if command -v crontab > /dev/null; then
   exit
 fi
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - CRON"
+fi
+
 # Install cron
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y cron

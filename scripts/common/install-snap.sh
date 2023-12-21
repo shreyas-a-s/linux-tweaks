@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - SNAP"
+fi
+
 # Check if snap is already installed
 if command -v snap > /dev/null; then
   printf "\n${BRED}Error: snap is already installed at${NC} $(command -v snap)\n" 2>&1

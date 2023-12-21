@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - BRAVE BROWSER"
+fi
+
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   # Add repository
   sudo apt-get -y install curl

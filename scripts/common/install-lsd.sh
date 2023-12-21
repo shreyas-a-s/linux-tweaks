@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - LSDELUXE"
+fi
+
 if command -v apt-get > /dev/null && apt-cache search lsd | cut -d ' ' -f 1 | grep -xq 'lsd'; then # Install for debian-based distros
   sudo apt-get install -y lsd
 elif command -v dpkg > /dev/null; then

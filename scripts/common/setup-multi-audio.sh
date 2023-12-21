@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "SETTING UP - MULTI DEVICE AUDIO"
+fi
+
 ### Installs programs to enable routing audio to multiple devices simultaneousily ###
 
 if command -v apt-get > /dev/null; then # Install for debian-based distros

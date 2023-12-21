@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - PASSWORD MANAGER"
+fi
+
 if ps -A | grep -q "gnome-shell"; then # Install secrets (password manager for GNOME)
   if command -v apt-get > /dev/null; then
     sudo apt-get install -y secrets

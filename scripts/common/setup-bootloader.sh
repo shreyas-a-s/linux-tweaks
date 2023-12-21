@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "SETTING UP - BOOTLOADER"
+fi
+
 # Change Grub Timeout
 if [ -f /etc/default/grub ]; then
   sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=1" /etc/default/grub

@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - AUTO-CPUFREQ"
+fi
+
 if ! find /sys/class/power_supply -mindepth 1 -maxdepth 1 -print -quit | grep -q .; then
   printf "\n${BRED}This does't seem like a laptop,${NC} hence not installing auto-cpufreq\n\n" 2>&1
   exit 1

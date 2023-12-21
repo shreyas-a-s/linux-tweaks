@@ -5,6 +5,11 @@ if ! command -v pacman > /dev/null; then
   exit
 fi
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "INSTALLING - PACCACHE"
+fi
+
 # Install pacman-contrib meta-package that contains paccache program
 sudo pacman -S --noconfirm pacman-contrib
 

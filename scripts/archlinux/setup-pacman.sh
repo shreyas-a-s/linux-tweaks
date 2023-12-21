@@ -5,6 +5,11 @@ if ! command -v pacman > /dev/null; then
   exit
 fi
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "SETTING UP - PACMAN"
+fi
+
 # Make output of pacman better
 sudo sed -i '/Color/c Color' /etc/pacman.conf
 sudo sed -i '/VerbosePkgLists/c VerbosePkgLists' /etc/pacman.conf

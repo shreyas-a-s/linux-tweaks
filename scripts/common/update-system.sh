@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Display title of script
+if type _printtitle > /dev/null; then
+  _printtitle "UPDATING SYSTEM"
+fi
+
 if command -v apt-get > /dev/null; then # Update debian-based distros
   sudo apt-get update && sudo apt-get -y upgrade
 fi
