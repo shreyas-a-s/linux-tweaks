@@ -8,7 +8,7 @@ fi
 
 # Install snapd
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  sudo apt-get update && sudo apt-get install -y snapd
+  sudo apt-get install -y snapd
 fi
 if command -v yay > /dev/null; then # Install for archlinux-based distros
   yay -S --noconfirm snapd

@@ -5,7 +5,6 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install dependencies
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  sudo apt-get update
   sudo apt-get install -y gcc xsel
 fi
 if command -v pacman > /dev/null; then # Install for archlinux-based distros

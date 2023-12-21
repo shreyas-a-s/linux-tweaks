@@ -6,7 +6,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 
   # Update database of command-not-found
   sudo update-command-not-found
-  sudo apt-get update
+  sudo apt-file update
 fi
 
 if command -v pacman > /dev/null; then # Install for archlinux-based distros
