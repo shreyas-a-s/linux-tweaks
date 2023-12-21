@@ -15,7 +15,8 @@ if command -v apt-get > /dev/null; then
   sudo apt-get install -y $apps_to_install
 fi
 if command -v pacman > /dev/null; then
-  sudo pacman -S --noconfirm $apps_to_install gdm gvfs-mtp gvfs-gphoto2
+  apps_to_install="$apps_to_install gdm gvfs-mtp gvfs-gphoto2"
+  sudo pacman -S --noconfirm $apps_to_install
 fi
 
 # Uninstall GNOME apps that I don't use
