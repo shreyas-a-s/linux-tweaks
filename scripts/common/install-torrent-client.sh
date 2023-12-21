@@ -13,15 +13,13 @@ if ps -A | grep -q "gnome-shell"; then # Install fragments - Torrent client made
       fi
       sudo snap install fragments
     fi
-  fi
-  if command -v pacman > /dev/null; then
+  elif command -v pacman > /dev/null; then
     sudo pacman -S --noconfirm fragments
   fi
 else # Install qbittorrent - Just another torrent client
   if command -v apt-get > /dev/null; then # Install for debian-based distros
     sudo apt-get install -y qbittorrent
-  fi
-  if command -v pacman > /dev/null; then # Install for archlinux-based distros
+  elif command -v pacman > /dev/null; then # Install for archlinux-based distros
     sudo pacman -S --noconfirm qbittorrent
   fi
 fi
