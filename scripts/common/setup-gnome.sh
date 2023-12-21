@@ -10,12 +10,13 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install GNOME apps that I use
-apps_to_install="gnome-console gnome-tweaks fonts-cantarell nautilus baobab gnome-calculator gnome-tweaks gnome-control-center gnome-keyring gnome-backgrounds gnome-calculator nautilus qt6-wayland"
+apps_to_install="gnome-console gnome-tweaks nautilus baobab gnome-calculator gnome-tweaks gnome-control-center gnome-keyring gnome-backgrounds gnome-calculator nautilus qt6-wayland"
 if command -v apt-get > /dev/null; then
+  apps_to_install="$apps_to_install fonts-cantarell"
   sudo apt-get install -y $apps_to_install
 fi
 if command -v pacman > /dev/null; then
-  apps_to_install="$apps_to_install gdm gvfs-mtp gvfs-gphoto2"
+  apps_to_install="$apps_to_install gdm gvfs-mtp gvfs-gphoto2 cantarell-fonts"
   sudo pacman -S --noconfirm $apps_to_install
 fi
 
