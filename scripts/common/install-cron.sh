@@ -14,9 +14,9 @@ fi
 
 # Enable cron
 if command -v systemctl > /dev/null; then
-  if systemctl list-units | grep -q cron.service; then
+  if systemctl list-unit-files | grep -q cron.service; then
     sudo systemctl enable cron
-  elif systemctl list-units | grep -q cronie.service; then
+  elif systemctl list-unit-files | grep -q cronie.service; then
     sudo systemctl enable cronie
   fi
 fi
