@@ -23,30 +23,24 @@ case $shell_choice in
     1)  # Apply bash customisations
         if command -v apt-get > /dev/null; then
           sudo apt-get -y install bash-completion
-        fi
-        if command -v pacman > /dev/null; then
+        elif command -v pacman > /dev/null; then
           sudo pacman -S --noconfirm bash-completion
         fi
         while ! chsh -s "$(command -v bash)"; do :; done;;
     2)  # Apply fish customisations
         if command -v apt-get > /dev/null; then
           sudo apt-get -y install fish python-is-python3
-        fi
-        if command -v pacman > /dev/null; then
+        elif command -v pacman > /dev/null; then
           sudo pacman -S --noconfirm fish
         fi
         while ! chsh -s "$(command -v fish)"; do :; done;;
     3)  # Apply zsh customisations
         if command -v apt-get > /dev/null; then
           sudo apt-get -y install zsh zsh-autosuggestions zsh-syntax-highlighting
-        fi
-        if command -v pacman > /dev/null; then
+        elif command -v pacman > /dev/null; then
           sudo pacman -S --noconfirm zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-history-substring-search
         fi
-        if ! [ -f /etc/zsh/zshenv ]; then
-          touch /etc/zsh/zshenv
-        fi
-        sudo sed -i '$ a\\n###\ SET\ XDG\ DIR\ FOR\ ZSH\ ###\nZDOTDIR=~/.config/zsh\n' /etc/zsh/zshenv # set dotfile directory for zsh
+        printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null # set dotfile directory for zsh
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
 
