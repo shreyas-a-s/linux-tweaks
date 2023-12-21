@@ -12,6 +12,6 @@ fi
 cd ../../.. || exit
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin || exit
-makepkg -si
+makepkg -si --noconfirm
 yay -Y --gendb
 
