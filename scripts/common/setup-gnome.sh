@@ -44,7 +44,7 @@ if command -v systemctl > /dev/null; then
 fi
 
 # Install Rounded Window Corner
-busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt
+nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt' > /dev/null 2>&1
 
 # Restore dconf settings
 dconf load /org/gnome/ < dconf.conf
