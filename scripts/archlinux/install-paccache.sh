@@ -10,7 +10,7 @@ sudo pacman -S --noconfirm pacman-contrib
 
 # Make pacman hooks directory if not present already
 if ! [ -d /etc/pacman.d/hooks ]; then
-  mkdir -p /etc/pacman.d/hooks
+  sudo mkdir -p /etc/pacman.d/hooks
 fi
 
 # Enable auto clearing pacman cache using paccache program
