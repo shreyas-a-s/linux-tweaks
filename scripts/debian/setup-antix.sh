@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Variables
-distro_name=$(awk '{print $1}' /etc/issue)
+# Check if the OS is Antix Linux
+if [ "$(awk '{print $1}' /etc/issue)" != "Antix" ]; then
+  exit
+fi
 
 # Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
-if [ "$distro_name" = "Antix" ]; then
-  sudo apt-get -y install libnss3
-fi
+sudo apt-get -y install libnss3
 
