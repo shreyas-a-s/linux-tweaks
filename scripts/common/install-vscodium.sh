@@ -19,9 +19,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 fi
 
 if command -v pacman > /dev/null; then # Install for archlinux-based distros
-  if pacman -Ss code > /dev/null; then
-    sudo pacman -S --noconfirm code
-  elif command -v yay > /dev/null; then
+  if command -v yay > /dev/null; then
     yay -S --noconfirm vscodium-bin
   fi
 fi
