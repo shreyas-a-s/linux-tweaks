@@ -8,7 +8,7 @@ elif command -v pacman > /dev/null; then
 fi
 
 # Make connecting to bluetooth sound devices better
-sudo sed "/FastConnectable/ c\FastConnectable = true" /etc/bluetooth/main.conf
+sudo sed -i "/FastConnectable/ c\FastConnectable = true" /etc/bluetooth/main.conf
 
 # Enable kernel bluetooth module if not already enabled
 if ! lsmod | grep -q btusb; then
