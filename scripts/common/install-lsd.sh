@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if command -v apt-get > /dev/null && apt-cache search lsd | cut -d ' ' -f 1 | grep -q 'lsd'; then # Install for debian-based distros
+if command -v apt-get > /dev/null && apt-cache search lsd | cut -d ' ' -f 1 | grep -xq 'lsd'; then # Install for debian-based distros
   sudo apt-get install -y lsd
 elif command -v dpkg > /dev/null; then
   wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb

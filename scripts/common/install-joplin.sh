@@ -5,7 +5,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install neovim
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  if apt-cache search 'joplin' | cut -d ' ' -f 1 | grep -q 'joplin'; then
+  if apt-cache search 'joplin' | cut -d ' ' -f 1 | grep -xq 'joplin'; then
     sudo apt-get install -y joplin
   else
     if ! command -v snap > /dev/null; then
