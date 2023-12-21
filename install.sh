@@ -8,7 +8,9 @@
 # ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝
 
 # Source colors
-. ./colors.sh
+if [ -f ./colors.sh ]; then
+  . ./colors.sh
+fi
 
 # Check if script is run as root
 if [ "$(id -u)" -eq 0 ]; then
@@ -17,9 +19,11 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 # Souce functions
-for fn in ./functions/*; do
-  . "$fn"
-done
+if [ -d ./functions ]; then
+  for fn in ./functions/*; do
+    . "$fn"
+  done
+fi
 
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
