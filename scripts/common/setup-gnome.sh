@@ -10,23 +10,19 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install GNOME apps that I use
-apps_to_install="gnome-console gnome-tweaks nautilus baobab gnome-calculator gnome-tweaks gnome-control-center gnome-keyring gnome-backgrounds gnome-calculator nautilus qt6-wayland"
 if command -v apt-get > /dev/null; then
-  apps_to_install="$apps_to_install fonts-cantarell"
-  sudo apt-get install -y $apps_to_install
+  xargs -a "gnome-apps-to-install.txt" sudo apt-get install -y fonts-cantarell gdm3
 fi
 if command -v pacman > /dev/null; then
-  apps_to_install="$apps_to_install gdm gvfs-mtp gvfs-gphoto2 cantarell-fonts"
-  sudo pacman -S --noconfirm $apps_to_install
+  xargs -a "gnome-apps-to-install.txt" sudo pacman -S --noconfirm cantarell-fonts gdm gvfs-gphoto2 gvfs-mtp
 fi
 
 # Uninstall GNOME apps that I don't use
-apps_to_uninstall="firefox-esr yelp gnome-terminal totem gnome-software gnome-characters gnome-contacts gnome-font-viewer gnome-logs byobu epiphany-browser"
 if command -v apt-get > /dev/null; then
-  sudo apt-get purge -y $apps_to_uninstall
+  xargs -a "gnome-apps-to-remove.txt" sudo apt-get purge -y
 fi
 if command -v pacman > /dev/null; then
-  sudo pacman -R --noconfirm $apps_to_uninstall
+  xargs -a "gnome-apps-to-remove.txt" sudo pacman -R --noconfirm
 fi
 
 # Symlink gedit to gnome-text-editor
