@@ -9,11 +9,11 @@ function _printtitle {
   done
   echo
 
-  for i in $(seq $((($(tput cols) - $(expr length "$@")) / 2))); do
+  for i in $(seq $((($(tput cols) - $(expr length "$*")) / 2))); do
     printf ' '
   done
   
-  printf "$@\n"
+  printf "$*\n"
 
   for i in $(seq "$(tput cols)"); do
     printf '-'
