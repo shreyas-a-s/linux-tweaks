@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then # Install secrets (password manager for GNOME)
+if ps -A | grep -q "gnome-shell"; then # Install secrets (password manager for GNOME)
   if command -v apt-get > /dev/null; then
     sudo apt-get install -y secrets
   elif command -v pacman > /dev/null; then
