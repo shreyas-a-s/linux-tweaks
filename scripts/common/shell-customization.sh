@@ -47,7 +47,7 @@ esac
 # My custom scripts
 ./install-command-not-found.sh  # Command-not-found handler
 ./install-lsd.sh                # LSDeluxe - the fancy ls command
-./install-neovim.sh             # Best text editor in the world ;)
+./install-neovim.sh             # Best text editor in the world ;-)
 ./install-terminal-apps.sh      # Terminal apps that I use
 ./install-tldr.sh               # Man pages, but simpler to understand
 ./setup-xdg-base-dirs.sh        # Setup XDG Base Directories
