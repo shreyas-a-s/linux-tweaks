@@ -1,15 +1,5 @@
 #!/bin/sh
 
-# Variables
-function _define_variables {
-
-  number_of_columns="$(tput cols)"
-  title="$*"
-  length_of_title="$(expr length "$title")"
-  left_padding="$(((($number_of_columns - $length_of_title)) / 2))"
-
-}
-
 # Sub function 1
 function _draw_the_line {
 
@@ -35,7 +25,12 @@ function _add_left_padding {
 # Actual function
 function _printtitle {
 
-  _define_variables "$@"
+  # Define Variables
+  number_of_columns="$(tput cols)"
+  title="$*"
+  length_of_title="$(expr length "$title")"
+  left_padding="$(((($number_of_columns - $length_of_title)) / 2))"
+
 
   _draw_the_line
 
