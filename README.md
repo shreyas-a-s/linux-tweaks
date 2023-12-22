@@ -1,17 +1,15 @@
-# Debian Customisations
-These are the customisations for debian that I use regardless of the Desktop Environment.
+# Linux Tweaks
+These are the customisations for linux (currently debian-based and archlinux-based) that I use regardless of the Desktop Environment or Window Manager.
 
 ## Features
 
-- A single installation script for debian customisations
-- Ability to choose bash or [fish](https://github.com/fish-shell/fish-shell) as the interactive shell in terminal.
-- Both of them are customised out-of-the-box (bash using [starship](https://github.com/starship/starship) and fish using config file).
-- Custom aliases on both shells.
-- Custom function in fish to extract all types of archive files
+- A single installation script for all of the customisations
+- Ability to choose bash, [fish](https://github.com/fish-shell/fish-shell) or [zsh](https://github.com/zsh-users/zsh) as the interactive shell in terminal.
+- All of them are customised out-of-the-box (Using their respective config files & [starship](https://github.com/starship/starship) prompt).
+- Custom aliases on all shells.
 
 ## Programs that this script installs (only the major ones)
 
-- [Autojump](https://github.com/wting/autojump) (A cd command that learns)
 - [Bat](https://github.com/sharkdp/bat) (The improved cat command)
 - [Fzf](https://github.com/junegunn/fzf) (Command-line file search tool)
 - [Gparted](https://gitlab.gnome.org/GNOME/gparted) (The best disks & partition manager ever)
@@ -28,12 +26,13 @@ These are the customisations for debian that I use regardless of the Desktop Env
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone https://github.com/shreyas-a-s/debian-customisation.git
- cd debian-customisation/
+ git clone https://github.com/shreyas-a-s/linux-tweaks.git
+ cd linux-tweaks/
  ./install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
+ git clone https://github.com/shreyas-a-s/linux-tweaks.git && cd linux-tweaks/ && ./install.sh
 ```
+
