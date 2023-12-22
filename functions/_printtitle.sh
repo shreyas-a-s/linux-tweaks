@@ -46,5 +46,5 @@ function _printtitle {
 
 export -f _draw_the_line
 export -f _add_left_padding
-export -f _printttle
+export -f _printtitle
 
