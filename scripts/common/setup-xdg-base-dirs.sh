@@ -25,7 +25,7 @@ if command -v pacman > /dev/null; then # Install for archlinux-based distros
 fi
 
 # Function to setup XDG user dirs
-setupXDGUserDirs() {
+function _setup_xdg_user_dirs {
 
   for dirname in "$@"; do
     newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
@@ -40,7 +40,7 @@ setupXDGUserDirs() {
 }
 
 # Actual setup
-setupXDGUserDirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
+_setup_xdg_user_dirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
 # Assign new values to xdg user directories
 cp user-dirs.dirs ~/.config/
