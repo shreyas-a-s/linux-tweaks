@@ -5,7 +5,7 @@ These are the customisations for linux (currently debian-based and archlinux-bas
 
 - A single installation script for all of the customisations
 - Ability to choose bash, [fish](https://github.com/fish-shell/fish-shell) or [zsh](https://github.com/zsh-users/zsh) as the interactive shell in terminal.
-- All of them are customised out-of-the-box (Using their respective config files & [starship](https://github.com/starship/starship) prompt).
+- All of them are customised out-of-the-box (using their respective config files & [starship](https://github.com/starship/starship) prompt).
 - Custom aliases on all shells.
 
 ## Programs that this script installs (only the major ones)
