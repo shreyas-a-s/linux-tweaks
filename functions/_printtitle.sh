@@ -1,23 +1,51 @@
 #!/bin/sh
 
-function _printtitle {
-  
-  echo
+# Variables
+function _define_variables {
 
-  for i in $(seq "$(tput cols)"); do
+  number_of_columns="$(tput cols)"
+  title="$*"
+  length_of_title="$(expr length "$title")"
+  left_padding="$(((($number_of_columns - $length_of_title)) / 2))"
+
+}
+
+# Sub function 1
+function _draw_the_line {
+
+  printf "\n"
+
+  for i in $(seq $number_of_columns); do
     printf '-'
   done
-  echo
 
-  for i in $(seq $((($(tput cols) - $(expr length "$*")) / 2))); do
+}
+
+# Sub function 2
+function _add_left_padding {
+
+  printf "\n"
+
+  for i in $(seq $left_padding); do
     printf ' '
   done
-  
-  printf "$*\n"
 
-  for i in $(seq "$(tput cols)"); do
-    printf '-'
-  done
-  echo 
+}
+
+# Actual function
+function _printtitle {
+
+  _define_variables "$@"
+
+  _draw_the_line
+
+  _add_left_padding
+
+  printf "$title"
+
+  _draw_the_line
+
+  printf "\n"
+
 }
 
