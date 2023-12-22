@@ -8,7 +8,9 @@
 # ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 
 # Display a title in terminal
-./main-title.sh
+if [ -f ./main-title.sh ]; then
+  ./main-title.sh
+fi
 
 # Source colors
 if [ -f ./colors.sh ]; then
