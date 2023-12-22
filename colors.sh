@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # No Color
 export NC='\033[0m'
 
