@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check is cron is already present
 if command -v crontab > /dev/null; then

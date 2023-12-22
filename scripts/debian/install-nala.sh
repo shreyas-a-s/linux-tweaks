@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if the OS is Debian-based
 if ! command -v apt-get > /dev/null; then

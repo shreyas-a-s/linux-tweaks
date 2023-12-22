@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if the OS is Antix Linux
 if [ "$(awk '{print $1}' /etc/issue)" != "Antix" ]; then

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if the OS is Arch Linux
 if ! command -v pacman > /dev/null; then

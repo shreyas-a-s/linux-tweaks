@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Display title of script
 if type _printtitle > /dev/null; then
