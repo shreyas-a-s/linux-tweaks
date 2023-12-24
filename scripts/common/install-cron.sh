@@ -6,7 +6,7 @@ if command -v crontab > /dev/null; then
 fi
 
 # Display title of script
-if type _printtitle > /dev/null; then
+if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - CRON"
 fi
 

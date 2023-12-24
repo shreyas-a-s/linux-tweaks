@@ -6,7 +6,7 @@ if [ "$(awk '{print $1}' /etc/issue)" != "Antix" ]; then
 fi
 
 # Display title of script
-if type _printtitle > /dev/null; then
+if type _printtitle &> /dev/null; then
   _printtitle "SETTING UP - ANTIX LINUX"
 fi
 

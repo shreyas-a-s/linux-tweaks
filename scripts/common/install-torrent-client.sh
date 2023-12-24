@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Display title of script
-if type _printtitle > /dev/null; then
+if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - TORRENT CLIENT"
 fi
 
