@@ -7,9 +7,9 @@ fi
 
 # Install bluetooth packages
 if command -v apt-get > /dev/null; then
-  sudo apt install -y bluez
+  sudo apt install -y blueman bluez
 elif command -v pacman > /dev/null; then
-  sudo pacman -S --noconfirm bluez bluez-hid2hci
+  sudo pacman -S --noconfirm blueman bluez bluez-hid2hci
 fi
 
 # Make connecting to bluetooth sound devices better
