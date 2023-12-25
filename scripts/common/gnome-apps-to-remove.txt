@@ -1,0 +1,11 @@
+byobu
+epiphany-browser
+firefox-esr
+gnome-characters
+gnome-contacts
+gnome-font-viewer
+gnome-logs
+gnome-software
+gnome-terminal
+totem
+yelp

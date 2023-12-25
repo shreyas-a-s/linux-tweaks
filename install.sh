@@ -1,67 +1,67 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# ██████╗ ███████╗██████╗ ██╗ █████╗ ███╗   ██╗       ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗
-# ██╔══██╗██╔════╝██╔══██╗██║██╔══██╗████╗  ██║      ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║
-# ██║  ██║█████╗  ██████╔╝██║███████║██╔██╗ ██║█████╗██║     ██║   ██║███████╗   ██║   ██║   ██║██╔████╔██║
-# ██║  ██║██╔══╝  ██╔══██╗██║██╔══██║██║╚██╗██║╚════╝██║     ██║   ██║╚════██║   ██║   ██║   ██║██║╚██╔╝██║
-# ██████╔╝███████╗██████╔╝██║██║  ██║██║ ╚████║      ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║██╗
-# ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝       ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝
+# ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗  ████████╗██╗    ██╗███████╗ █████╗ ██╗  ██╗███████╗
+# ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝  ╚══██╔══╝██║    ██║██╔════╝██╔══██╗██║ ██╔╝██╔════╝
+# ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝█████╗██║   ██║ █╗ ██║█████╗  ███████║█████╔╝ ███████╗
+# ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗╚════╝██║   ██║███╗██║██╔══╝  ██╔══██║██╔═██╗ ╚════██║
+# ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗     ██║   ╚███╔███╔╝███████╗██║  ██║██║  ██╗███████║
+# ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+
+# Display a title in terminal
+if [ -f ./main-title.sh ]; then
+  ./main-title.sh
+fi
+
+# Source colors
+if [ -f ./colors.sh ]; then
+  . ./colors.sh
+fi
 
 # Check if script is run as root
 if [ "$(id -u)" -eq 0 ]; then
-  echo "You must NOT be a root user when running this script, please run ./install.sh" 2>&1
+  printf "\n${BRED}You must NOT be a root user when running this script,${NC} please run ./install.sh as normal user\n\n" 2>&1
   exit 1
+fi
+
+# Souce functions
+if [ -d ./functions ]; then
+  for fn in ./functions/*; do
+    . "$fn"
+  done
 fi
 
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-# Variables
-distroname=$(awk '{print $1}' /etc/issue)
-
-# Updating system & installing programs
-echo ""; echo "Doing a system update & Installing required programs..."
-sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get -y install ufw man git gparted vlc shellcheck curl wget python-is-python3 obs-studio kdeconnect keepassxc qbittorrent
-
 # My custom scripts
-./scripts/brave.sh # brave-browser
-./scripts/github-desktop.sh # github-desktop for linux
-./scripts/gnome.sh # gnome-specific-customisations
-./scripts/librewolf.sh # firefox fork that is truely the best (IMO)
-./scripts/nala.sh # apt, but colorful
-./scripts/onlyoffice.sh # office suite
-./scripts/snap.sh # snap package manager
-./scripts/vscodium.sh # open source vscode
-./scripts/shell-customization.sh # bash/fish/zsh customizations
+./scripts/archlinux/install-aur-helper.sh      # Program that helps install packages from AUR (the user contributed arch linux repository)
+./scripts/archlinux/install-paccache.sh        # Program that helps clear pacman cache in archlinux
+./scripts/archlinux/setup-pacman.sh            # Make arch package manager work better
+./scripts/common/update-system.sh              # Updating installed programs
+./scripts/common/install-auto-cpufreq.sh       # Automatically change cpu freq to save battery
+./scripts/common/install-brave.sh              # My fav browser
+./scripts/common/install-cron.sh               # Program to automate tasks
+./scripts/common/install-github-desktop.sh     # Github-desktop for linux
+./scripts/common/install-gui-apps.sh           # GUI apps common to all default package managers
+./scripts/common/install-joplin.sh             # Cloud-synced note-taking app
+./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files and command and more
+./scripts/common/install-onlyoffice.sh         # Office suite
+./scripts/common/install-passwd-manager.sh     # As name suggests
+./scripts/common/install-torrent-client.sh     # Also, as name suggests
+./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
+./scripts/common/install-vscodium.sh           # Open source vscode
+./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
+./scripts/common/setup-bootloader.sh           # Bootloader Customisations
+./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
+./scripts/common/setup-multi-audio.sh          # Enable audio to be routed to multiple devices simultaneosuily
+./scripts/common/shell-customization.sh        # Shell (bash/fish/zsh) customizations
+./scripts/common/cleanup.sh                    # Cleanup package manager cache
+./scripts/debian/install-nala.sh               # Good old apt, but colorful
+./scripts/debian/setup-antix.sh                # Antix Linux Customisations
 
-# Installing an AppImage(Joplin) dependency that is not pre-installed in antix inux
-[ "$distroname" = "Antix" ] && sudo apt-get -y install libnss3
-
-# Enabling firewall
-sudo ufw enable
-if command -v kdeconnect-cli > /dev/null || gnome-extensions list | grep -q gsconnect; then
-  sudo ufw allow 1714:1764/udp
-  sudo ufw allow 1714:1764/tcp
-  sudo ufw reload
-fi
-
-# Change Grub Timeout
-if [ -f /etc/default/grub ]; then
-  sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=2" /etc/default/grub
-  sudo update-grub
-fi
-
-# Change systemd-boot Timeout
-if [ -f /boot/loader/loader.conf ]; then
-  sudo sed -i "/timeout/ c\timeout 1" /boot/loader/loader.conf
-fi
-
-# Lower swappiness value for better utilization of RAM
-sudo sysctl vm.swappiness=10
-
-# Add script to toggle wifi
-sudo cp scripts/wifi-toggle.sh /usr/local/bin/wifi-toggle
+# Custom tweaks
+sudo sysctl vm.swappiness=10                             # Lower swappiness value for better utilization of RAM
+sudo cp ./bin/wifi-toggle.sh /usr/local/bin/wifi-toggle  # Script to toggle wifi
 
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."

@@ -1,0 +1,13 @@
+bat
+curl
+fzf
+git
+htop
+make
+man-db
+ncdu
+neofetch
+shellcheck
+trash-cli
+wget
+zoxide
