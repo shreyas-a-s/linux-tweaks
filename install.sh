@@ -23,7 +23,7 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# Souce functions
+# Source functions
 if [ -d ./functions ]; then
   for fn in ./functions/*; do
     . "$fn"
