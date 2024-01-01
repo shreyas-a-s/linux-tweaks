@@ -9,4 +9,3 @@ gnome-tweaks
 gnome-tweaks
 nautilus
 nautilus
-qt6-wayland
