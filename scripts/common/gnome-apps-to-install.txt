@@ -1,11 +1,8 @@
 baobab
 gnome-backgrounds
 gnome-calculator
-gnome-calculator
 gnome-console
 gnome-control-center
 gnome-keyring
 gnome-tweaks
-gnome-tweaks
-nautilus
 nautilus
