@@ -55,10 +55,9 @@ esac
 ./install-neovim.sh             # Best text editor in the world ;-)
 ./install-terminal-apps.sh      # Terminal apps that I use
 ./install-tldr.sh               # Man pages, but simpler to understand
+./setup-sudoers.sh              # Apply custom tweaks to sudoers file
 ./setup-xdg-base-dirs.sh        # Setup XDG Base Directories
 
-# Custom tweaks
-curl -sS https://starship.rs/install.sh | sh                           # Install starship prompt
-echo 'Defaults    pwfeedback' | sudo tee -a /etc/sudoers > /dev/null   # Add password feedback (asterisks) for sudo
-echo 'Defaults    !admin_flag' | sudo tee -a /etc/sudoers > /dev/null  # Disable creation of ~/.sudo_as_admin_successful
+# Install starship prompt
+curl -sS https://starship.rs/install.sh | sh
 
