@@ -10,6 +10,9 @@ if ! find /sys/class/power_supply -mindepth 1 -maxdepth 1 -print -quit | grep -q
   exit 1
 fi
 
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
+
 # Install auto-cpufreq - For better battery life on laptops
 cd ../../.. || exit
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
