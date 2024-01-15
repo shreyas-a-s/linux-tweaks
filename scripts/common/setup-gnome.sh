@@ -7,7 +7,7 @@ fi
 
 # Exit if NOT gnome
 if ! ps -A | grep -q "gnome-shell"; then
-  printf "\n${BRED}This doesn't seem to be a gnome environment.${NC}\n\n" 2>&1
+  printf "\n${BRED}This doesn't seem to be a gnome environment.${NC}\n" 2>&1
   exit 1
 fi
 
