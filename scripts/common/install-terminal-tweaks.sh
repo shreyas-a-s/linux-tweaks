@@ -8,6 +8,9 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
+# Install starship prompt
+curl -sS https://starship.rs/install.sh | sh
+
 # My custom scripts
 ./install-command-not-found.sh  # Command-not-found handler
 ./install-lsd.sh                # LSDeluxe - the fancy ls command
@@ -17,7 +20,4 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./setup-sudoers.sh              # Apply custom tweaks to sudoers file
 ./setup-user-shell.sh           # Apply customisations to user shell (bash/fish/zsh)
 ./setup-xdg-base-dirs.sh        # Setup XDG Base Directories
-
-# Install starship prompt
-curl -sS https://starship.rs/install.sh | sh
 
