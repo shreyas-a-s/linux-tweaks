@@ -2,7 +2,7 @@
 
 # Display title of script
 if type _printtitle &> /dev/null; then
-  _printtitle "APPLY - SHELL CUSTOMISATIONS"
+  _printtitle "INSTALL - TERMINAL TWEAKS"
 fi
 
 # Change directory
