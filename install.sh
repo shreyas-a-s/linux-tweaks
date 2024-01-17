@@ -54,7 +54,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
 ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
 ./scripts/common/setup-multi-audio.sh          # Enable audio to be routed to multiple devices simultaneosuily
-./scripts/common/shell-customization.sh        # Shell (bash/fish/zsh) customizations
+./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
 ./scripts/common/cleanup.sh                    # Cleanup package manager cache
 ./scripts/debian/install-nala.sh               # Good old apt, but colorful
 ./scripts/debian/setup-antix.sh                # Antix Linux Customisations
