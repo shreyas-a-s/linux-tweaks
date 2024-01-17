@@ -54,6 +54,12 @@ choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more o
     17 "Setup Multi-Audio" OFF \
     2>&1 >/dev/tty)
 
+# Exit if user choses 'Cancel'
+exitstatus=$?
+if [ $exitstatus = 1 ]; then
+  exit 1
+fi
+
 # Convert choices variable into an array
 eval "c_array=($choices)"
 
