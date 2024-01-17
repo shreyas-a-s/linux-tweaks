@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Display title of script
+if type _printtitle &> /dev/null; then
+  _printtitle "SETUP - USER SHELL"
+fi
+
 # Taking shell choice
 while true; do
   echo "Which shell you prefer?"
