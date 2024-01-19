@@ -1,6 +1,8 @@
 baobab
+eog
 gnome-backgrounds
 gnome-calculator
+gnome-clocks
 gnome-console
 gnome-control-center
 gnome-keyring
