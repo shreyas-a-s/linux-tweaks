@@ -62,10 +62,11 @@ if [ $exitstatus = 1 ]; then
 fi
 
 # Convert choices variable into an array
-if _is_element_of_array c_array[@] 0; then # Add all options to array if user did select 'Select All' in whiptail checklist
+eval "c_array=($choices)"
+
+# Add all options to array if user did select 'Select All' in whiptail checklist
+if _is_element_of_array c_array[@] 0; then
   c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17")
-else # Add options user selected to array
-  eval "c_array=($choices)"
 fi
 
 # My custom scripts
