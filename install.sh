@@ -35,6 +35,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Take user choice
 choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more options:" 15 43 8 \
+    0  "Select All" OFF \
     1  "Install AutoCPUFreq" OFF \
     2  "Install Brave Browser" OFF \
     3  "Install Cron" OFF \
@@ -61,7 +62,11 @@ if [ $exitstatus = 1 ]; then
 fi
 
 # Convert choices variable into an array
-eval "c_array=($choices)"
+if _is_element_of_array c_array[@] 0; then # Add all options to array if user did select 'Select All' in whiptail checklist
+  c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17")
+else # Add options user selected to array
+  eval "c_array=($choices)"
+fi
 
 # My custom scripts
 ./scripts/archlinux/install-aur-helper.sh      # Program that helps install packages from AUR (the user contributed arch linux repository)
