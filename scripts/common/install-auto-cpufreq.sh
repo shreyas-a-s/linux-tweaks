@@ -20,27 +20,6 @@ cd auto-cpufreq || exit
 sudo ./auto-cpufreq-installer
 sudo auto-cpufreq --install
 
-# Set auto-cpufreq config for i3-115G4
-if [ "$(lscpu | sed -nr '/Model name/ s/.*:\s*(.*) @ .*/\1/p' | awk -F '-' '{print $NF}')" = "1115G4" ]; then
-  printf "[charger]\
-  \ngovernor = performance\
-  \nturbo = auto\
-
-  \n[battery]\
-  \ngovernor = powersave\
-  \nscaling_min_freq = 400000\
-  \nscaling_max_freq = 1700000\
-  \nturbo = never" | sudo tee /etc/auto-cpufreq.conf > /dev/null
-else
-  printf "[charger]\
-  \ngovernor = performance\
-  \nturbo = auto\
-
-  \n[battery]\
-  \ngovernor = powersave\
-  \nturbo = never" | sudo tee /etc/auto-cpufreq.conf > /dev/null
-fi
-
 # Install thermald (a program that complements auto-cpufreq)
 if command -v apt-get > /dev/null; then # For debian-based distros
   sudo apt-get install -y thermald
