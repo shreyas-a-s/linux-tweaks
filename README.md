@@ -1,6 +1,9 @@
 # Linux Tweaks
 These are the customisations for linux (currently debian-based and archlinux-based) that I use regardless of the Desktop Environment or Window Manager.
 
+## Screenshots
+![desktop](https://github.com/shreyas-a-s/linux-tweaks/assets/137637016/39040215-2486-45f4-8009-1a6a6bdf833b)
+
 ## Features
 
 - A single installation script for all of the customisations
