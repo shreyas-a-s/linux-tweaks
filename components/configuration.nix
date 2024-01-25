@@ -50,7 +50,7 @@
   # Enable the GDM Display Manager.
   services.xserver.displayManager.gdm.enable = true;
 
-  # Enable gnome
+  # Enable Gnome
   services.xserver.displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
 
   # Configure keymap in X11
