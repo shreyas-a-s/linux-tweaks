@@ -124,8 +124,6 @@
     gnome.gnome-settings-daemon
     gnome.gnome-tweaks
     gnome.nautilus
-    gnomeExtensions.gsconnect
-    gnomeExtensions.rounded-window-corners
     gnome-console
     gnome-secrets
     gnumake
