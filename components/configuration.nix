@@ -90,7 +90,7 @@
     users.dt = {
     isNormalUser = true;
     description = "dt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
 #    packages = with pkgs; [
 #      brave
 #      gnome-console
@@ -119,6 +119,7 @@
     github-desktop
     gnome.eog
     gnome.gnome-backgrounds
+    gnome.gnome-boxes
     gnome.gnome-calculator
     gnome.gnome-clocks
     gnome.gnome-control-center
@@ -156,6 +157,10 @@
     zoxide
     zsh
   ];
+
+  # Enable virtualisation
+  virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
 
   # This way we can set environment variables
   environment.sessionVariables = rec {
