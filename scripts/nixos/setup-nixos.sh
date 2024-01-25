@@ -20,3 +20,6 @@ sudo nixos-rebuild switch --log-format bar-with-logs
 # Reclaiming disk space using Nix garbage collector
 sudo nix-collect-garbage
 
+# Optimise nix-store
+sudo nix-store --optimise
+
