@@ -117,6 +117,7 @@
     gh
     git
     github-desktop
+    gnome-console
     gnome.eog
     gnome.gnome-backgrounds
     gnome.gnome-boxes
@@ -128,7 +129,6 @@
     gnome.gnome-settings-daemon
     gnome.gnome-tweaks
     gnome.nautilus
-    gnome-console
     gnome-secrets
     gnumake
     gparted
@@ -150,10 +150,10 @@
     vlc
     vscodium
     wget
-    xsel
     xdg-desktop-portal
     xdg-desktop-portal-gnome
     xdg-user-dirs
+    xsel
     zoxide
     zsh
   ];
