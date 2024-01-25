@@ -62,6 +62,9 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # Suoders tweaks
+  security.sudo.extraConfig = "Defaults  pwfeedback";
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
