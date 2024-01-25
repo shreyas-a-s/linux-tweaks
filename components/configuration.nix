@@ -11,6 +11,7 @@
     ];
 
   # Bootloader.
+  boot.loader.timeout = 1;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
