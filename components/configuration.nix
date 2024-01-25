@@ -204,6 +204,10 @@
 
   # Automation
   nix = {
+    extraOptions = ''
+      min-free = ${toString (5120 * 1024 * 1024)}
+      max-free = ${toString (10240 * 1024 * 1024)}
+    '';
     optimise.automatic = true;
     gc = {
       automatic = true;
