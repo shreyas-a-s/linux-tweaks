@@ -11,13 +11,14 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 # Install dependencies
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y gcc xsel
-fi
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+elif command -v pacman > /dev/null; then # Install for archlinux-based distros
   sudo pacman -S --noconfirm gcc xsel
+elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+  sudo dnf install -y gcc xsel
 fi
 
-# Install neovim
-if command -v apt-get > /dev/null; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null; then
   if [ "$(apt-cache show neovim | grep Version | awk -F '.' '{print $2}')" -ge 9 ]; then
     sudo apt-get install -y neovim
   else
@@ -28,7 +29,14 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
     sudo ln -s /snap/bin/nvim /usr/local/bin/
   fi
 fi
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   sudo pacman -S --noconfirm neovim
+fi
+
+# Install for RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo dnf install -y neovim
 fi
 
