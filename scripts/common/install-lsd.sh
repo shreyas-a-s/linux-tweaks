@@ -5,7 +5,8 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - LSDELUXE"
 fi
 
-if command -v apt-get > /dev/null && apt-cache search lsd | cut -d ' ' -f 1 | grep -xq 'lsd'; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null && apt-cache search lsd | cut -d ' ' -f 1 | grep -xq 'lsd'; then
   sudo apt-get install -y lsd
 elif command -v dpkg > /dev/null; then
   wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
@@ -13,7 +14,13 @@ elif command -v dpkg > /dev/null; then
   rm lsd_0.23.1_amd64.deb
 fi
 
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   sudo pacman -S --noconfirm lsd
+fi
+
+# Install for RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo dnf install -y lsd
 fi
 
