@@ -23,6 +23,9 @@ nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Exte
 printf "\nInstalling Rounded Window Corners ...\n"
 nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt' > /dev/null 2>&1
 
+# Restore dconf backup
+dconf load /org/gnome/ < ../common/dconf.conf
+
 # Reclaiming disk space using Nix garbage collector
 sudo nix-collect-garbage
 
