@@ -17,6 +17,12 @@ sudo cp ../../components/configuration.nix /etc/nixos/configuration.nix
 # Rebuild the system configuration
 sudo nixos-rebuild switch --log-format bar-with-logs
 
+# Install Gnome Extensions
+printf "\nInstalling GSConnect ...\n"
+nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s gsconnect@andyholmes.github.io' > /dev/null 2>&1
+printf "\nInstalling Rounded Window Corners ...\n"
+nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt' > /dev/null 2>&1
+
 # Reclaiming disk space using Nix garbage collector
 sudo nix-collect-garbage
 
