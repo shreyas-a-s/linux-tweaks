@@ -111,7 +111,6 @@
   environment = {
     # Packages to be installed in system profile.
     systemPackages = with pkgs; [
-      auto-cpufreq
       baobab
       bat
       brave
