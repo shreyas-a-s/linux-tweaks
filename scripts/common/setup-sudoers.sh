@@ -8,7 +8,6 @@ sudo_version=$(command sudo -V | grep "Sudo version" | awk '{print $NF}' | awk -
 
 # Split the version numbers into arrays
 IFS='.' read -ra sudo_version_array <<< "$sudo_version"
-compare_version_array=(1 9 6)
 
 # Compare version of sudo with 1.9.6 (which is required for the next sudoers tweak to work)
 compare_versions=$(awk -v sv1="${sudo_version_array[0]}" -v sv2="${sudo_version_array[1]}" -v sv3="${sudo_version_array[2]}" \
