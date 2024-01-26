@@ -21,6 +21,8 @@ sudo nixos-rebuild switch --log-format bar-with-logs
 sudo nix-collect-garbage
 
 # Optimise nix-store
+printf "\nOptimising nix-store. Please wait ...\n"
+sleep 2
 sudo nix-store --optimise
 
 # Add wifi-toggle script to system programs
