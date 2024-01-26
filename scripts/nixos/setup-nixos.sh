@@ -23,3 +23,6 @@ sudo nix-collect-garbage
 # Optimise nix-store
 sudo nix-store --optimise
 
+# Add wifi-toggle script to system programs
+nix-env -iA ../../components/wifi-toggle.nix
+
