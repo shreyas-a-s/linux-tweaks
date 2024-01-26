@@ -35,6 +35,11 @@ if grep -iq nixos /etc/os-release; then
   exit 0
 fi
 
+# Install whiptail if not already
+if ! command -v whiptail > /dev/null; then
+  ./scripts/common/install-whiptail.sh
+fi
+
 # Take user choice
 choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more options:" 15 43 8 \
     0  "Select All" OFF \
