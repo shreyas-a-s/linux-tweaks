@@ -8,8 +8,8 @@
 # ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 
 # Display a title in terminal
-if [ -f ./main-title.sh ]; then
-  ./main-title.sh
+if [ -f ./scripts/common/main-title.sh ]; then
+  ./scripts/common/main-title.sh
 fi
 
 # Source colors & functions
