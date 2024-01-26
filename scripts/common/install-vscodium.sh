@@ -5,7 +5,8 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - VSCODIUM"
 fi
 
-if command -v apt-get > /dev/null; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null; then
   # Add repository
   wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
       | gpg --dearmor \
@@ -23,9 +24,17 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get -y install codium
 fi
 
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   if command -v yay > /dev/null; then
     yay -S --noconfirm vscodium-bin
   fi
+fi
+
+# Install for RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+  printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h" | sudo tee -a /etc/yum.repos.d/vscodium.repo
+  sudo dnf install -y codium
 fi
 
