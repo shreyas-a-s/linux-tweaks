@@ -5,7 +5,8 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - BRAVE BROWSER"
 fi
 
-if command -v apt-get > /dev/null; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null; then
   # Add repository
   sudo apt-get -y install curl
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -21,11 +22,20 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get -y install brave-browser
 fi
 
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   if pacman -Ss brave-browser > /dev/null; then
     sudo pacman -S --noconfirm brave-browser
   elif command -v yay > /dev/null; then
     yay -S --noconfirm brave-bin
   fi
+fi
+
+# Install for RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo dnf install -y dnf-plugins-core
+  sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+  sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+  sudo dnf install -y brave-browser
 fi
 
