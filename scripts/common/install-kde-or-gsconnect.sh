@@ -13,6 +13,8 @@ else # Install the actual KDEConnect
     sudo apt-get install -y kdeconnect
   elif command -v pacman > /dev/null; then # Install for archlinux-based distros
     sudo pacman -S --noconfirm kdeconnect
+  elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+    sudo dnf install -y kde-connect
   fi
 fi
 
