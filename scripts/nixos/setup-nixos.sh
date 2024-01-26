@@ -38,7 +38,7 @@ sudo nix-store --optimise
 tldr -u
 
 # Add wifi-toggle script to system programs
-nix-env -iA ../../components/wifi-toggle.nix
+nix-env -if ../../components/wifi-toggle.nix
 
 # Setup XDG User Directories
 ../common/setup-xdg-base-dirs.sh
