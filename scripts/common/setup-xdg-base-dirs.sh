@@ -40,6 +40,7 @@ function _setup_xdg_user_dirs {
 }
 
 # Actual setup
+echo "Renaming directories in home folder ..."
 _setup_xdg_user_dirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
 # Assign new values to xdg user directories
