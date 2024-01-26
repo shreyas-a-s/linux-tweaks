@@ -5,7 +5,8 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - COMMAND-NOT-FOUND HANDLER"
 fi
 
-if command -v apt-get > /dev/null; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null; then
   # Install the app & dependencies
   sudo apt-get install -y command-not-found apt-file
 
@@ -14,11 +15,17 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-file update
 fi
 
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   # Install the app
   sudo pacman -S --noconfirm pkgfile
 
   # Update database of pkgfile
   sudo pkgfile -u
+fi
+
+# Install for RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo dnf install -y PackageKit-command-not-found
 fi
 
