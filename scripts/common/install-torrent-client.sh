@@ -13,19 +13,23 @@ if ps -A | grep -q "gnome-shell"; then # Install fragments - Torrent client made
     if apt-cache search 'fragments' | cut -d ' ' -f 1 | grep -xq 'fragments'; then
       sudo apt-get install -y fragments
     else
-      if ! command -v snap > /dev/null; then # Install for archlinux-based distros
+      if ! command -v snap > /dev/null; then
         ./install-snap.sh
       fi
       sudo snap install fragments
     fi
-  elif command -v pacman > /dev/null; then
+  elif command -v pacman > /dev/null; then # Install for archlinux-based distros
     sudo pacman -S --noconfirm fragments
+  elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+    sudo dnf install -y fragments
   fi
 else # Install qbittorrent - Just another torrent client
   if command -v apt-get > /dev/null; then # Install for debian-based distros
     sudo apt-get install -y qbittorrent
   elif command -v pacman > /dev/null; then # Install for archlinux-based distros
     sudo pacman -S --noconfirm qbittorrent
+  elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+    sudo dnf install -y qbittorrent
   fi
 fi
 
