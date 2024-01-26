@@ -28,6 +28,13 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
+# Check if system is NixOS
+if grep -iq nixos /etc/os-release; then
+  printf "\nDetected NixOS.\n"
+  ./scripts/nixos/setup-nixos.sh
+  exit 0
+fi
+
 # Take user choice
 choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more options:" 15 43 8 \
     0  "Select All" OFF \
@@ -62,13 +69,6 @@ eval "c_array=($choices)"
 # Add all options to array if user did select 'Select All' in whiptail checklist
 if _is_element_of_array c_array[@] 0; then
   c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17")
-fi
-
-# Check if system is NixOS
-if grep -iq nixos /etc/os-release; then
-  printf "\nDetected NixOS.\n"
-  ./scripts/nixos/setup-nixos.sh
-  exit 0
 fi
 
 # My custom scripts
