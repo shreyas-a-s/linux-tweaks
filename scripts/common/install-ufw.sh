@@ -8,9 +8,10 @@ fi
 # Install ufw
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y ufw
-fi
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+elif command -v pacman > /dev/null; then # Install for archlinux-based distros
   sudo pacman -S --noconfirm ufw
+elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+  sudo dnf install -y ufw
 fi
 
 # Enable ufw service
