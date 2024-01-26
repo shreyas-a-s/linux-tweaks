@@ -49,5 +49,5 @@ printf "Installing gnome extension - rounded window corners ...\n\n"
 nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt' > /dev/null 2>&1
 
 # Restore dconf settings
-dconf load /org/gnome/ < dconf.conf
+dconf load /org/gnome/ < ../../components/dconf.conf
 

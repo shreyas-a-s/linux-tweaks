@@ -24,7 +24,7 @@ printf "\nInstalling Rounded Window Corners ...\n"
 nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s rounded-window-corners@yilozt' > /dev/null 2>&1
 
 # Restore dconf backup
-dconf load /org/gnome/ < ../common/dconf.conf
+dconf load /org/gnome/ < ../../components/dconf.conf
 
 # Set wallpaper in Gnome
 mkdir -p ~/.local/share/backgrounds/gnome
