@@ -26,6 +26,12 @@ nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Exte
 # Restore dconf backup
 dconf load /org/gnome/ < ../common/dconf.conf
 
+# Set wallpaper in Gnome
+mkdir -p ~/.local/share/backgrounds/gnome
+cp ../../components/keys-l.jpg ../../components/keys-d.jpg ~/.local/share/backgrounds/gnome/
+dconf write /org/gnome/desktop/background/picture-uri "\"file://$HOME/.local/share/backgrounds/gnome/keys-d.jpg\""
+dconf write /org/gnome/desktop/background/picture-uri-dark "\"file://$HOME/.local/share/backgrounds/gnome/keys-l.jpg\""
+
 # Reclaiming disk space using Nix garbage collector
 sudo nix-collect-garbage
 
