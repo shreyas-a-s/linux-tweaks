@@ -16,10 +16,10 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install GNOME apps that I use
 if command -v apt-get > /dev/null; then
-  xargs -a "gnome-apps-to-install.txt" sudo apt-get install -y fonts-cantarell gdm3
+  xargs -a "../../components/gnome-apps-to-install.txt" sudo apt-get install -y fonts-cantarell gdm3
 fi
 if command -v pacman > /dev/null; then
-  xargs -a "gnome-apps-to-install.txt" sudo pacman -S --noconfirm cantarell-fonts gdm gvfs-gphoto2 gvfs-mtp
+  xargs -a "../../components/gnome-apps-to-install.txt" sudo pacman -S --noconfirm cantarell-fonts gdm gvfs-gphoto2 gvfs-mtp
 fi
 
 # Uninstall GNOME apps that I don't use
