@@ -14,6 +14,9 @@ sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration-"$(date '+%Y%m%d%H
 # Copy our new nixos config file
 sudo cp ../../components/configuration.nix /etc/nixos/configuration.nix
 
+# Change username
+sudo sed -i "s/USERNAME/$USER/" /etc/nixos/configuration.nix
+
 # Rebuild the system configuration
 sudo nixos-rebuild switch --log-format bar-with-logs
 
