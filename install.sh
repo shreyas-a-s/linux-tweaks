@@ -12,22 +12,17 @@ if [ -f ./main-title.sh ]; then
   ./main-title.sh
 fi
 
-# Source colors
-if [ -f ./colors.sh ]; then
-  . ./colors.sh
+# Source colors & functions
+if [ -d ./functions ]; then
+  for fn in ./functions/*; do
+    . "$fn"
+  done
 fi
 
 # Check if script is run as root
 if [ "$(id -u)" -eq 0 ]; then
   printf "\n${BRED}You must NOT be a root user when running this script,${NC} please run ./install.sh as normal user\n\n" 2>&1
   exit 1
-fi
-
-# Source functions
-if [ -d ./functions ]; then
-  for fn in ./functions/*; do
-    . "$fn"
-  done
 fi
 
 # Change directory
