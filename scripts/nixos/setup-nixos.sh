@@ -9,7 +9,7 @@ fi
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Backup current nixos config file
-sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration-"$(date '+%Y%m%d%H%M%S')".nix
 
 # Copy our new nixos config file
 sudo cp ../../components/configuration.nix /etc/nixos/configuration.nix
