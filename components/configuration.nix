@@ -62,13 +62,12 @@
       enable = true; # Enable the X11 windowing system.
       displayManager.gdm.enable = true; # Enable the GDM Display Manager.
       displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ]; # Enable Gnome.
+      libinput.enable = true; # Enable touchpad support.
       layout = "us"; # Configure keymap in X11.
       xkbVariant = "";
       };
-    };
     auto-cpufreq.enable = true;
     thermald.enable = true;
-    libinput.enable = true; # Enable touchpad support.
     # printing.enable = true;
     # openssh.enable = true;
   };
