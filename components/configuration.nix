@@ -96,9 +96,9 @@
 
   # User profile.
   users = {
-    users.dt = {
+    users.USERNAME = {
       isNormalUser = true;
-      description = "dt";
+      description = "USERNAME";
       extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
     };
     defaultUserShell = pkgs.zsh;
