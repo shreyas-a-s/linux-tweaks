@@ -159,7 +159,6 @@
       xdg-user-dirs
       xsel
       zoxide
-      zsh
     ];
     # Environment variables.
     sessionVariables = rec {
