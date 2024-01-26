@@ -44,7 +44,7 @@ echo "Renaming directories in home folder ..."
 _setup_xdg_user_dirs ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Templates ~/Videos ~/Public
 
 # Assign new values to xdg user directories
-cp user-dirs.dirs ~/.config/
+cp ../../components/user-dirs.dirs ~/.config/
 
 # Update the list of values
 xdg-user-dirs-update
