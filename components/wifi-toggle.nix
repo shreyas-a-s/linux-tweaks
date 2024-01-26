@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 runCommand "wifi-toggle" {
-  src = ../bin/wifi-toggle.sh;
+  src = ../scripts/common/wifi-toggle.sh;
   buildInputs = [ bash makeWrapper ];
 } ''
   mkdir -p $out/bin

@@ -98,8 +98,8 @@ _is_element_of_array c_array[@] 17 && ./scripts/common/setup-multi-audio.sh     
 ./scripts/debian/setup-antix.sh                # Antix Linux Customisations
 
 # Custom tweaks
-sudo sysctl vm.swappiness=10                             # Lower swappiness value for better utilization of RAM
-sudo cp ./bin/wifi-toggle.sh /usr/local/bin/wifi-toggle  # Script to toggle wifi
+sudo sysctl vm.swappiness=10                                        # Lower swappiness value for better utilization of RAM
+sudo cp ./scripts/common/wifi-toggle.sh /usr/local/bin/wifi-toggle  # Script to toggle wifi
 
 # Done
 echo "Installation is complete. Reboot your system for the changes to take place."
