@@ -31,6 +31,9 @@ printf "\nOptimising nix-store. Please wait ...\n"
 sleep 2
 sudo nix-store --optimise
 
+# Update tldr database
+tldr -u
+
 # Add wifi-toggle script to system programs
 nix-env -iA ../../components/wifi-toggle.nix
 
