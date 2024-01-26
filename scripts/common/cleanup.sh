@@ -5,15 +5,22 @@ if type _printtitle &> /dev/null; then
   _printtitle "CLEANING UP"
 fi
 
-if command -v apt-get > /dev/null; then # For debian-based distros
+# For debian-based distros
+if command -v apt-get > /dev/null; then
   sudo apt-get autoremove -y
 fi
 
-if command -v pacman > /dev/null; then # For archlinux-based distros
+# For archlinux-based distros
+if command -v pacman > /dev/null; then
   sudo pacman -Scc --noconfirm # Empty pacman cache
   if command -v yay > /dev/null; then
     yay -Scc --noconfirm # Empty aur package cache
   fi
+fi
+
+# For RHEL-based distros
+if command -v dnf > /dev/null; then
+  sudo dnf autoremove -y
 fi
 
 # Add a cron-job to auto clear trash
