@@ -15,6 +15,8 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y cron
 elif command -v pacman > /dev/null; then # Install for archlinux-based distros
   sudo pacman -S --noconfirm cronie
+elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+  sudo dnf install -y cronie
 fi
 
 # Enable cron
