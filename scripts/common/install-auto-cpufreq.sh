@@ -25,6 +25,8 @@ if command -v apt-get > /dev/null; then # For debian-based distros
   sudo apt-get install -y thermald
 elif command -v pacman > /dev/null; then # For archlinux-based distros
   sudo pacman -S --noconfirm thermald
+elif command -v pacman > /dev/null; then # For RHEL-based distros
+  sudo dnf install -y thermald
 fi
 
 # Enable thermald service
