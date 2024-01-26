@@ -2,16 +2,16 @@
 
 # Define Variables
 number_of_columns="$(tput cols)"
-left_padding_fancy="$(((($number_of_columns - 92)) / 2))"
-left_padding_simple="$(((($number_of_columns - 53)) / 2))"
-left_padding_thats_left="$(((($number_of_columns - 14)) / 2))"
+left_padding_fancy="$(((number_of_columns - 92) / 2))"
+left_padding_simple="$(((number_of_columns - 53) / 2))"
+left_padding_thats_left="$(((number_of_columns - 14) / 2))"
 
 # Sub function 1
 function _draw_the_line {
 
   printf "\n"
 
-  for i in $(seq $number_of_columns); do
+  for _ in $(seq "$number_of_columns"); do
     printf '-'
   done
 
@@ -22,7 +22,7 @@ function _add_left_padding_fancy {
 
   printf "\n"
 
-  for i in $(seq $left_padding_fancy); do
+  for _ in $(seq $left_padding_fancy); do
     printf ' '
   done
 
@@ -33,7 +33,7 @@ function _add_left_padding_simple {
 
   printf "\n"
 
-  for i in $(seq $left_padding_simple); do
+  for _ in $(seq $left_padding_simple); do
     printf ' '
   done
 
@@ -44,7 +44,7 @@ function _add_left_padding_thats_left {
 
   printf "\n"
 
-  for i in $(seq $left_padding_thats_left); do
+  for _ in $(seq $left_padding_thats_left); do
     printf ' '
   done
 
