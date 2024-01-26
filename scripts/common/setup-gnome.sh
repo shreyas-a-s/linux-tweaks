@@ -24,10 +24,10 @@ fi
 
 # Uninstall GNOME apps that I don't use
 if command -v apt-get > /dev/null; then
-  xargs -a "gnome-apps-to-remove.txt" sudo apt-get purge -y
+  xargs -a "../../components/gnome-apps-to-remove.txt" sudo apt-get purge -y
 fi
 if command -v pacman > /dev/null; then
-  xargs -a "gnome-apps-to-remove.txt" sudo pacman -R --noconfirm
+  xargs -a "../../components/gnome-apps-to-remove.txt" sudo pacman -R --noconfirm
 fi
 
 # Symlink gedit to gnome-text-editor
