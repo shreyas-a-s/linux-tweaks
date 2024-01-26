@@ -34,12 +34,12 @@ printf "\nOptimising nix-store. Please wait ...\n"
 sleep 2
 sudo nix-store --optimise
 
-# Setup XDG User Directories
-../common/setup-xdg-base-dirs.sh
-
 # Update tldr database
 tldr -u
 
 # Add wifi-toggle script to system programs
 nix-env -iA ../../components/wifi-toggle.nix
+
+# Setup XDG User Directories
+../common/setup-xdg-base-dirs.sh
 
