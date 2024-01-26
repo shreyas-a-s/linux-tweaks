@@ -17,17 +17,19 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 # Install GNOME apps that I use
 if command -v apt-get > /dev/null; then
   xargs -a "../../components/gnome-apps-to-install.txt" sudo apt-get install -y fonts-cantarell gdm3
-fi
-if command -v pacman > /dev/null; then
+elif command -v pacman > /dev/null; then
   xargs -a "../../components/gnome-apps-to-install.txt" sudo pacman -S --noconfirm cantarell-fonts gdm gvfs-gphoto2 gvfs-mtp
+elif command -v dnf > /dev/null; then
+  xargs -a "../../components/gnome-apps-to-install.txt" sudo dnf install -y abattis-cantarell-fonts gdm gvfs-gphoto2 gvfs-mtp
 fi
 
 # Uninstall GNOME apps that I don't use
 if command -v apt-get > /dev/null; then
   xargs -a "../../components/gnome-apps-to-remove.txt" sudo apt-get purge -y
-fi
-if command -v pacman > /dev/null; then
+elif command -v pacman > /dev/null; then
   xargs -a "../../components/gnome-apps-to-remove.txt" sudo pacman -R --noconfirm
+elif command -v dnf > /dev/null; then
+  xargs -a "../../components/gnome-apps-to-remove.txt" sudo dnf remove -y
 fi
 
 # Symlink gedit to gnome-text-editor
