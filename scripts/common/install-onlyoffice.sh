@@ -5,7 +5,8 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - ONLYOFFICE"
 fi
 
-if command -v apt-get > /dev/null; then # Install for debian-based distros
+# Install for debian-based distros
+if command -v apt-get > /dev/null; then
   # Add repository
   mkdir -p -m 700 ~/.gnupg
   gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
@@ -24,11 +25,21 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get -y install onlyoffice-desktopeditors
 fi
 
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+# Install for archlinux-based distros
+if command -v pacman > /dev/null; then
   if pacman -Ss onlyoffice-desktopeditors > /dev/null; then
     sudo pacman -S --noconfirm onlyoffice-desktopeditors
   elif command -v yay > /dev/null; then
     yay -S --noconfirm onlyoffice-bin
   fi
+fi
+
+# Install for RHEL-based distros
+if command -v yum > /dev/null; then
+  sudo yum install -y https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+  sudo yum install -y epel-release
+  sudo subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+  sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+  sudo yum install -y onlyoffice-desktopeditors
 fi
 
