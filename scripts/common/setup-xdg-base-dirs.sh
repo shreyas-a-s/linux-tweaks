@@ -19,9 +19,10 @@ fi
 # Install xdg apps
 if command -v apt-get > /dev/null; then # Install for debian-based distros
   sudo apt-get install -y "${xdg_programs[@]}"
-fi
-if command -v pacman > /dev/null; then # Install for archlinux-based distros
+elif command -v pacman > /dev/null; then # Install for archlinux-based distros
   sudo pacman -S --noconfirm "${xdg_programs[@]}"
+elif command -v dnf > /dev/null; then # Install for RHEL-based distros
+  sudo dnf install -y "${xdg_programs[@]}"
 fi
 
 # Function to setup XDG user dirs
