@@ -11,66 +11,82 @@
     ];
 
   # Bootloader.
-  boot.loader.timeout = 1;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-  boot.kernel.sysctl = { "vm.swappiness" = 10; };
+  boot = {
+    loader = {
+      timeout = 1;
+      grub = {
+        enable = true;
+        device = "/dev/vda";
+        useOSProber = true;
+      };
+    };
+    kernel.sysctl = { "vm.swappiness" = 10; };
+  };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Networking.
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true; # Enable networking.
+    firewall = {
+      enable = true;
+      allowedTCPPortRanges = [
+        { from = 1714; to = 1764; } # KDEConnect/GSConnect
+      ];
+      allowedUDPPortRanges = [
+        { from = 1714; to = 1764; } # KDEConnect/GSConnect
+      ];
+    };
+  };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
+  # Timezone.
   time.timeZone = "Asia/Kolkata";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+  # Locale.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_IN";
+      LC_IDENTIFICATION = "en_IN";
+      LC_MEASUREMENT = "en_IN";
+      LC_MONETARY = "en_IN";
+      LC_NAME = "en_IN";
+      LC_NUMERIC = "en_IN";
+      LC_PAPER = "en_IN";
+      LC_TELEPHONE = "en_IN";
+      LC_TIME = "en_IN";
+    };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GDM Display Manager.
-  services.xserver.displayManager.gdm.enable = true;
-
-  # Enable Gnome
-  services.xserver.displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ];
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+  services = {
+    xserver = {
+      enable = true; # Enable the X11 windowing system.
+      displayManager.gdm.enable = true; # Enable the GDM Display Manager.
+      displayManager.sessionPackages = [ pkgs.gnome.gnome-session.sessions ]; # Enable Gnome.
+      layout = "us"; # Configure keymap in X11.
+      xkbVariant = "";
+      };
+    };
+    auto-cpufreq.enable = true;
+    thermald.enable = true;
+    libinput.enable = true; # Enable touchpad support.
+    # printing.enable = true;
+    # openssh.enable = true;
   };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Suoders tweaks
+  # Suoders tweak.
   security.sudo.extraConfig = "Defaults  pwfeedback";
 
-  # Enable sound with pipewire.
+  # Sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
     pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -79,122 +95,100 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # User profile.
   users = {
     users.dt = {
-    isNormalUser = true;
-    description = "dt";
-    extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
-#    packages = with pkgs; [
-#      brave
-#      gnome-console
-#      neovim
-#    ];
+      isNormalUser = true;
+      description = "dt";
+      extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
     };
+    defaultUserShell = pkgs.zsh;
   };
-  users.defaultUserShell = pkgs.zsh;
 
-  # Allow unfree packages
+  # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # Packages to be installed in system profile.
-  environment.systemPackages = with pkgs; [
-    auto-cpufreq
-    baobab
-    bat
-    brave
-    curl
-    fragments
-    fzf
-    gcc
-    gh
-    git
-    github-desktop
-    gnome-console
-    gnome.eog
-    gnome.gnome-backgrounds
-    gnome.gnome-boxes
-    gnome.gnome-calculator
-    gnome.gnome-clocks
-    gnome.gnome-control-center
-    gnome.gnome-keyring
-    gnome.gnome-session
-    gnome.gnome-settings-daemon
-    gnome.gnome-tweaks
-    gnome.nautilus
-    gnome-secrets
-    gnumake
-    gparted
-    htop
-    joplin-desktop
-    lsd
-    man-db
-    ncdu
-    neofetch
-    neovim
-    obs-studio
-    onlyoffice-bin
-    qjackctl
-    shellcheck
-    starship
-    thermald
-    tldr
-    trash-cli
-    vlc
-    vscodium
-    wget
-    xdg-desktop-portal
-    xdg-desktop-portal-gnome
-    xdg-user-dirs
-    xsel
-    zoxide
-    zsh
-  ];
+  # System profile.
+  environment = {
+    # Packages to be installed in system profile.
+    systemPackages = with pkgs; [
+      auto-cpufreq
+      baobab
+      bat
+      brave
+      curl
+      fragments
+      fzf
+      gcc
+      gh
+      git
+      github-desktop
+      gnome-console
+      gnome.eog
+      gnome.gnome-backgrounds
+      gnome.gnome-boxes
+      gnome.gnome-calculator
+      gnome.gnome-clocks
+      gnome.gnome-control-center
+      gnome.gnome-keyring
+      gnome.gnome-session
+      gnome.gnome-settings-daemon
+      gnome.gnome-tweaks
+      gnome.nautilus
+      gnome-secrets
+      gnumake
+      gparted
+      htop
+      joplin-desktop
+      lsd
+      man-db
+      ncdu
+      neofetch
+      neovim
+      obs-studio
+      onlyoffice-bin
+      qjackctl
+      shellcheck
+      starship
+      thermald
+      tldr
+      trash-cli
+      vlc
+      vscodium
+      wget
+      xdg-desktop-portal
+      xdg-desktop-portal-gnome
+      xdg-user-dirs
+      xsel
+      zoxide
+      zsh
+    ];
+    # Environment variables.
+    sessionVariables = rec {
+      ZDOTDIR = "$HOME/.config/zsh";
+    };
+  };
 
-  # Enable virtualisation
+  # Virtualisation.
   virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
-  # This way we can set environment variables
-  environment.sessionVariables = rec {
-    ZDOTDIR = "$HOME/.config/zsh";
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  }; 
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
+  # Configuring programs.
+  programs = {
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+    };
+  # mtr.enable = true;
+  # gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-  services.auto-cpufreq.enable = true;
-  services.thermald.enable = true;
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect / GSConnect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect / GSConnect
-    ];
   };
 
-  # Install fonts
+  # Fonts.
   fonts.packages = with pkgs; [
     cantarell-fonts
     font-awesome
@@ -203,17 +197,17 @@
     noto-fonts-emoji
   ];
 
-  # Automation
+  # System Optimization.
   nix = {
-    extraOptions = ''
-      min-free = ${toString (5120 * 1024 * 1024)}
-      max-free = ${toString (10240 * 1024 * 1024)}
-    '';
     optimise.automatic = true;
     gc = {
       automatic = true;
       options = "--delete-older-than 1d";
     };
+    extraOptions = ''
+      min-free = ${toString (5120 * 1024 * 1024)}
+      max-free = ${toString (10240 * 1024 * 1024)}
+    '';
   };
 
   # This value determines the NixOS release from which the default
