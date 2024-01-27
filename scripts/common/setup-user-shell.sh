@@ -48,6 +48,9 @@ case $shell_choice in
         elif command -v dnf > /dev/null; then
           sudo dnf install -y zsh zsh-autosuggestions zsh-syntax-highlighting
         fi
+        if [ ! -d /etc/zsh ]; then
+          sudo mkdir /etc/zsh
+        fi
         printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null # set dotfile directory for zsh
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
