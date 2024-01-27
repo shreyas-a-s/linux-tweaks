@@ -5,8 +5,15 @@ if type _printtitle &> /dev/null; then
   _printtitle "INSTALLING - KDECONNECT / GSCONNECT"
 fi
 
+# Change directory
+SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
+
 if ps -A | grep -q "gnome-shell"; then # Install GSConnect (native kdeconnect implementation for GNOME)
   printf "Installing GSConnect ...\n\n"
+  # Install GSconnect dependencies
+  if ! command -v openssl > /dev/null; then
+    ./install-openssl.sh
+  fi
   nohup sh -c 'busctl --user call org.gnome.Shell.Extensions /org/gnome/Shell/Extensions org.gnome.Shell.Extensions InstallRemoteExtension s gsconnect@andyholmes.github.io' > /dev/null 2>&1
 else # Install the actual KDEConnect
   if command -v apt-get > /dev/null; then # Install for debian-based distros
