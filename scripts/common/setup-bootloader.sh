@@ -8,7 +8,11 @@ fi
 # Change Grub Timeout
 if [ -f /etc/default/grub ]; then
   sudo sed -i "/GRUB_TIMEOUT/ c\GRUB_TIMEOUT=1" /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
+  if command -v grub-mkconfig > /dev/null; then
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+  elif command -v grub2-mkconfig > /dev/null; then
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  fi
 fi
 
 # Change systemd-boot Timeout
