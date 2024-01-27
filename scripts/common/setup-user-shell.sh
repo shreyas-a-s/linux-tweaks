@@ -5,6 +5,9 @@ if type _printtitle &> /dev/null; then
   _printtitle "SETUP - USER SHELL"
 fi
 
+# Variables
+zshenv_path=$(sudo find /etc -maxdepth 2 -type f -name "zshenv")
+
 # Taking shell choice
 while true; do
   echo "Which shell you prefer?"
@@ -48,10 +51,12 @@ case $shell_choice in
         elif command -v dnf > /dev/null; then
           sudo dnf install -y zsh zsh-autosuggestions zsh-syntax-highlighting
         fi
-        if [ ! -d /etc/zsh ]; then
-          sudo mkdir /etc/zsh
+        # set dotfile directory for zsh
+        if [ -f "$zshenv_path" ]; then
+          printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a "$zshenv_path" > /dev/null
+        else
+          printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null
         fi
-        printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null # set dotfile directory for zsh
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
 
