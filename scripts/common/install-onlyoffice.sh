@@ -37,9 +37,6 @@ fi
 # Install for RHEL-based distros
 if command -v yum > /dev/null; then
   sudo yum install -y https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
-  sudo yum install -y epel-release
-  sudo subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-  sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
   sudo yum install -y onlyoffice-desktopeditors
 fi
 
