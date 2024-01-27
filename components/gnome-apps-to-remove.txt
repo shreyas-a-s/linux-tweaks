@@ -7,5 +7,7 @@ gnome-font-viewer
 gnome-logs
 gnome-software
 gnome-terminal
+gnome-text-editor
+gnome-tour
 totem
 yelp
