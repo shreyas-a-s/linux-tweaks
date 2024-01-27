@@ -101,6 +101,7 @@ _is_element_of_array c_array[@] 17 && ./scripts/common/setup-multi-audio.sh     
 ./scripts/common/cleanup.sh                    # Cleanup package manager cache
 ./scripts/debian/install-nala.sh               # Good old apt, but colorful
 ./scripts/debian/setup-antix.sh                # Antix Linux Customisations
+./scripts/rhel/setup-dnf.sh                    # Make DNF package manager faster
 
 # Custom tweaks
 sudo sysctl vm.swappiness=10                                        # Lower swappiness value for better utilization of RAM
