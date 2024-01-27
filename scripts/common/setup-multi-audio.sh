@@ -11,7 +11,7 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 elif command -v pacman > /dev/null; then # Install for archlinux-based distros
   sudo pacman -S --noconfirm pipewire-jack qjackctl
 elif command -v dnf > /dev/null; then # Install for RHEL-based distros
-  sudo dnf install -y pipewire-plugin-jack qjackctl
+  sudo dnf install -y pipewire-jack-audio-connection-kit qjackctl
 fi
 
 ### Usage ###
