@@ -33,8 +33,8 @@ elif command -v dnf > /dev/null; then
 fi
 
 # Symlink gedit to gnome-text-editor
-if [ -f /usr/bin/gnome-text-editor ]; then
-  sudo ln -s /usr/bin/gnome-text-editor /usr/bin/gedit
+if command -v gnome-text-editor > /dev/null; then
+  sudo ln -s "$(which gnome-text-editor)" /usr/bin/gedit
 fi
 
 # Enable GDM - GNOME Display Manager
