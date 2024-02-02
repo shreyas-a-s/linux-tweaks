@@ -1,5 +1,5 @@
 # Linux Tweaks
-These are the customisations for linux (currently debian-based and archlinux-based) that I use regardless of the Desktop Environment or Window Manager.
+These are the customisations for linux (currently Debian, Archlinux, NixOS & RHEL based linux distros) that I use regardless of the Desktop Environment or Window Manager.
 
 ## Screenshots
 ![desktop](https://github.com/shreyas-a-s/linux-tweaks/assets/137637016/39040215-2486-45f4-8009-1a6a6bdf833b)
