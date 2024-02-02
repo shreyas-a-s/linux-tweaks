@@ -20,6 +20,6 @@ fi
 
 # Install for RHEL-based distros
 if command -v dnf > /dev/null; then
-  xargs -a "../../components/terminal-apps.txt" sudo dnf install -y gh google-noto-cjk-fonts google-noto-emoji-fonts
+  xargs -a "../../components/terminal-apps.txt" sudo dnf install -y gh google-noto-cjk-fonts google-noto-emoji-fonts google-noto-sans-malayalam-fonts
 fi
 
