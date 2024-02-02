@@ -42,39 +42,30 @@ fi
 
 # Take user choice
 choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more options:" 15 43 8 \
-    0  "Select All" OFF \
-    1  "Install AutoCPUFreq" OFF \
-    2  "Install Brave Browser" OFF \
-    3  "Install Cron" OFF \
-    4  "Install Extra Fonts" OFF \
-    5  "Install Github Desktop" OFF \
-    6  "Install GUI Apps" OFF \
-    7  "Install Joplin" OFF \
-    8  "Install KDE/GSConnect" OFF \
-    9  "Install OnlyOffice" OFF \
-    10  "Install Password Manager  " OFF \
-    11 "Install Terminal Tweaks" OFF \
-    12 "Install Torrect Client" OFF \
-    13 "Install UFW" OFF \
-    14 "Install VSCodium" OFF \
-    15 "Setup Bluetooth" OFF \
-    16 "Setup Bootloader" OFF \
-    17 "Setup GNOME" OFF \
-    18 "Setup Multi-Audio" OFF \
+    1  "Install AutoCPUFreq" ON \
+    2  "Install Brave Browser" ON \
+    3  "Install Cron" ON \
+    4  "Install Extra Fonts" ON \
+    5  "Install Github Desktop" ON \
+    6  "Install GUI Apps" ON \
+    7  "Install Joplin" ON \
+    8  "Install KDE/GSConnect" ON \
+    9  "Install OnlyOffice" ON \
+    10  "Install Password Manager  " ON \
+    11 "Install Terminal Tweaks" ON \
+    12 "Install Torrect Client" ON \
+    13 "Install UFW" ON \
+    14 "Install VSCodium" ON \
+    15 "Setup Bluetooth" ON \
+    16 "Setup Bootloader" ON \
+    17 "Setup GNOME" ON \
+    18 "Setup Multi-Audio" ON \
     2>&1 >/dev/tty)
 
 # Exit if user choses 'Cancel'
 exitstatus=$?
 if [ $exitstatus = 1 ]; then
   exit 1
-fi
-
-# Convert choices variable into an array
-eval "c_array=($choices)"
-
-# Add all options to array if user did select 'Select All' in whiptail checklist
-if _is_element_of_array c_array[@] 0; then
-  c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17" "18")
 fi
 
 # My custom scripts
