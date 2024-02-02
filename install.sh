@@ -46,20 +46,21 @@ choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more o
     1  "Install AutoCPUFreq" OFF \
     2  "Install Brave Browser" OFF \
     3  "Install Cron" OFF \
-    4  "Install Github Desktop" OFF \
-    5  "Install GUI Apps" OFF \
-    6  "Install Joplin" OFF \
-    7  "Install KDE/GSConnect" OFF \
-    8  "Install OnlyOffice" OFF \
-    9  "Install Password Manager  " OFF \
-    10 "Install Terminal Tweaks" OFF \
-    11 "Install Torrect Client" OFF \
-    12 "Install UFW" OFF \
-    13 "Install VSCodium" OFF \
-    14 "Setup Bluetooth" OFF \
-    15 "Setup Bootloader" OFF \
-    16 "Setup GNOME" OFF \
-    17 "Setup Multi-Audio" OFF \
+    4  "Install Extra Fonts" OFF \
+    5  "Install Github Desktop" OFF \
+    6  "Install GUI Apps" OFF \
+    7  "Install Joplin" OFF \
+    8  "Install KDE/GSConnect" OFF \
+    9  "Install OnlyOffice" OFF \
+    10  "Install Password Manager  " OFF \
+    11 "Install Terminal Tweaks" OFF \
+    12 "Install Torrect Client" OFF \
+    13 "Install UFW" OFF \
+    14 "Install VSCodium" OFF \
+    15 "Setup Bluetooth" OFF \
+    16 "Setup Bootloader" OFF \
+    17 "Setup GNOME" OFF \
+    18 "Setup Multi-Audio" OFF \
     2>&1 >/dev/tty)
 
 # Exit if user choses 'Cancel'
@@ -73,7 +74,7 @@ eval "c_array=($choices)"
 
 # Add all options to array if user did select 'Select All' in whiptail checklist
 if _is_element_of_array c_array[@] 0; then
-  c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17")
+  c_array=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17" "18")
 fi
 
 # My custom scripts
@@ -84,20 +85,21 @@ fi
 _is_element_of_array c_array[@] 1  && ./scripts/common/install-auto-cpufreq.sh       # Automatically change cpu freq to save battery
 _is_element_of_array c_array[@] 2  && ./scripts/common/install-brave.sh              # My fav browser
 _is_element_of_array c_array[@] 3  && ./scripts/common/install-cron.sh               # Program to automate tasks
-_is_element_of_array c_array[@] 4  && ./scripts/common/install-github-desktop.sh     # Github-desktop for linux
-_is_element_of_array c_array[@] 5  && ./scripts/common/install-gui-apps.sh           # GUI apps common to all default package managers
-_is_element_of_array c_array[@] 6  && ./scripts/common/install-joplin.sh             # Cloud-synced note-taking app
-_is_element_of_array c_array[@] 7  && ./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files & text
-_is_element_of_array c_array[@] 8  && ./scripts/common/install-onlyoffice.sh         # Office suite
-_is_element_of_array c_array[@] 9  && ./scripts/common/install-passwd-manager.sh     # As name suggests
-_is_element_of_array c_array[@] 10 && ./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
-_is_element_of_array c_array[@] 11 && ./scripts/common/install-torrent-client.sh     # Also, as name suggests
-_is_element_of_array c_array[@] 12 && ./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
-_is_element_of_array c_array[@] 13 && ./scripts/common/install-vscodium.sh           # Open source vscode
-_is_element_of_array c_array[@] 14 && ./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
-_is_element_of_array c_array[@] 15 && ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
-_is_element_of_array c_array[@] 16 && ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
-_is_element_of_array c_array[@] 17 && ./scripts/common/setup-multi-audio.sh          # Enable audio routed to multiple devices at same time
+_is_element_of_array c_array[@] 4  && ./scripts/common/install-fonts.sh              # Install some fonts (eg: region-specific ones)
+_is_element_of_array c_array[@] 5  && ./scripts/common/install-github-desktop.sh     # Github-desktop for linux
+_is_element_of_array c_array[@] 6  && ./scripts/common/install-gui-apps.sh           # GUI apps common to all default package managers
+_is_element_of_array c_array[@] 7  && ./scripts/common/install-joplin.sh             # Cloud-synced note-taking app
+_is_element_of_array c_array[@] 8  && ./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files & text
+_is_element_of_array c_array[@] 9  && ./scripts/common/install-onlyoffice.sh         # Office suite
+_is_element_of_array c_array[@] 10 && ./scripts/common/install-passwd-manager.sh     # As name suggests
+_is_element_of_array c_array[@] 11 && ./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
+_is_element_of_array c_array[@] 12 && ./scripts/common/install-torrent-client.sh     # Also, as name suggests
+_is_element_of_array c_array[@] 13 && ./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
+_is_element_of_array c_array[@] 14 && ./scripts/common/install-vscodium.sh           # Open source vscode
+_is_element_of_array c_array[@] 15 && ./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
+_is_element_of_array c_array[@] 16 && ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
+_is_element_of_array c_array[@] 17 && ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
+_is_element_of_array c_array[@] 18 && ./scripts/common/setup-multi-audio.sh          # Enable audio routed to multiple devices at same time
 ./scripts/common/cleanup.sh                    # Cleanup package manager cache
 ./scripts/debian/install-nala.sh               # Good old apt, but colorful
 ./scripts/debian/setup-antix.sh                # Antix Linux Customisations
