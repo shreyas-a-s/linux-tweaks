@@ -146,6 +146,7 @@
       obs-studio
       onlyoffice-bin
       qjackctl
+      ripgrep
       shellcheck
       starship
       thermald
