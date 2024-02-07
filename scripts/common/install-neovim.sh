@@ -10,11 +10,11 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install dependencies
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  sudo apt-get install -y gcc xsel
+  sudo apt-get install -y gcc ripgrep xsel
 elif command -v pacman > /dev/null; then # Install for archlinux-based distros
-  sudo pacman -S --noconfirm gcc xsel
+  sudo pacman -S --noconfirm gcc ripgrep xsel
 elif command -v dnf > /dev/null; then # Install for RHEL-based distros
-  sudo dnf install -y gcc xsel
+  sudo dnf install -y gcc ripgrep xsel
 fi
 
 # Install for debian-based distros
