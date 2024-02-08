@@ -65,7 +65,7 @@
       libinput.enable = true; # Enable touchpad support.
       layout = "us"; # Configure keymap in X11.
       xkbVariant = "";
-      };
+    };
     auto-cpufreq.enable = true;
     thermald.enable = true;
     # printing.enable = true;
