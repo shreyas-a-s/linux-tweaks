@@ -49,7 +49,7 @@ choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more o
     5  "Install Github Desktop" ON \
     6  "Install GUI Apps" ON \
     7  "Install Joplin" ON \
-    8  "Install KDE/GSConnect" ON \
+    8  "Install KDEConnect" ON \
     9  "Install OnlyOffice" ON \
     10  "Install Password Manager  " ON \
     11 "Install Terminal Tweaks" ON \
@@ -83,7 +83,7 @@ _is_element_of_array choices[@] 4  && ./scripts/common/install-fonts.sh         
 _is_element_of_array choices[@] 5  && ./scripts/common/install-github-desktop.sh     # Github-desktop for linux
 _is_element_of_array choices[@] 6  && ./scripts/common/install-gui-apps.sh           # GUI apps common to all default package managers
 _is_element_of_array choices[@] 7  && ./scripts/common/install-joplin.sh             # Cloud-synced note-taking app
-_is_element_of_array choices[@] 8  && ./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files & text
+_is_element_of_array choices[@] 8  && ./scripts/common/install-kdeconnect.sh   # connect phone to computer for copy pasting files & text
 _is_element_of_array choices[@] 9  && ./scripts/common/install-onlyoffice.sh         # Office suite
 _is_element_of_array choices[@] 10 && ./scripts/common/install-passwd-manager.sh     # As name suggests
 _is_element_of_array choices[@] 11 && ./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
