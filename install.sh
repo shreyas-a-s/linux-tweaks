@@ -51,15 +51,16 @@ choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more o
     7  "Install Joplin" ON \
     8  "Install KDE/GSConnect" ON \
     9  "Install OnlyOffice" ON \
-    10  "Install Password Manager  " ON \
-    11 "Install Terminal Tweaks" ON \
-    12 "Install Torrect Client" ON \
-    13 "Install UFW" ON \
-    14 "Install VSCodium" ON \
-    15 "Setup Bluetooth" ON \
-    16 "Setup Bootloader" ON \
-    17 "Setup GNOME" ON \
-    18 "Setup Multi-Audio" ON \
+    10 "Install Password Manager  " ON \
+    11 "Install PDF Viewer" ON \
+    12 "Install Terminal Tweaks" ON \
+    13 "Install Torrect Client" ON \
+    14 "Install UFW" ON \
+    15 "Install VSCodium" ON \
+    16 "Setup Bluetooth" ON \
+    17 "Setup Bootloader" ON \
+    18 "Setup GNOME" ON \
+    19 "Setup Multi-Audio" ON \
     2>&1 >/dev/tty)
 
 # Exit if user choses 'Cancel'
@@ -86,14 +87,15 @@ _is_element_of_array choices[@] 7  && ./scripts/common/install-joplin.sh        
 _is_element_of_array choices[@] 8  && ./scripts/common/install-kde-or-gsconnect.sh   # connect phone to computer for copy pasting files & text
 _is_element_of_array choices[@] 9  && ./scripts/common/install-onlyoffice.sh         # Office suite
 _is_element_of_array choices[@] 10 && ./scripts/common/install-passwd-manager.sh     # As name suggests
-_is_element_of_array choices[@] 11 && ./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
-_is_element_of_array choices[@] 12 && ./scripts/common/install-torrent-client.sh     # Also, as name suggests
-_is_element_of_array choices[@] 13 && ./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
-_is_element_of_array choices[@] 14 && ./scripts/common/install-vscodium.sh           # Open source vscode
-_is_element_of_array choices[@] 15 && ./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
-_is_element_of_array choices[@] 16 && ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
-_is_element_of_array choices[@] 17 && ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
-_is_element_of_array choices[@] 18 && ./scripts/common/setup-multi-audio.sh          # Enable audio routed to multiple devices at same time
+_is_element_of_array choices[@] 11 && ./scripts/common/install-pdf-viewer.sh         # PDF viewer and editor
+_is_element_of_array choices[@] 12 && ./scripts/common/install-terminal-tweaks.sh    # Some customizations to make my terminal experience better
+_is_element_of_array choices[@] 13 && ./scripts/common/install-torrent-client.sh     # Also, as name suggests
+_is_element_of_array choices[@] 14 && ./scripts/common/install-ufw.sh                # Install and Setup UFW - The Uncomplicated Firewall
+_is_element_of_array choices[@] 15 && ./scripts/common/install-vscodium.sh           # Open source vscode
+_is_element_of_array choices[@] 16 && ./scripts/common/setup-bluetooth.sh            # Bluetooth tweaks
+_is_element_of_array choices[@] 17 && ./scripts/common/setup-bootloader.sh           # Bootloader Customisations
+_is_element_of_array choices[@] 18 && ./scripts/common/setup-gnome.sh                # GNOME Desktop Environment Customisations
+_is_element_of_array choices[@] 19 && ./scripts/common/setup-multi-audio.sh          # Enable audio routed to multiple devices at same time
 ./scripts/common/cleanup.sh                    # Cleanup package manager cache
 ./scripts/debian/install-nala.sh               # Good old apt, but colorful
 ./scripts/debian/setup-antix.sh                # Antix Linux Customisations

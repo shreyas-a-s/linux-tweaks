@@ -115,6 +115,7 @@
       bat
       brave
       curl
+      evince
       fragments
       fzf
       gcc
