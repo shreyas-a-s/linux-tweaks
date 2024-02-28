@@ -116,6 +116,7 @@
       brave
       curl
       evince
+      fd
       fragments
       fzf
       gcc

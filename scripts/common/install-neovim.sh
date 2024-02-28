@@ -10,11 +10,12 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
 # Install dependencies
 if command -v apt-get > /dev/null; then # Install for debian-based distros
-  sudo apt-get install -y gcc ripgrep xsel
+  sudo apt-get install -y gcc ripgrep xsel fd-find
+  sudo ln -sf "$(which fdfind)" "$(dirname "$(which fdfind)")" # Symlink fd -> fdfind
 elif command -v pacman > /dev/null; then # Install for archlinux-based distros
-  sudo pacman -S --noconfirm gcc ripgrep xsel
+  sudo pacman -S --noconfirm gcc ripgrep xsel fd
 elif command -v dnf > /dev/null; then # Install for RHEL-based distros
-  sudo dnf install -y gcc ripgrep xsel
+  sudo dnf install -y gcc ripgrep xsel fd-find
 fi
 
 # Install for debian-based distros
