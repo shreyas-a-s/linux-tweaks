@@ -154,6 +154,7 @@
       thermald
       tldr
       trash-cli
+      virtualenv
       vlc
       vscodium
       wget
