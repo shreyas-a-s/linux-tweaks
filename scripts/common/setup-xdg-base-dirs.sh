@@ -5,6 +5,21 @@ if type _printtitle &> /dev/null; then
   _printtitle "SETTING UP - XDG BASE DIRECTORY"
 fi
 
+# Function to setup XDG user dirs
+function _setup_xdg_user_dirs {
+
+  for dirname in "$@"; do
+    newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
+
+    if [ -d "$dirname" ]; then
+      mv "$dirname" "$newdirname"
+    else
+      mkdir "$newdirname"
+    fi
+  done
+
+}
+
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
@@ -24,21 +39,6 @@ elif command -v pacman > /dev/null; then # Install for archlinux-based distros
 elif command -v dnf > /dev/null; then # Install for RHEL-based distros
   sudo dnf install -y "${xdg_programs[@]}"
 fi
-
-# Function to setup XDG user dirs
-function _setup_xdg_user_dirs {
-
-  for dirname in "$@"; do
-    newdirname="$(echo "$dirname" | awk '{print tolower($0)}')"
-
-    if [ -d "$dirname" ]; then
-      mv "$dirname" "$newdirname"
-    else
-      mkdir "$newdirname"
-    fi
-  done
-
-}
 
 # Actual setup
 echo "Renaming directories in home folder ..."
