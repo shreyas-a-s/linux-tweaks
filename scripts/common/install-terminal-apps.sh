@@ -11,7 +11,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 # Install for debian-based distros
 if command -v apt-get > /dev/null; then
   xargs -a "../../components/terminal-apps.txt" sudo apt-get install -y gh python-is-python3 fd-find
-  sudo ln -sf "$(which fdfind)" ~/.local/bin/fd # Symlink fd -> fdfind
+  sudo ln -sf "$(which fdfind)" "$(dirname "$(which fdfind)")/fd" # Symlink fd -> fdfind
 fi
 
 # Install for archlinux-based distros
