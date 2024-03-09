@@ -53,9 +53,9 @@ case $shell_choice in
         fi
         # set dotfile directory for zsh
         if [ -f "$zshenv_path" ]; then
-          printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a "$zshenv_path" > /dev/null
+          printf "\n### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a "$zshenv_path" > /dev/null
         else
-          printf "### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null
+          printf "\n### SET XDG DIR FOR ZSH ###\nZDOTDIR=~/.config/zsh\n" | sudo tee -a /etc/zsh/zshenv > /dev/null
         fi
         while ! chsh -s "$(command -v zsh)"; do :; done;;
 esac
