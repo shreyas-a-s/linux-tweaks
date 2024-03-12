@@ -53,7 +53,6 @@ function _add_left_padding_thats_left {
 # Actual function 1
 function _print_fancy_main_title {
 
-  _draw_the_line
   _add_left_padding_fancy
 
   printf "██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗  ████████╗██╗    ██╗███████╗ █████╗ ██╗  ██╗███████╗"
@@ -68,8 +67,6 @@ function _print_fancy_main_title {
   _add_left_padding_fancy
   printf "╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝     ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝"
 
-  _draw_the_line
-
   printf "\n"
 
 }
@@ -77,15 +74,12 @@ function _print_fancy_main_title {
 # Actual function 2
 function _print_simple_main_title {
 
-  _draw_the_line
   _add_left_padding_simple
   printf '|    | |  | |  |\   /   ___ |  |  ___      |   / __'
   _add_left_padding_simple
   printf '|    | |\ | |  | \_/ __  |  |  | |__   /\  |__/ /__`'
   _add_left_padding_simple
   printf '|___ | | \| \__/ / \     |  |/\| |___ /~~\ |  \ .__/'
-
-  _draw_the_line
 
   printf "\n"
 
@@ -94,13 +88,9 @@ function _print_simple_main_title {
 # Actual function 3
 function _print_the_main_title_thats_left {
 
-  _draw_the_line
-
   _add_left_padding_thats_left
-
   printf "LINUX - TWEAKS"
-
-  _draw_the_line
+  printf "\n"
 
 }
 
