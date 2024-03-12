@@ -145,6 +145,7 @@
       ncdu
       neofetch
       neovim
+      nodejs
       obs-studio
       onlyoffice-bin
       qjackctl
