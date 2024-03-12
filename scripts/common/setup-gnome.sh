@@ -6,7 +6,7 @@ if type _printtitle &> /dev/null; then
 fi
 
 # Exit if NOT gnome
-if ! ps -A | grep -q "gnome-shell"; then
+if ! pgrep -f "gnome-shell" > /dev/null; then
   printf "\n${BRED}This doesn't seem to be a gnome environment.${NC}\n" 2>&1
   exit 1
 fi
