@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Display title of script
-if type _printtitle &> /dev/null; then
-  _printtitle "INSTALL - TERMINAL TWEAKS"
-fi
-
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
