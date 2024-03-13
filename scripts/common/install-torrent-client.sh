@@ -8,7 +8,7 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-if ps -A | grep -q "gnome-shell"; then # Install fragments - Torrent client made for GNOME
+if pgrep -f "gnome-shell" > /dev/null; then # Install fragments - Torrent client made for GNOME
   if command -v apt-get > /dev/null; then # Install for debian-based distros
     if apt-cache search 'fragments' | cut -d ' ' -f 1 | grep -xq 'fragments'; then
       sudo apt-get install -y fragments

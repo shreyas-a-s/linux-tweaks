@@ -27,7 +27,7 @@ SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 xdg_programs=('xdg-user-dirs' 'xdg-desktop-portal')
 
 # Add xdg-desktop-portal-gnome if gnome is detected
-if ps -A | grep -q "gnome-shell"; then
+if pgrep -f "gnome-shell" > /dev/null; then
   xdg_programs+=('xdg-desktop-portal-gnome')
 fi
 

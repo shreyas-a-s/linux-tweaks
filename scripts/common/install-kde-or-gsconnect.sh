@@ -8,7 +8,7 @@ fi
 # Change directory
 SCRIPT_DIR=$(dirname -- "$( readlink -f -- "$0"; )") && cd "$SCRIPT_DIR" || exit
 
-if ps -A | grep -q "gnome-shell"; then # Install GSConnect (native kdeconnect implementation for GNOME)
+if pgrep -f "gnome-shell" > /dev/null; then # Install GSConnect (native kdeconnect implementation for GNOME)
   printf "Installing GSConnect ...\n\n"
   # Install GSconnect dependencies
   if ! command -v openssl > /dev/null; then
