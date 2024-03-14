@@ -2,8 +2,8 @@
 These are the customisations for debian that I use regardless of the Window Manager of choice.
 
 ## Screenshots
-| ![login-screen.png](https://github.com/shreyasastech/debian-i3/assets/137637016/9efaedbc-9519-4667-963a-ba0826c14090) | 
-|:--:| 
+| ![login-screen.png](https://github.com/shreyasastech/debian-i3/assets/137637016/9efaedbc-9519-4667-963a-ba0826c14090) |
+|:--:|
 | *Login Screen (including wallpaper)* |
 
 Check out **customised install screenshots** of my [i3](https://github.com/ShreyasASTech/debian-i3), [awesome](https://github.com/ShreyasASTech/debian-awesome) & [qtile](https://github.com/ShreyasASTech/debian-qtile) window manager configs for homescreen and terminal font.
@@ -44,12 +44,12 @@ Check out **customised install screenshots** of my [i3](https://github.com/Shrey
 Execute install.sh as **normal user** from a terminal:
 
 ```bash
- git clone -b wm https://github.com/shreyas-a-s/debian-customisation.git
- cd debian-customisation/
+ git clone -b wm https://github.com/shreyas-a-s/linux-tweaks.git
+ cd linux-tweaks/
  ./install.sh
 ```
 
 For those who would like a single-line command:
 ```bash
- git clone -b wm https://github.com/shreyas-a-s/debian-customisation.git && cd debian-customisation/ && ./install.sh
+ git clone -b wm https://github.com/shreyas-a-s/linux-tweaks.git && cd linux-tweaks/ && ./install.sh
 ```
