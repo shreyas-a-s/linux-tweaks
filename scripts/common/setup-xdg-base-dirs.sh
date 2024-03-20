@@ -49,7 +49,3 @@ cp ../../components/user-dirs.dirs ~/.config/
 
 # Update the list of values
 xdg-user-dirs-update
-
-# Remove directories that I don't use
-rm -d ~/desktop ~/music ~/templates ~/public
-
