@@ -14,6 +14,10 @@ elif command -v dnf > /dev/null; then # Install for RHEL-based distros
   sudo dnf install -y ufw
 fi
 
+# Add default rules
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
 # Enable ufw service
 if ! sudo ufw enable; then
   if command -v systemctl > /dev/null; then
