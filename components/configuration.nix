@@ -139,7 +139,6 @@
       gnumake
       gparted
       htop
-      joplin-desktop
       lsd
       man-db
       ncdu
@@ -147,6 +146,7 @@
       neovim
       nodejs
       obs-studio
+      obsidian
       onlyoffice-bin
       qjackctl
       ripgrep
