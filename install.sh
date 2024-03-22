@@ -48,7 +48,7 @@ choices=$(whiptail --title "USER CHOICE" --checklist "      Choose one or more o
      4 "Install Extra Fonts" ON \
      5 "Install Github Desktop" ON \
      6 "Install GUI Apps" ON \
-     7 "Install Joplin" ON \
+     7 "Install Joplin" OFF \
      8 "Install KDE/GSConnect" ON \
      9 "Install Obsidian" ON \
     10 "Install OnlyOffice" ON \
