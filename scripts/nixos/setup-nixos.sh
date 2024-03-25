@@ -52,3 +52,5 @@ nix-env -if ../../components/wifi-toggle.nix
 # Setup XDG User Directories
 ../common/setup-xdg-base-dirs.sh
 
+# Setup OBS Studio
+../common/setup-obs.sh

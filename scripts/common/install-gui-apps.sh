@@ -23,3 +23,5 @@ if command -v dnf > /dev/null; then
   xargs -a "../../components/gui-apps.txt" sudo dnf install -y
 fi
 
+# Setup OBS Studio
+../common/setup-obs.sh
